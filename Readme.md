@@ -2,9 +2,9 @@
 
 This Api is meant to support pipelines the way they are meant for. Nevertheless it's not shure in the moment of writing this ReadMe, averything works as expected.
 
-* **Distributed under Apache License 2.0**
+* **Distributed under [Apache License 2.0**](../blob/master/LICENSE.txt)
 * **Implemented API-Version**: *bMS 2017/bConnect 1.0*
-
+* [Detailed List of cmdlets](../blob/master/Commands.md)
 
 ## Initialize-bConnect
 
