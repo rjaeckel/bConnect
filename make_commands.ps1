@@ -1,5 +1,3 @@
-#Clear-Host
-#Remove-Module bConnect
 Import-Module ./bConnect.psd1 -Force
 
 "# Cmdlets exported by this module"
@@ -14,7 +12,7 @@ Import-Module ./bConnect.psd1 -Force
   Sort-Object Noun,Verb|Group-Object Noun
 ) | % {
     ""
-    "### "+($_.Name -replace '^b')
+    "### Controller "+($_.Name -replace '^b')
     $_.Group.Name |% {
         "#### $_"
         '```'
@@ -23,7 +21,7 @@ Import-Module ./bConnect.psd1 -Force
     }
 }
 ""
-"### Search"
+"### Controller Search"
 (Get-Command -Module bConnect -Verb Search).Name |% {
     "#### $_"
     '```'

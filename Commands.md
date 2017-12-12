@@ -9,7 +9,7 @@ Initialize-bConnect [[-HostName] <string>] [[-UserName] <string>] [[-Password] <
 
 ## Commands by Controller
 
-### App
+### Controller App
 #### Get-bApp
 ```
 
@@ -23,7 +23,7 @@ Get-bApp -EndpointId <guid> [<CommonParameters>]
 
 ```
 
-### Application
+### Controller Application
 #### Add-bApplication
 ```
 
@@ -55,7 +55,7 @@ Set-bApplication [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
 
 ```
 
-### BootEnvironment
+### Controller BootEnvironment
 #### Get-bBootEnvironment
 ```
 
@@ -65,7 +65,7 @@ Get-bBootEnvironment [-Id] <guid> [<CommonParameters>]
 
 ```
 
-### DynamicGroup
+### Controller DynamicGroup
 #### Add-bDynamicGroup
 ```
 
@@ -95,7 +95,7 @@ Set-bDynamicGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
 
 ```
 
-### Endpoint
+### Controller Endpoint
 #### Add-bEndpoint
 ```
 
@@ -129,7 +129,7 @@ Set-bEndpoint [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
 
 ```
 
-### EndpointInvSoftware
+### Controller EndpointInvSoftware
 #### Get-bEndpointInvSoftware
 ```
 
@@ -137,7 +137,7 @@ Get-bEndpointInvSoftware [<CommonParameters>]
 
 ```
 
-### HardwareProfile
+### Controller HardwareProfile
 #### Get-bHardwareProfile
 ```
 
@@ -147,7 +147,7 @@ Get-bHardwareProfile [-Id] <guid> [<CommonParameters>]
 
 ```
 
-### Icon
+### Controller Icon
 #### Get-bIcon
 ```
 
@@ -159,7 +159,7 @@ Get-bIcon -Scope <IconScope> [<CommonParameters>]
 
 ```
 
-### Info
+### Controller Info
 #### Get-bInfo
 ```
 
@@ -167,7 +167,7 @@ Get-bInfo [<CommonParameters>]
 
 ```
 
-### InventoryAppScan
+### Controller InventoryAppScan
 #### Get-bInventoryAppScan
 ```
 
@@ -177,7 +177,7 @@ Get-bInventoryAppScan [-EndpointId] <guid> [<CommonParameters>]
 
 ```
 
-### InventoryDataCustomScan
+### Controller InventoryDataCustomScan
 #### Get-bInventoryDataCustomScan
 ```
 
@@ -189,7 +189,7 @@ Get-bInventoryDataCustomScan -EndpointId <guid> -TemplateName <string> -Scan <st
 
 ```
 
-### InventoryDataFileScan
+### Controller InventoryDataFileScan
 #### Get-bInventoryDataFileScan
 ```
 
@@ -205,7 +205,7 @@ Remove-bInventoryDataFileScan [-EndpointId] <guid> [<CommonParameters>]
 
 ```
 
-### InventoryDataHardwareScan
+### Controller InventoryDataHardwareScan
 #### Get-bInventoryDataHardwareScan
 ```
 
@@ -217,7 +217,7 @@ Get-bInventoryDataHardwareScan -EndpointId <guid> -TemplateName <string> -Scan <
 
 ```
 
-### InventoryDataRegistryScan
+### Controller InventoryDataRegistryScan
 #### Get-bInventoryDataRegistryScan
 ```
 
@@ -233,7 +233,7 @@ Remove-bInventoryDataRegistryScan [-EndpointId] <guid> [<CommonParameters>]
 
 ```
 
-### InventoryDataSnmpScan
+### Controller InventoryDataSnmpScan
 #### Get-bInventoryDataSnmpScan
 ```
 
@@ -241,7 +241,7 @@ Get-bInventoryDataSnmpScan [-EndpointId] <guid> [<CommonParameters>]
 
 ```
 
-### InventoryDataWmiScan
+### Controller InventoryDataWmiScan
 #### Get-bInventoryDataWmiScan
 ```
 
@@ -253,7 +253,7 @@ Get-bInventoryDataWmiScan -EndpointId <guid> -TemplateName <string> -Scan <strin
 
 ```
 
-### InventoryOverview
+### Controller InventoryOverview
 #### Get-bInventoryOverview
 ```
 
@@ -263,7 +263,7 @@ Get-bInventoryOverview [-EndpointId] <guid> [<CommonParameters>]
 
 ```
 
-### Job
+### Controller Job
 #### Get-bJob
 ```
 
@@ -275,7 +275,7 @@ Get-bJob -OrgUnit <guid> [-Steps] [<CommonParameters>]
 
 ```
 
-### JobInstance
+### Controller JobInstance
 #### Add-bJobInstance
 ```
 
@@ -307,7 +307,7 @@ Set-bJobInstance [-Id] <guid> -cmd <Action> [<CommonParameters>]
 
 ```
 
-### OrgUnit
+### Controller OrgUnit
 #### Add-bOrgUnit
 ```
 
@@ -337,7 +337,7 @@ Set-bOrgUnit [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
 
 ```
 
-### SoftwareScanRule
+### Controller SoftwareScanRule
 #### Get-bSoftwareScanRule
 ```
 
@@ -345,7 +345,7 @@ Get-bSoftwareScanRule [<CommonParameters>]
 
 ```
 
-### StaticGroup
+### Controller StaticGroup
 #### Add-bStaticGroup
 ```
 
@@ -375,7 +375,7 @@ Set-bStaticGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
 
 ```
 
-### Variable
+### Controller Variable
 #### Get-bVariable
 ```
 
@@ -391,7 +391,7 @@ Set-bVariable [-ObjectId] <guid> [-Scope] <Scope> [-Variables] <Object[]> [<Comm
 
 ```
 
-### Version
+### Controller Version
 #### Get-bVersion
 ```
 
@@ -399,7 +399,7 @@ Get-bVersion [<CommonParameters>]
 
 ```
 
-### Search
+### Controller Search
 #### Search-bEndpoint
 ```
 
