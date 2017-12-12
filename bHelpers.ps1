@@ -1,7 +1,7 @@
 Function Script:Test-MacAddr([Parameter(Mandatory,ValueFromPipeline)][string]$MAC) {
     Process { $MAC -match "\b[A-F0-9]{2}(?:\:[A-F0-9]{2}){5}\b" }
 }
-Function Script:Expand-EnumFlags {
+Function Script:ExpandEnumFlags {
     [cmdletbinding()]param(
         [Parameter(Mandatory,Position=0)][ValidateScript({$_.BaseType -eq [System.Enum]})][type]$As,
         [Parameter(Mandatory,Position=1,ValueFromPipeline)][uint32]$Value
@@ -10,7 +10,7 @@ Function Script:Expand-EnumFlags {
         [System.Enum]::GetValues($As) | % { if($Value -band $_) {$_} }
     }
 }
-Function Expand-bEndpointOptions {
+Function Expand-EndpointOptions {
     [OutputType([bConnect.Endpoint.ClientOptions],[bConnect.Endpoint.UserJobOptions],[bConnect.Endpoint.PrimaryUserOptions])]
     [cmdletbinding()]param(
         [parameter(Mandatory,ValueFromPipeline,ValueFromPipelineByPropertyName)]
@@ -19,10 +19,10 @@ Function Expand-bEndpointOptions {
     process {
         [bConnect.Endpoint.PrimaryUserOptions]($options -band [bConnect.Endpoint.PrimaryUserOptions]::NeverUpdate)
         [bConnect.Endpoint.UserJobOptions]($options -band [bConnect.Endpoint.UserJobOptions]::ExecuteForPrimaryUser)
-        $Options|Expand-EnumFlags $([bConnect.Endpoint.Clientoptions])
+        $Options|ExpandEnumFlags $([bConnect.Endpoint.Clientoptions])
     }
 }
-Function Merge-bEndpointOptions {
+Function Merge-EndpointOptions {
     [cmdletbinding()]param(
         [Parameter(ValueFromPipeline)]
         [bConnect.Endpoint.ClientOptions]$ClientOptions,
@@ -39,15 +39,15 @@ Function Merge-bEndpointOptions {
 }
 # object helpers
 
-Function New-bOrgUnit {
+Function New-OrgUnit {
     [cmdletbinding()]param(
         [parameter(ParameterSetName='update',Mandatory)][switch]$update,
 
         [parameter(ValueFromPipelineByPropertyName,ParameterSetName='update')]
-        [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='new',Mandatory)]
+        [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='new',Mandatory,Position=0)]
         [string]$Name,
         [parameter(ValueFromPipelineByPropertyName,ParameterSetName='update')]
-        [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='new',Mandatory)]
+        [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='new',Mandatory,Position=1)]
         [guid]$ParentId,
 
         [Parameter(ValueFromPipelineByPropertyName)][string]$Comment,
@@ -57,7 +57,7 @@ Function New-bOrgUnit {
     $PSBoundParameters.Remove($PSCmdlet.ParameterSetName) > $null
     New-Object psobject -Property $PSBoundParameters
 }
-Function New-bOrgUnitExtension {
+Function New-OrgUnitExtension {
     [cmdletbinding()]param(
         [Parameter(ValueFromPipelineByPropertyName)][string]$DIP,
         [Parameter(ValueFromPipelineByPropertyName)][string]$Domain,
@@ -77,15 +77,15 @@ Function New-bOrgUnitExtension {
     )
     New-Object psobject -Property $PSBoundParameters
 }
-Function New-bDynamicGroup {
+Function New-DynamicGroup {
     [cmdletbinding()]param(
         [Parameter(ParameterSetName='update',Mandatory)][switch]$update,
 
         [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='update')]
-        [Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='new')]
+        [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='new',Mandatory,Position=0)]
         [string]$Name,
         [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='update')]
-        [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='new',Mandatory)]
+        [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='new',Mandatory,Position=1)]
         [string]$Statement,
         [Parameter(ValueFromPipelineByPropertyName)][guid]$ParentId,
         [Parameter(ValueFromPipelineByPropertyName)][string]$Comment
@@ -93,7 +93,7 @@ Function New-bDynamicGroup {
     $PSBoundParameters.Remove($PSCmdlet.ParameterSetName) > $null
     New-Object psobject -Property $PSBoundParameters
 }
-Function New-bStaticGroup {
+Function New-StaticGroup {
     [cmdletbinding()]param(
         [parameter(ParameterSetName='update',Mandatory)][switch]$update,
         [parameter(ValueFromPipelineByPropertyName,ParameterSetName='update')]
@@ -106,7 +106,7 @@ Function New-bStaticGroup {
     $PSBoundParameters.Remove($PSCmdlet.ParameterSetName) > $null
     New-Object psobject -Property $PSBoundParameters
 }
-Function New-bEndpoint {
+Function New-Endpoint {
     [cmdletbinding()]param(
         [parameter(ParameterSetName='update',Mandatory)][switch]$update,
 
@@ -143,7 +143,7 @@ Function New-bEndpoint {
     
     New-Object psobject -Property $PSBoundParameters
 }
-Function New-bVariable {
+Function New-Variable {
     [cmdletbinding()]param(
         [Parameter(ValueFromPipelineByPropertyName,Mandatory,Position=0)][string]$Category,
         [Parameter(ValueFromPipelineByPropertyName,Mandatory,Position=1)][string]$Name,
@@ -155,18 +155,18 @@ Function New-bVariable {
     }
 }
 
-Function New-bApplication {
+Function New-Application {
     [cmdletbinding()]param(
         [parameter(ParameterSetName='update',Mandatory)][switch]$update,
 
         [parameter(ParameterSetName='update',ValueFromPipelineByPropertyName)]
-        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName)]
+        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName,Position=0)]
         [string]$Name,
         [parameter(ParameterSetName='update',ValueFromPipelineByPropertyName)]
-        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName)]
+        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName,Position=1)]
         [string]$Vendor,
         [parameter(ParameterSetName='update',ValueFromPipelineByPropertyName)]
-        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName)]
+        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName,Position=2)]
         [bConnect.Application.ValidForOS[]]$ValidForOS,
         
         [parameter(ValueFromPipelineByPropertyName)][string]$Comment,
@@ -187,7 +187,7 @@ Function New-bApplication {
     New-Object psobject -Property $PSBoundParameters
 
 }
-Function New-bApplicationFile {
+Function New-ApplicationFile {
     [cmdletbinding()]param(
         [parameter(ValueFromPipelineByPropertyName,Mandatory)][string]$Source,
         [parameter(ValueFromPipelineByPropertyName,Mandatory)][bConnect.Application.FileType]$Type
@@ -196,7 +196,7 @@ Function New-bApplicationFile {
         New-Object psobject -Property $PSBoundParameters
     }
 }
-Function New-bApplicationLicense {
+Function New-ApplicationLicense {
     [cmdletbinding()]param(
         [parameter(Mandatory,ValueFromPipelineByPropertyName)][string]$LicenseKey,
         [parameter(ValueFromPipelineByPropertyName)][uint16]$Count=0,
@@ -206,7 +206,7 @@ Function New-bApplicationLicense {
         New-Object psobject -Property $PSBoundParameters
     }
 }
-Function New-bAutFileRule {
+Function New-AutFileRule {
     [cmdletbinding()]param(
         [parameter(ValueFromPipelineByPropertyName)][string]$FileName,
         [parameter(ValueFromPipelineByPropertyName)][uint64]$FileSize,
@@ -226,12 +226,12 @@ Function New-bAutFileRule {
         New-Object psobject -Property $PSBoundParameters
     }
 }
-Function New-bApplicationData {
+Function New-ApplicationData {
     [cmdletbinding(DefaultParameterSetName='all')]param(
         [Parameter(Mandatory,ParameterSetName='install')][switch]$install,
         [parameter(ValueFromPipelineByPropertyName,Position=0)][string]$Command,
         [parameter(ValueFromPipelineByPropertyName,Position=1)][string]$Parameter,
-        [parameter(ValueFromPipelineByPropertyName,Position=2)][string]$ResponseFile,
+        [parameter(ValueFromPipelineByPropertyName)][string]$ResponseFile,
         [parameter(ValueFromPipelineByPropertyName)][string][ValidateSet('baramundi Deploy Package','Rational Visual Test 6.5','baramundi Deploy Script')]$Engine,
         [parameter(ValueFromPipelineByPropertyName)][string]$EngineFile,
         [parameter(ValueFromPipelineByPropertyName)][object][ValidateScript({$_|New-bApplicationOption -install:$install})]$Options, # switch between un-/install 
@@ -242,7 +242,7 @@ Function New-bApplicationData {
         New-Object psobject -Property $PSBoundParameters
     }
 }
-Function New-bApplicationOption {
+Function New-ApplicationOption {
     [cmdletbinding(DefaultParameterSetName='all')]param(
         [Parameter(Mandatory,ParameterSetName='install')][switch]$install,
         [parameter(ValueFromPipelineByPropertyName)][bConnect.Application.RebootBehaviour]$RebootBehaviour,
@@ -262,7 +262,7 @@ Function New-bApplicationOption {
     }
 }
 
-Function New-bApplicationUserSettings {
+Function New-ApplicationUserSettings {
     [cmdletbinding(DefaultParameterSetName='all')]param(
         [Parameter(Mandatory,ParameterSetName='install')][switch]$install,
         [parameter(ValueFromPipelineByPropertyName)][string]$baramundiDeployScript,

@@ -1,11 +1,15 @@
 Push-Location $PSScriptRoot
+'scaffold','bTypes','bActions','bHelpers'|% {
+    Write-Verbose "Loading $_.ps1"
+    . "./$_.ps1"
+}<#
 . ./scaffold.ps1
 . ./bTypes.ps1
 . ./bActions.ps1
-. ./bHelpers.ps1
+. ./bHelpers.ps1#>
 Pop-Location
 
-Function Script:Get-bConnectCredentials {
+Function Script:Get_ConnectCredentials {
     [cmdletbinding()]param (
         [string]$UserName=($env:USERNAME,$env:USERDOMAIN -join '@')
     )
@@ -13,7 +17,7 @@ Function Script:Get-bConnectCredentials {
     Get-Credential -UserName $UserName -Message "bConnect API Credentials"
 }
 
-Function Initialize-bConnect {
+Function Initialize-Connect {
     [CmdletBinding()]param(
         [Parameter(ValueFromPipelineByPropertyName)]
         [string][Alias('Host','Server')]
@@ -22,22 +26,28 @@ Function Initialize-bConnect {
         [string][Alias('User')]
         $UserName=($env:USERNAME,$env:USERDOMAIN -join '@'),
         [Parameter(ValueFromPipelineByPropertyName)]
-        [securestring]$Password=$PSDefaultParameterValues["Invoke-bConnect:Password"],
+        [securestring]$Password=$PSDefaultParameterValues["Invoke-Connect:Password"],
         [version]$MinimumVersion="17.1.230.0",
         [switch]$retrying
     )
     process {
-        $cmd='Invoke-bConnect:'
+        $cmd='Invoke-Connect:'
         $ApiRoot="https://$HostName/bConnect"
         
         if (-not $Password) {
             Write-Verbose -Message "No password provided"
-            if(-not $retrying) { Get-bConnectCredentials -UserName $UserName | Initialize-bConnect -MinimumVersion $MinimumVersion -HostName $HostName -retrying }
+            if(-not $retrying) {
+                Get_ConnectCredentials -UserName $UserName |
+                    Initialize-Connect -MinimumVersion $MinimumVersion -HostName $HostName -retrying }
         } else {
-            'ApiRoot','UserName','Password' | % {if($value=Get-Variable -ValueOnly -Name $_){$PSDefaultParameterValues."$cmd$_"=$value}}
+            'ApiRoot','UserName','Password' | % {
+                if($value=Microsoft.PowerShell.Utility\Get-Variable -ValueOnly -Name $_){
+                    $PSDefaultParameterValues."$cmd$_"=$value
+                }
+            }
             try {
                 Write-Verbose -Message "Trying to receive information from backend"
-                (($Versions=Get-bInfo -verbose) | Get-Member -Name *Version).Name | % {
+                (($Versions=Get-Info -verbose) | Get-Member -Name *Version).Name | % {
                     $PSDefaultParameterValues."$cmd$_"=$Versions.$_
                     $_,$Versions.$_ -join ': '|Write-Verbose
                 }
@@ -54,7 +64,7 @@ Function Initialize-bConnect {
         }
     }
 }
-Function Invoke-bConnect {
+Function Invoke-Connect {
     [cmdletbinding(PositionalBinding=$false)]param(
         [Parameter(Mandatory,Position=0)]
         [ValidateSet("../Version","../Info","Search","OrgUnits","DynamicGroups","StaticGroups","Endpoints","Jobs","JobInstances",`
@@ -83,7 +93,7 @@ Function Invoke-bConnect {
         $Credentials=if($Password){
             new-object System.Management.Automation.PSCredential $UserName,$Password
         } else {
-            Get-bConnectCredentials
+            Get_ConnectCredentials
         }
         Write-Verbose "Invoking as $($Credentials.UserName)"
     }
@@ -93,8 +103,8 @@ Function Invoke-bConnect {
     (Invoke-RestMethod -Method $method -Uri $uri -Body (&("ConvertTo-$format") $data) -Credential $Credentials -ContentType "application/$format")
 }
 
-Export-ModuleMember -function "Get-b*","Set-b*","Add-b*","Edit-b*","Remove-b*",
-    "New-b*","Search-b*","Initialize-b*","Expand-b*","Merge-b*" #,"Invoke-b*"
+Export-ModuleMember -function "Get-*","Set-*","Add-*","Edit-*","Remove-*",
+    "New-*","Search-*","Initialize-*","Expand-*","Merge-*" #,"Invoke-b*"
 
 
 #New-ModuleManifest -RootModule ./bConnect.psm1 -Author "Robert Jäckel" -ScriptsToProcess ./bTypes.ps1 -CompanyName "MLU Halle-Wittenberg | IT-Servicezentrum" -ModuleVersion "0.9.1"

@@ -12,7 +12,7 @@
 }
 "JobInstances" |% {
     . getable    $_ -ParamNames Id,EndpointId,JobId -CommonFlags Steps
-    . setable    $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
+    . setableGet    $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
     . deletable  $_
     . addable    $_ -ParamNames EndpointId,JobId -CommonFlags StartIfExists
 }
@@ -46,7 +46,7 @@
 }
 
 
-function Get-bVariable {
+function Get-Variable {
     [cmdletbinding(DefaultParameterSetName='ByAny')]param(
         [parameter(ValueFromPipelineByPropertyName,Position=0,Mandatory)]
             [bConnect.Variable.Scope]$Scope,
@@ -59,10 +59,10 @@ function Get-bVariable {
             [Alias('Id')][guid]$ObjectId
     )
     process{
-        Invoke-bConnect -Controller Variables -Parameters $PSBoundParameters
+        Invoke-Connect -Controller Variables -Parameters $PSBoundParameters
     }
 }
-function Set-bVariable {
+function Set-Variable {
     [cmdletbinding()]param(
         [Parameter(Mandatory,Position=0,ValueFromPipelineByPropertyName)]
             [Alias('Id')][guid]$ObjectId,
@@ -72,11 +72,11 @@ function Set-bVariable {
             [object[]]$Variables
     )
     process {
-        $PSBoundParameters|Invoke-bConnect -Method Put -Controller Variables
+        $PSBoundParameters|Invoke-Connect -Method Put -Controller Variables
     }
 }
 
-function Search-bConnect {
+<#function Search-Connect {
     [cmdletbinding()]param(
         [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)]
             [bConnect.Search.Type]$Type,
@@ -84,11 +84,14 @@ function Search-bConnect {
             [ValidateLength(2,255)][string]$Term
     )
     process{
-        Invoke-bConnect -Controller Search -Parameters $PSBoundParameters
+        Invoke-Connect -Controller Search -Parameters $PSBoundParameters
     }
+}#>
+[System.Enum]::GetNames('bConnect.Search.Type')|% {
+    . searchable $_
 }
 
-function Get-bIcon {
+function Get-Icon {
     [cmdletbinding(DefaultParameterSetName='ByAny')]param(
         [Parameter(Mandatory,ParameterSetName='ByAppId',ValueFromPipeline,ValueFromPipelineByPropertyName)]
             [Alias('Id')][guid]$AppId,
@@ -96,6 +99,6 @@ function Get-bIcon {
             [bConnect.Application.IconScope]$Scope
     )
     process{
-        Invoke-bConnect -Controller Icons -Parameters $PSBoundParameters
+        Invoke-Connect -Controller Icons -Parameters $PSBoundParameters
     }
 }
