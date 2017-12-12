@@ -373,7 +373,7 @@ New-bApplicationUserSettings -install [-baramundiDeployScript <string>] [-validF
 ```
 ### New-bAutFileRule
 ```
-New-bAutFileRule [[-FileName] <string>] [[-FileSize] <uint64>] [[-Date] <string>] [[-CRC] <uint64>] [[-Version] <string>] [[-Company] <string>] [[-ProductName] <string>] [[-ProductVersion] <string>] [[-InternalName] <string>] [[-Language] <string>] [[-FileDescription] <string>] [[-FileVersionNumeric] <string>] [[-CommandLine] <string>] [<CommonParameters>]
+New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CRC <uint64>] [-Version <string>] [-Company <string>] [-ProductName <string>] [-ProductVersion <string>] [-InternalName <string>] [-Language <string>] [-FileDescription <string>] [-FileVersionNumeric <string>] [-CommandLine <string>] [<CommonParameters>]
 ```
 ### New-bDynamicGroup
 ```
@@ -395,7 +395,7 @@ New-bOrgUnit [-Name] <string> [-ParentId] <guid> [-Comment <string>] [-Extension
 ```
 ### New-bOrgUnitExtension
 ```
-New-bOrgUnitExtension [[-DIP] <string>] [[-Domain] <string>] [[-LocalAdminPassword] <string>] [[-SubnetMast] <string>] [[-Defaultgateway] <string>] [[-DnsServer] <string>] [[-DnsServer2] <string>] [[-DnsDomain] <string>] [[-WinsServer] <string>] [[-WinsServer2] <string>] [[-AutoInstallJobs] <guid[]>] [[-HardwareProfiles] <guid[]>] [[-RequestableJobs] <guid[]>] [-EnableDHCP] [-InheritAutoInstallJobs] [<CommonParameters>]
+New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <string>] [-EnableDHCP] [-InheritAutoInstallJobs] [-SubnetMast <string>] [-Defaultgateway <string>] [-DnsServer <string>] [-DnsServer2 <string>] [-DnsDomain <string>] [-WinsServer <string>] [-WinsServer2 <string>] [-AutoInstallJobs <guid[]>] [-HardwareProfiles <guid[]>] [-RequestableJobs <guid[]>] [<CommonParameters>]
 ```
 ### New-bStaticGroup
 ```

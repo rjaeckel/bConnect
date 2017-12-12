@@ -37,7 +37,11 @@ Function Merge-EndpointOptions {
     }
     end {$res}
 }
-# object helpers
+
+
+<#
+ # object helpers
+ #>
 
 Function New-OrgUnit {
     [cmdletbinding()]param(
@@ -58,7 +62,7 @@ Function New-OrgUnit {
     New-Object psobject -Property $PSBoundParameters
 }
 Function New-OrgUnitExtension {
-    [cmdletbinding()]param(
+    [cmdletbinding(PositionalBinding=$false)]param(
         [Parameter(ValueFromPipelineByPropertyName)][string]$DIP,
         [Parameter(ValueFromPipelineByPropertyName)][string]$Domain,
         [Parameter(ValueFromPipelineByPropertyName)][string]$LocalAdminPassword,
@@ -207,7 +211,7 @@ Function New-ApplicationLicense {
     }
 }
 Function New-AutFileRule {
-    [cmdletbinding()]param(
+    [cmdletbinding(PositionalBinding=$false)]param(
         [parameter(ValueFromPipelineByPropertyName)][string]$FileName,
         [parameter(ValueFromPipelineByPropertyName)][uint64]$FileSize,
         [parameter(ValueFromPipelineByPropertyName)][string]$Date,
