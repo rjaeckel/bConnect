@@ -10,32 +10,25 @@ This Api is meant to support pipelines the way they are meant for. Nevertheless 
 
 Setup your connection to the Api. Configures Server, Version and Credentials for continous use. As `$PSDefaultParameterValues` in module scope.
 
+## Search-
+
+Search the bConnect API specifiyng object-type and a term
+
 ## Get-
 
 The `Get-`-cmdlets are used to fetch an object from the API usually specifying some referencing `guid`.
 
-## Edit-
+## Add-, Set-, Remove-
 
-The `Edit-`-cmdlets are generally used to create, update or delete an object in the API.
+Create, update or remove an object in the API
 
-## Add-, Remove-, Set-
+## New-
 
-Some API endpoints cannot be used like `Edit-`. Theese use the more specific way.
+The `New-`-cmdlets are used to create objects to interact with the API. Theese also validate for required feelds.
 
-## Search-bConnect
-
-Search the bConnect API specifiyng object-type and a term
-
-## Helpers
-
-Aditionally to the actual workload of the API there are cme helpers to make everyday usage easier
-
-### Expand- and Merge-
+## Expand- and Merge-
 
 Theese cmdlets are helpers for interacting with the bit fields of `Clientoptions`.
 
-### New-*
-
-The `New-`-cmdlets are used to create objects to interact with the API. Theese also validate for required feelds.
 
 
