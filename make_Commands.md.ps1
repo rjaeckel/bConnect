@@ -19,6 +19,7 @@ function params ($cmd) {
             "  {0} : {1}" -F $_,$param.$_
         }
         '  ```'
+        ""
     }
 }
 function toc () {
@@ -54,7 +55,6 @@ function toc () {
             syntax $_
         }
     }
-    ""
     "### Controller Search"
     (Get-Command -Module bConnect -Verb Search).Name |% {
         syntax $_

@@ -82,6 +82,7 @@ Initialize-bConnect [[-HostName] <string>] [[-UserName] <string>] [[-Password] <
   Aliases : Host, Server
   ParameterValue : string
   ```
+
 * UserName
   ```
   Position : 1
@@ -90,6 +91,7 @@ Initialize-bConnect [[-HostName] <string>] [[-UserName] <string>] [[-Password] <
   Aliases : User
   ParameterValue : string
   ```
+
 * Password
   ```
   Position : 2
@@ -98,6 +100,7 @@ Initialize-bConnect [[-HostName] <string>] [[-UserName] <string>] [[-Password] <
   Aliases : None
   ParameterValue : securestring
   ```
+
 * MinimumVersion
   ```
   Position : 3
@@ -106,6 +109,7 @@ Initialize-bConnect [[-HostName] <string>] [[-UserName] <string>] [[-Password] <
   Aliases : None
   ParameterValue : version
   ```
+
 * retrying
   ```
   Position : Named
@@ -114,6 +118,7 @@ Initialize-bConnect [[-HostName] <string>] [[-UserName] <string>] [[-Password] <
   Aliases : None
   ParameterValue : 
   ```
+
 
 
 ## Commands by Controller
@@ -139,6 +144,7 @@ Get-bApp -EndpointId <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * EndpointId
   ```
   Position : Named
@@ -147,6 +153,7 @@ Get-bApp -EndpointId <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * OrgUnit
   ```
   Position : Named
@@ -155,6 +162,7 @@ Get-bApp -EndpointId <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 
 ### Controller Application
@@ -172,6 +180,7 @@ Add-bApplication [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : Object
   ```
+
 
 #### Get-bApplication
 ```
@@ -193,6 +202,7 @@ Get-bApplication -EndpointId <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * EndpointId
   ```
   Position : Named
@@ -201,6 +211,7 @@ Get-bApplication -EndpointId <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * OrgUnit
   ```
   Position : Named
@@ -209,6 +220,7 @@ Get-bApplication -EndpointId <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 #### Remove-bApplication
 ```
@@ -225,6 +237,7 @@ Remove-bApplication [-Id] <guid> [<CommonParameters>]
   ParameterValue : guid
   ```
 
+
 #### Set-bApplication
 ```
 Set-bApplication [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
@@ -239,6 +252,7 @@ Set-bApplication [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * InputObject
   ```
   Position : 1
@@ -247,6 +261,7 @@ Set-bApplication [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : Object
   ```
+
 
 
 ### Controller BootEnvironment
@@ -268,6 +283,7 @@ Get-bBootEnvironment [-Id] <guid> [<CommonParameters>]
   ```
 
 
+
 ### Controller DynamicGroup
 #### Add-bDynamicGroup
 ```
@@ -283,6 +299,7 @@ Add-bDynamicGroup [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : Object
   ```
+
 
 #### Get-bDynamicGroup
 ```
@@ -302,6 +319,7 @@ Get-bDynamicGroup -OrgUnit <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * OrgUnit
   ```
   Position : Named
@@ -310,6 +328,7 @@ Get-bDynamicGroup -OrgUnit <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 #### Remove-bDynamicGroup
 ```
@@ -326,6 +345,7 @@ Remove-bDynamicGroup [-Id] <guid> [<CommonParameters>]
   ParameterValue : guid
   ```
 
+
 #### Set-bDynamicGroup
 ```
 Set-bDynamicGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
@@ -340,6 +360,7 @@ Set-bDynamicGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * InputObject
   ```
   Position : 1
@@ -348,6 +369,7 @@ Set-bDynamicGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : Object
   ```
+
 
 
 ### Controller Endpoint
@@ -365,6 +387,7 @@ Add-bEndpoint [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : Object
   ```
+
 
 #### Get-bEndpoint
 ```
@@ -388,6 +411,7 @@ Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<C
   Aliases : None
   ParameterValue : guid
   ```
+
 * InstalledSoftware
   ```
   Position : Named
@@ -396,6 +420,7 @@ Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<C
   Aliases : None
   ParameterValue : 
   ```
+
 * PubKey
   ```
   Position : Named
@@ -404,6 +429,7 @@ Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<C
   Aliases : None
   ParameterValue : 
   ```
+
 * SnmpData
   ```
   Position : Named
@@ -412,6 +438,7 @@ Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<C
   Aliases : None
   ParameterValue : 
   ```
+
 * DynamicGroup
   ```
   Position : Named
@@ -420,6 +447,7 @@ Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<C
   Aliases : None
   ParameterValue : guid
   ```
+
 * OrgUnit
   ```
   Position : Named
@@ -428,6 +456,7 @@ Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<C
   Aliases : None
   ParameterValue : guid
   ```
+
 * StaticGroup
   ```
   Position : Named
@@ -436,6 +465,7 @@ Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<C
   Aliases : None
   ParameterValue : guid
   ```
+
 
 #### Remove-bEndpoint
 ```
@@ -452,6 +482,7 @@ Remove-bEndpoint [-Id] <guid> [<CommonParameters>]
   ParameterValue : guid
   ```
 
+
 #### Set-bEndpoint
 ```
 Set-bEndpoint [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
@@ -466,6 +497,7 @@ Set-bEndpoint [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * InputObject
   ```
   Position : 1
@@ -474,6 +506,7 @@ Set-bEndpoint [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : Object
   ```
+
 
 
 ### Controller EndpointInvSoftware
@@ -504,6 +537,7 @@ Get-bHardwareProfile [-Id] <guid> [<CommonParameters>]
   ```
 
 
+
 ### Controller Icon
 #### Get-bIcon
 ```
@@ -523,6 +557,7 @@ Get-bIcon -Scope <IconScope> [<CommonParameters>]
   Aliases : Id
   ParameterValue : guid
   ```
+
 * Scope
   ```
   Position : Named
@@ -531,6 +566,7 @@ Get-bIcon -Scope <IconScope> [<CommonParameters>]
   Aliases : None
   ParameterValue : IconScope
   ```
+
 
 
 ### Controller Info
@@ -561,6 +597,7 @@ Get-bInventoryAppScan [-EndpointId] <guid> [<CommonParameters>]
   ```
 
 
+
 ### Controller InventoryDataCustomScan
 #### Get-bInventoryDataCustomScan
 ```
@@ -580,6 +617,7 @@ Get-bInventoryDataCustomScan -EndpointId <guid> -TemplateName <string> -Scan <st
   Aliases : Id, Endpoint
   ParameterValue : guid
   ```
+
 * Latest
   ```
   Position : Named
@@ -588,6 +626,7 @@ Get-bInventoryDataCustomScan -EndpointId <guid> -TemplateName <string> -Scan <st
   Aliases : None
   ParameterValue : 
   ```
+
 * Scan
   ```
   Position : Named
@@ -596,6 +635,7 @@ Get-bInventoryDataCustomScan -EndpointId <guid> -TemplateName <string> -Scan <st
   Aliases : Time
   ParameterValue : string
   ```
+
 * TemplateName
   ```
   Position : Named
@@ -604,6 +644,7 @@ Get-bInventoryDataCustomScan -EndpointId <guid> -TemplateName <string> -Scan <st
   Aliases : Template
   ParameterValue : string
   ```
+
 
 
 ### Controller InventoryDataFileScan
@@ -624,6 +665,7 @@ Get-bInventoryDataFileScan [-EndpointId] <guid> [<CommonParameters>]
   ParameterValue : guid
   ```
 
+
 #### Remove-bInventoryDataFileScan
 ```
 Remove-bInventoryDataFileScan [-EndpointId] <guid> [<CommonParameters>]
@@ -638,6 +680,7 @@ Remove-bInventoryDataFileScan [-EndpointId] <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 
 ### Controller InventoryDataHardwareScan
@@ -659,6 +702,7 @@ Get-bInventoryDataHardwareScan -EndpointId <guid> -TemplateName <string> -Scan <
   Aliases : Id, Endpoint
   ParameterValue : guid
   ```
+
 * Latest
   ```
   Position : Named
@@ -667,6 +711,7 @@ Get-bInventoryDataHardwareScan -EndpointId <guid> -TemplateName <string> -Scan <
   Aliases : None
   ParameterValue : 
   ```
+
 * Scan
   ```
   Position : Named
@@ -675,6 +720,7 @@ Get-bInventoryDataHardwareScan -EndpointId <guid> -TemplateName <string> -Scan <
   Aliases : Time
   ParameterValue : string
   ```
+
 * TemplateName
   ```
   Position : Named
@@ -683,6 +729,7 @@ Get-bInventoryDataHardwareScan -EndpointId <guid> -TemplateName <string> -Scan <
   Aliases : Template
   ParameterValue : string
   ```
+
 
 
 ### Controller InventoryDataRegistryScan
@@ -703,6 +750,7 @@ Get-bInventoryDataRegistryScan [-EndpointId] <guid> [<CommonParameters>]
   ParameterValue : guid
   ```
 
+
 #### Remove-bInventoryDataRegistryScan
 ```
 Remove-bInventoryDataRegistryScan [-EndpointId] <guid> [<CommonParameters>]
@@ -717,6 +765,7 @@ Remove-bInventoryDataRegistryScan [-EndpointId] <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 
 ### Controller InventoryDataSnmpScan
@@ -734,6 +783,7 @@ Get-bInventoryDataSnmpScan [-EndpointId] <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 
 ### Controller InventoryDataWmiScan
@@ -755,6 +805,7 @@ Get-bInventoryDataWmiScan -EndpointId <guid> -TemplateName <string> -Scan <strin
   Aliases : Id, Endpoint
   ParameterValue : guid
   ```
+
 * Latest
   ```
   Position : Named
@@ -763,6 +814,7 @@ Get-bInventoryDataWmiScan -EndpointId <guid> -TemplateName <string> -Scan <strin
   Aliases : None
   ParameterValue : 
   ```
+
 * Scan
   ```
   Position : Named
@@ -771,6 +823,7 @@ Get-bInventoryDataWmiScan -EndpointId <guid> -TemplateName <string> -Scan <strin
   Aliases : Time
   ParameterValue : string
   ```
+
 * TemplateName
   ```
   Position : Named
@@ -779,6 +832,7 @@ Get-bInventoryDataWmiScan -EndpointId <guid> -TemplateName <string> -Scan <strin
   Aliases : Template
   ParameterValue : string
   ```
+
 
 
 ### Controller InventoryOverview
@@ -800,6 +854,7 @@ Get-bInventoryOverview [-EndpointId] <guid> [<CommonParameters>]
   ```
 
 
+
 ### Controller Job
 #### Get-bJob
 ```
@@ -819,6 +874,7 @@ Get-bJob -OrgUnit <guid> [-Steps] [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * Steps
   ```
   Position : Named
@@ -827,6 +883,7 @@ Get-bJob -OrgUnit <guid> [-Steps] [<CommonParameters>]
   Aliases : None
   ParameterValue : 
   ```
+
 * OrgUnit
   ```
   Position : Named
@@ -835,6 +892,7 @@ Get-bJob -OrgUnit <guid> [-Steps] [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 
 ### Controller JobInstance
@@ -852,6 +910,7 @@ Add-bJobInstance [-EndpointId] <guid> [-JobId] <guid> [-StartIfExists] [<CommonP
   Aliases : None
   ParameterValue : guid
   ```
+
 * JobId
   ```
   Position : 1
@@ -860,6 +919,7 @@ Add-bJobInstance [-EndpointId] <guid> [-JobId] <guid> [-StartIfExists] [<CommonP
   Aliases : None
   ParameterValue : guid
   ```
+
 * StartIfExists
   ```
   Position : Named
@@ -868,6 +928,7 @@ Add-bJobInstance [-EndpointId] <guid> [-JobId] <guid> [-StartIfExists] [<CommonP
   Aliases : None
   ParameterValue : 
   ```
+
 
 #### Get-bJobInstance
 ```
@@ -889,6 +950,7 @@ Get-bJobInstance -JobId <guid> [-Steps] [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * Steps
   ```
   Position : Named
@@ -897,6 +959,7 @@ Get-bJobInstance -JobId <guid> [-Steps] [<CommonParameters>]
   Aliases : None
   ParameterValue : 
   ```
+
 * EndpointId
   ```
   Position : Named
@@ -905,6 +968,7 @@ Get-bJobInstance -JobId <guid> [-Steps] [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * JobId
   ```
   Position : Named
@@ -913,6 +977,7 @@ Get-bJobInstance -JobId <guid> [-Steps] [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 #### Remove-bJobInstance
 ```
@@ -929,6 +994,7 @@ Remove-bJobInstance [-Id] <guid> [<CommonParameters>]
   ParameterValue : guid
   ```
 
+
 #### Set-bJobInstance
 ```
 Set-bJobInstance [-Id] <guid> -cmd <Action> [<CommonParameters>]
@@ -943,6 +1009,7 @@ Set-bJobInstance [-Id] <guid> -cmd <Action> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * cmd
   ```
   Position : Named
@@ -951,6 +1018,7 @@ Set-bJobInstance [-Id] <guid> -cmd <Action> [<CommonParameters>]
   Aliases : None
   ParameterValue : Action
   ```
+
 
 
 ### Controller OrgUnit
@@ -968,6 +1036,7 @@ Add-bOrgUnit [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : Object
   ```
+
 
 #### Get-bOrgUnit
 ```
@@ -987,6 +1056,7 @@ Get-bOrgUnit -OrgUnit <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * OrgUnit
   ```
   Position : Named
@@ -995,6 +1065,7 @@ Get-bOrgUnit -OrgUnit <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 #### Remove-bOrgUnit
 ```
@@ -1011,6 +1082,7 @@ Remove-bOrgUnit [-Id] <guid> [<CommonParameters>]
   ParameterValue : guid
   ```
 
+
 #### Set-bOrgUnit
 ```
 Set-bOrgUnit [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
@@ -1025,6 +1097,7 @@ Set-bOrgUnit [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * InputObject
   ```
   Position : 1
@@ -1033,6 +1106,7 @@ Set-bOrgUnit [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : Object
   ```
+
 
 
 ### Controller SoftwareScanRule
@@ -1060,6 +1134,7 @@ Add-bStaticGroup [-InputObject] <Object> [<CommonParameters>]
   ParameterValue : Object
   ```
 
+
 #### Get-bStaticGroup
 ```
 Get-bStaticGroup [<CommonParameters>]
@@ -1078,6 +1153,7 @@ Get-bStaticGroup -OrgUnit <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * OrgUnit
   ```
   Position : Named
@@ -1086,6 +1162,7 @@ Get-bStaticGroup -OrgUnit <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 
 #### Remove-bStaticGroup
 ```
@@ -1102,6 +1179,7 @@ Remove-bStaticGroup [-Id] <guid> [<CommonParameters>]
   ParameterValue : guid
   ```
 
+
 #### Set-bStaticGroup
 ```
 Set-bStaticGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
@@ -1116,6 +1194,7 @@ Set-bStaticGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
 * InputObject
   ```
   Position : 1
@@ -1124,6 +1203,7 @@ Set-bStaticGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
   Aliases : None
   ParameterValue : Object
   ```
+
 
 
 ### Controller Variable
@@ -1143,6 +1223,7 @@ Get-bVariable [-Scope] <Scope> [-Category] <string> [-Name] <string> [-ObjectId 
   Aliases : None
   ParameterValue : Scope
   ```
+
 * Category
   ```
   Position : 1
@@ -1151,6 +1232,7 @@ Get-bVariable [-Scope] <Scope> [-Category] <string> [-Name] <string> [-ObjectId 
   Aliases : None
   ParameterValue : string
   ```
+
 * Name
   ```
   Position : 2
@@ -1159,6 +1241,7 @@ Get-bVariable [-Scope] <Scope> [-Category] <string> [-Name] <string> [-ObjectId 
   Aliases : None
   ParameterValue : string
   ```
+
 * ObjectId
   ```
   Position : Named
@@ -1167,6 +1250,7 @@ Get-bVariable [-Scope] <Scope> [-Category] <string> [-Name] <string> [-ObjectId 
   Aliases : Id
   ParameterValue : guid
   ```
+
 
 #### Set-bVariable
 ```
@@ -1182,6 +1266,7 @@ Set-bVariable [-ObjectId] <guid> [-Scope] <Scope> [-Variables] <Object[]> [<Comm
   Aliases : Id
   ParameterValue : guid
   ```
+
 * Scope
   ```
   Position : 1
@@ -1190,6 +1275,7 @@ Set-bVariable [-ObjectId] <guid> [-Scope] <Scope> [-Variables] <Object[]> [<Comm
   Aliases : None
   ParameterValue : Scope
   ```
+
 * Variables
   ```
   Position : 2
@@ -1200,13 +1286,13 @@ Set-bVariable [-ObjectId] <guid> [-Scope] <Scope> [-Variables] <Object[]> [<Comm
   ```
 
 
+
 ### Controller Version
 #### Get-bVersion
 ```
 Get-bVersion [<CommonParameters>]
 ```
 ##### Parameters
-
 
 
 ### Controller Search
@@ -1225,6 +1311,7 @@ Search-bEndpoint [-Term] <string> [<CommonParameters>]
   ParameterValue : string
   ```
 
+
 #### Search-bGroup
 ```
 Search-bGroup [-Term] <string> [<CommonParameters>]
@@ -1239,6 +1326,7 @@ Search-bGroup [-Term] <string> [<CommonParameters>]
   Aliases : None
   ParameterValue : string
   ```
+
 
 #### Search-bJob
 ```
@@ -1255,6 +1343,7 @@ Search-bJob [-Term] <string> [<CommonParameters>]
   ParameterValue : string
   ```
 
+
 #### Search-bOrgUnit
 ```
 Search-bOrgUnit [-Term] <string> [<CommonParameters>]
@@ -1270,6 +1359,7 @@ Search-bOrgUnit [-Term] <string> [<CommonParameters>]
   ParameterValue : string
   ```
 
+
 #### Search-bSoftware
 ```
 Search-bSoftware [-Term] <string> [<CommonParameters>]
@@ -1284,6 +1374,7 @@ Search-bSoftware [-Term] <string> [<CommonParameters>]
   Aliases : None
   ParameterValue : string
   ```
+
 
 
 ## Helper Commands
@@ -1303,6 +1394,7 @@ Expand-bEndpointOptions [-options] <uint64> [<CommonParameters>]
   ParameterValue : uint64
   ```
 
+
 ### Merge-bEndpointOptions
 ```
 Merge-bEndpointOptions [[-ClientOptions] <ClientOptions>] [[-UserOptions] <PrimaryUserOptions>] [[-UserJobOptions] <UserJobOptions>] [<CommonParameters>]
@@ -1317,6 +1409,7 @@ Merge-bEndpointOptions [[-ClientOptions] <ClientOptions>] [[-UserOptions] <Prima
   Aliases : None
   ParameterValue : ClientOptions
   ```
+
 * UserOptions
   ```
   Position : 1
@@ -1325,6 +1418,7 @@ Merge-bEndpointOptions [[-ClientOptions] <ClientOptions>] [[-UserOptions] <Prima
   Aliases : None
   ParameterValue : PrimaryUserOptions
   ```
+
 * UserJobOptions
   ```
   Position : 2
@@ -1333,6 +1427,7 @@ Merge-bEndpointOptions [[-ClientOptions] <ClientOptions>] [[-UserOptions] <Prima
   Aliases : None
   ParameterValue : UserJobOptions
   ```
+
 
 ### New-bApplication
 ```
@@ -1350,6 +1445,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : string
   ```
+
 * Vendor
   ```
   Position : 1
@@ -1358,6 +1454,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : string
   ```
+
 * ValidForOS
   ```
   Position : 2
@@ -1366,6 +1463,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : ValidForOS[]
   ```
+
 * AUT
   ```
   Position : Named
@@ -1374,6 +1472,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : Object[]
   ```
+
 * Category
   ```
   Position : Named
@@ -1382,6 +1481,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : string
   ```
+
 * Comment
   ```
   Position : Named
@@ -1390,6 +1490,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : string
   ```
+
 * ConsistencyChecks
   ```
   Position : Named
@@ -1398,6 +1499,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : string
   ```
+
 * Cost
   ```
   Position : Named
@@ -1406,6 +1508,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : float
   ```
+
 * EnableAUT
   ```
   Position : Named
@@ -1414,6 +1517,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : 
   ```
+
 * Files
   ```
   Position : Named
@@ -1422,6 +1526,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : Object[]
   ```
+
 * Installation
   ```
   Position : Named
@@ -1430,6 +1535,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : InstallationData
   ParameterValue : Object
   ```
+
 * Licenses
   ```
   Position : Named
@@ -1438,6 +1544,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : Object[]
   ```
+
 * ParentId
   ```
   Position : Named
@@ -1446,6 +1553,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : guid
   ```
+
 * SecurityContext
   ```
   Position : Named
@@ -1454,6 +1562,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : SecurityContext
   ```
+
 * Uninstallation
   ```
   Position : Named
@@ -1462,6 +1571,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : UninstallationData
   ParameterValue : Object
   ```
+
 * Version
   ```
   Position : Named
@@ -1470,6 +1580,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : string
   ```
+
 * update
   ```
   Position : Named
@@ -1478,6 +1589,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Aliases : None
   ParameterValue : 
   ```
+
 
 ### New-bApplicationData
 ```
@@ -1495,6 +1607,7 @@ New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] -install [-Re
   Aliases : None
   ParameterValue : string
   ```
+
 * Parameter
   ```
   Position : 1
@@ -1503,6 +1616,7 @@ New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] -install [-Re
   Aliases : None
   ParameterValue : string
   ```
+
 * Engine
   ```
   Position : Named
@@ -1511,6 +1625,7 @@ New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] -install [-Re
   Aliases : None
   ParameterValue : string
   ```
+
 * EngineFile
   ```
   Position : Named
@@ -1519,6 +1634,7 @@ New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] -install [-Re
   Aliases : None
   ParameterValue : string
   ```
+
 * Options
   ```
   Position : Named
@@ -1527,6 +1643,7 @@ New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] -install [-Re
   Aliases : None
   ParameterValue : Object
   ```
+
 * ResponseFile
   ```
   Position : Named
@@ -1535,6 +1652,7 @@ New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] -install [-Re
   Aliases : None
   ParameterValue : string
   ```
+
 * UserSettings
   ```
   Position : Named
@@ -1543,6 +1661,7 @@ New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] -install [-Re
   Aliases : None
   ParameterValue : Object
   ```
+
 * install
   ```
   Position : Named
@@ -1551,6 +1670,7 @@ New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] -install [-Re
   Aliases : None
   ParameterValue : 
   ```
+
 
 ### New-bApplicationFile
 ```
@@ -1566,6 +1686,7 @@ New-bApplicationFile [-Source] <string> [-Type] <FileType> [<CommonParameters>]
   Aliases : None
   ParameterValue : string
   ```
+
 * Type
   ```
   Position : 1
@@ -1574,6 +1695,7 @@ New-bApplicationFile [-Source] <string> [-Type] <FileType> [<CommonParameters>]
   Aliases : None
   ParameterValue : FileType
   ```
+
 
 ### New-bApplicationLicense
 ```
@@ -1589,6 +1711,7 @@ New-bApplicationLicense [-LicenseKey] <string> [[-Count] <uint16>] [[-Offline] <
   Aliases : None
   ParameterValue : string
   ```
+
 * Count
   ```
   Position : 1
@@ -1597,6 +1720,7 @@ New-bApplicationLicense [-LicenseKey] <string> [[-Count] <uint16>] [[-Offline] <
   Aliases : None
   ParameterValue : uint16
   ```
+
 * Offline
   ```
   Position : 2
@@ -1605,6 +1729,7 @@ New-bApplicationLicense [-LicenseKey] <string> [[-Count] <uint16>] [[-Offline] <
   Aliases : None
   ParameterValue : uint16
   ```
+
 
 ### New-bApplicationOption
 ```
@@ -1622,6 +1747,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : 
   ```
+
 * CopyLocally
   ```
   Position : Named
@@ -1630,6 +1756,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : 
   ```
+
 * DisableInputDevices
   ```
   Position : Named
@@ -1638,6 +1765,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : 
   ```
+
 * DontSetAsInstalled
   ```
   Position : Named
@@ -1646,6 +1774,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : 
   ```
+
 * MapShare
   ```
   Position : Named
@@ -1654,6 +1783,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : 
   ```
+
 * RebootBehaviour
   ```
   Position : Named
@@ -1662,6 +1792,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : RebootBehaviour
   ```
+
 * RemoveUnknownSoftware
   ```
   Position : Named
@@ -1670,6 +1801,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : 
   ```
+
 * Target
   ```
   Position : Named
@@ -1678,6 +1810,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : string
   ```
+
 * UseBbt
   ```
   Position : Named
@@ -1686,6 +1819,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : 
   ```
+
 * VisibleExecution
   ```
   Position : Named
@@ -1694,6 +1828,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : VisibleExecution
   ```
+
 * install
   ```
   Position : Named
@@ -1702,6 +1837,7 @@ New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnk
   Aliases : None
   ParameterValue : 
   ```
+
 
 ### New-bApplicationUserSettings
 ```
@@ -1719,6 +1855,7 @@ New-bApplicationUserSettings -install [-baramundiDeployScript <string>] [-validF
   Aliases : None
   ParameterValue : string
   ```
+
 * CopyScriptToClient
   ```
   Position : Named
@@ -1727,6 +1864,7 @@ New-bApplicationUserSettings -install [-baramundiDeployScript <string>] [-validF
   Aliases : None
   ParameterValue : 
   ```
+
 * ExecuteAtEveryLogin
   ```
   Position : Named
@@ -1735,6 +1873,7 @@ New-bApplicationUserSettings -install [-baramundiDeployScript <string>] [-validF
   Aliases : None
   ParameterValue : 
   ```
+
 * RunBdsVisible
   ```
   Position : Named
@@ -1743,6 +1882,7 @@ New-bApplicationUserSettings -install [-baramundiDeployScript <string>] [-validF
   Aliases : None
   ParameterValue : 
   ```
+
 * validForInstallUser
   ```
   Position : Named
@@ -1751,6 +1891,7 @@ New-bApplicationUserSettings -install [-baramundiDeployScript <string>] [-validF
   Aliases : None
   ParameterValue : 
   ```
+
 * install
   ```
   Position : Named
@@ -1759,6 +1900,7 @@ New-bApplicationUserSettings -install [-baramundiDeployScript <string>] [-validF
   Aliases : None
   ParameterValue : 
   ```
+
 
 ### New-bAutFileRule
 ```
@@ -1774,6 +1916,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * Company
   ```
   Position : Named
@@ -1782,6 +1925,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * CRC
   ```
   Position : Named
@@ -1790,6 +1934,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : uint64
   ```
+
 * Date
   ```
   Position : Named
@@ -1798,6 +1943,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * FileDescription
   ```
   Position : Named
@@ -1806,6 +1952,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * FileName
   ```
   Position : Named
@@ -1814,6 +1961,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * FileSize
   ```
   Position : Named
@@ -1822,6 +1970,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : uint64
   ```
+
 * FileVersionNumeric
   ```
   Position : Named
@@ -1830,6 +1979,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * InternalName
   ```
   Position : Named
@@ -1838,6 +1988,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * Language
   ```
   Position : Named
@@ -1846,6 +1997,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * ProductName
   ```
   Position : Named
@@ -1854,6 +2006,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * ProductVersion
   ```
   Position : Named
@@ -1862,6 +2015,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 * Version
   ```
   Position : Named
@@ -1870,6 +2024,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Aliases : None
   ParameterValue : string
   ```
+
 
 ### New-bDynamicGroup
 ```
@@ -1887,6 +2042,7 @@ New-bDynamicGroup [-Name] <string> [-Statement] <string> [-ParentId <guid>] [-Co
   Aliases : None
   ParameterValue : string
   ```
+
 * Statement
   ```
   Position : 1
@@ -1895,6 +2051,7 @@ New-bDynamicGroup [-Name] <string> [-Statement] <string> [-ParentId <guid>] [-Co
   Aliases : None
   ParameterValue : string
   ```
+
 * Comment
   ```
   Position : Named
@@ -1903,6 +2060,7 @@ New-bDynamicGroup [-Name] <string> [-Statement] <string> [-ParentId <guid>] [-Co
   Aliases : None
   ParameterValue : string
   ```
+
 * ParentId
   ```
   Position : Named
@@ -1911,6 +2069,7 @@ New-bDynamicGroup [-Name] <string> [-Statement] <string> [-ParentId <guid>] [-Co
   Aliases : None
   ParameterValue : guid
   ```
+
 * update
   ```
   Position : Named
@@ -1919,6 +2078,7 @@ New-bDynamicGroup [-Name] <string> [-Statement] <string> [-ParentId <guid>] [-Co
   Aliases : None
   ParameterValue : 
   ```
+
 
 ### New-bEndpoint
 ```
@@ -1936,6 +2096,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : string
   ```
+
 * Type
   ```
   Position : 1
@@ -1944,6 +2105,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : Type
   ```
+
 * GuidOrgUnit
   ```
   Position : 2
@@ -1952,6 +2114,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : guid
   ```
+
 * Comments
   ```
   Position : Named
@@ -1960,6 +2123,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : string
   ```
+
 * ComplianceCheckCategory
   ```
   Position : Named
@@ -1968,6 +2132,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : ComplianceCheckCategory
   ```
+
 * ComplianceCheckDisabledFrom
   ```
   Position : Named
@@ -1976,6 +2141,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : datetime
   ```
+
 * ComplianceCheckDisabledUntil
   ```
   Position : Named
@@ -1984,6 +2150,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : datetime
   ```
+
 * Domain
   ```
   Position : Named
@@ -1992,6 +2159,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : string
   ```
+
 * ExtendedInternetMode
   ```
   Position : Named
@@ -2000,6 +2168,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : 
   ```
+
 * GuidBootEnvironment
   ```
   Position : Named
@@ -2008,6 +2177,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : guid
   ```
+
 * GuidHardwareProfile
   ```
   Position : Named
@@ -2016,6 +2186,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : guid
   ```
+
 * Hostname
   ```
   Position : Named
@@ -2024,6 +2195,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : string
   ```
+
 * Mode
   ```
   Position : Named
@@ -2032,6 +2204,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : Mode
   ```
+
 * Options
   ```
   Position : Named
@@ -2040,6 +2213,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : uint32
   ```
+
 * Owner
   ```
   Position : Named
@@ -2048,6 +2222,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : Owner
   ```
+
 * PrimaryMac
   ```
   Position : Named
@@ -2056,6 +2231,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : string
   ```
+
 * PrimaryUser
   ```
   Position : Named
@@ -2064,6 +2240,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : string
   ```
+
 * PublicKey
   ```
   Position : Named
@@ -2072,6 +2249,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : string
   ```
+
 * SerialNumber
   ```
   Position : Named
@@ -2080,6 +2258,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : string
   ```
+
 * UserCategory
   ```
   Position : Named
@@ -2088,6 +2267,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : string
   ```
+
 * update
   ```
   Position : Named
@@ -2096,6 +2276,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Aliases : None
   ParameterValue : 
   ```
+
 
 ### New-bOrgUnit
 ```
@@ -2113,6 +2294,7 @@ New-bOrgUnit [-Name] <string> [-ParentId] <guid> [-Comment <string>] [-Extension
   Aliases : None
   ParameterValue : string
   ```
+
 * ParentId
   ```
   Position : 1
@@ -2121,6 +2303,7 @@ New-bOrgUnit [-Name] <string> [-ParentId] <guid> [-Comment <string>] [-Extension
   Aliases : None
   ParameterValue : guid
   ```
+
 * Comment
   ```
   Position : Named
@@ -2129,6 +2312,7 @@ New-bOrgUnit [-Name] <string> [-ParentId] <guid> [-Comment <string>] [-Extension
   Aliases : None
   ParameterValue : string
   ```
+
 * Extension
   ```
   Position : Named
@@ -2137,6 +2321,7 @@ New-bOrgUnit [-Name] <string> [-ParentId] <guid> [-Comment <string>] [-Extension
   Aliases : None
   ParameterValue : Object
   ```
+
 * update
   ```
   Position : Named
@@ -2145,6 +2330,7 @@ New-bOrgUnit [-Name] <string> [-ParentId] <guid> [-Comment <string>] [-Extension
   Aliases : None
   ParameterValue : 
   ```
+
 
 ### New-bOrgUnitExtension
 ```
@@ -2160,6 +2346,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : guid[]
   ```
+
 * Defaultgateway
   ```
   Position : Named
@@ -2168,6 +2355,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 * DIP
   ```
   Position : Named
@@ -2176,6 +2364,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 * DnsDomain
   ```
   Position : Named
@@ -2184,6 +2373,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 * DnsServer
   ```
   Position : Named
@@ -2192,6 +2382,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 * DnsServer2
   ```
   Position : Named
@@ -2200,6 +2391,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 * Domain
   ```
   Position : Named
@@ -2208,6 +2400,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 * EnableDHCP
   ```
   Position : Named
@@ -2216,6 +2409,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : 
   ```
+
 * HardwareProfiles
   ```
   Position : Named
@@ -2224,6 +2418,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : guid[]
   ```
+
 * InheritAutoInstallJobs
   ```
   Position : Named
@@ -2232,6 +2427,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : 
   ```
+
 * LocalAdminPassword
   ```
   Position : Named
@@ -2240,6 +2436,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 * RequestableJobs
   ```
   Position : Named
@@ -2248,6 +2445,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : guid[]
   ```
+
 * SubnetMast
   ```
   Position : Named
@@ -2256,6 +2454,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 * WinsServer
   ```
   Position : Named
@@ -2264,6 +2463,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 * WinsServer2
   ```
   Position : Named
@@ -2272,6 +2472,7 @@ New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <s
   Aliases : None
   ParameterValue : string
   ```
+
 
 ### New-bStaticGroup
 ```
@@ -2289,6 +2490,7 @@ New-bStaticGroup [-Name] <string> [-ParentId <guid>] [-EndpointIds <guid[]>] [-C
   Aliases : None
   ParameterValue : string
   ```
+
 * Comment
   ```
   Position : Named
@@ -2297,6 +2499,7 @@ New-bStaticGroup [-Name] <string> [-ParentId <guid>] [-EndpointIds <guid[]>] [-C
   Aliases : None
   ParameterValue : string
   ```
+
 * EndpointIds
   ```
   Position : Named
@@ -2305,6 +2508,7 @@ New-bStaticGroup [-Name] <string> [-ParentId <guid>] [-EndpointIds <guid[]>] [-C
   Aliases : None
   ParameterValue : guid[]
   ```
+
 * ParentId
   ```
   Position : Named
@@ -2313,6 +2517,7 @@ New-bStaticGroup [-Name] <string> [-ParentId <guid>] [-EndpointIds <guid[]>] [-C
   Aliases : None
   ParameterValue : guid
   ```
+
 * update
   ```
   Position : Named
@@ -2321,6 +2526,7 @@ New-bStaticGroup [-Name] <string> [-ParentId <guid>] [-EndpointIds <guid[]>] [-C
   Aliases : None
   ParameterValue : 
   ```
+
 
 ### New-bVariable
 ```
@@ -2336,6 +2542,7 @@ New-bVariable [-Category] <string> [-Name] <string> [[-Value] <string>] [-UseDef
   Aliases : None
   ParameterValue : string
   ```
+
 * Name
   ```
   Position : 1
@@ -2344,6 +2551,7 @@ New-bVariable [-Category] <string> [-Name] <string> [[-Value] <string>] [-UseDef
   Aliases : None
   ParameterValue : string
   ```
+
 * Value
   ```
   Position : 2
@@ -2352,6 +2560,7 @@ New-bVariable [-Category] <string> [-Name] <string> [[-Value] <string>] [-UseDef
   Aliases : None
   ParameterValue : string
   ```
+
 * UseDefault
   ```
   Position : Named
@@ -2360,4 +2569,5 @@ New-bVariable [-Category] <string> [-Name] <string> [[-Value] <string>] [-UseDef
   Aliases : None
   ParameterValue : 
   ```
+
 
