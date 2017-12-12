@@ -2,9 +2,11 @@
 
 This Api is meant to support pipelines the way they are meant for. Nevertheless it's not shure in the moment of writing this ReadMe, averything works as expected.
 
-* **Distributed under [Apache License 2.0**](LICENSE.txt)
+* **Distributed under [Apache License 2.0](LICENSE.txt)**
 * **Implemented API-Version**: *bMS 2017R1/bConnect 1.0*
 * [Detailed List of cmdlets](Commands.md)
+
+# Overview
 
 ## Initialize-bConnect
 
@@ -12,19 +14,23 @@ Setup your connection to the Api. Configures Server, Version and Credentials for
 
 ## Search-
 
-Search the bConnect API specifiyng object-type and a term
+Search the bConnect API specifiyng a term
 
 ## Get-
 
-The `Get-`-cmdlets are used to fetch an object from the API usually specifying some referencing `guid`.
+Fetch one or many objects from the API usually specifying some referencing `guid`.
 
-## Add-, Set-, Remove-
+## Add-, Set-
 
-Create, update or remove an object in the API
+Create, update an object in the API. Supports pipeline input for bulk operations.
 
 ## New-
 
-The `New-`-cmdlets are used to create objects to interact with the API. Theese also validate for required feelds.
+Create objects to interact with the API. Theese also validate for required feelds. Should be used in combination with `Add-` and `Set-`.
+
+# Remove-
+
+Remove an item inside the API usually by referencing some `guid`
 
 ## Expand- and Merge-
 
