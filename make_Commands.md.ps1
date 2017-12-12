@@ -5,7 +5,9 @@ function syntax ($cmd,$header=4) {
     (Get-Help $cmd).Synopsis.trim()
     '```'
     '#'+('#'*$header)+" Parameters"
+    ""
     params $cmd
+    ""
 }
 function params ($cmd) {
     #$replace=[regex]'^-'
