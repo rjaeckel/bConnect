@@ -1,6 +1,6 @@
 # Powershell Module for baramundi bConnect API
 
-This Api is meant to support pipelines the way they are meant for. Nevertheless it's not shure in the moment of writing this ReadMe, averything works as expected.
+This Api is meant to support pipelines the way they are meant for. Nevertheless it's not shure in the moment of writing this ReadMe, everything works as expected.
 
 * **Distributed under [Apache License 2.0](LICENSE.txt)**
 * **Implemented API-Version**: *bMS 2017R1/bConnect 1.0*
@@ -22,7 +22,7 @@ Fetch one or many objects from the API usually specifying some referencing `guid
 
 ## Add-, Set-
 
-Create, update an object in the API. Supports pipeline input for bulk operations.
+Create or update an object in the API. Supports pipeline input for bulk operations.
 
 ## New-
 
