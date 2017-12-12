@@ -28,7 +28,7 @@ Create, update an object in the API. Supports pipeline input for bulk operations
 
 Create objects to interact with the API. Theese also validate for required feelds. Should be used in combination with `Add-` and `Set-`.
 
-# Remove-
+## Remove-
 
 Remove an item inside the API usually by referencing some `guid`
 
