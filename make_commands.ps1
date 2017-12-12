@@ -4,7 +4,7 @@ Import-Module ./bConnect.psd1 -Force
 ""
 "## Initialize"
 '```'
-(Get-Help Initialize-bConnect).Synopsis
+(Get-Help Initialize-bConnect).Synopsis.trim()
 '```'
 ""
 "## Commands by Controller"
@@ -16,7 +16,7 @@ Import-Module ./bConnect.psd1 -Force
     $_.Group.Name |% {
         "#### $_"
         '```'
-        (Get-Help $_).Synopsis
+        (Get-Help $_).Synopsis.trim()
         '```'
     }
 }
@@ -25,7 +25,7 @@ Import-Module ./bConnect.psd1 -Force
 (Get-Command -Module bConnect -Verb Search).Name |% {
     "#### $_"
     '```'
-    (Get-Help $_).Synopsis
+    (Get-Help $_).Synopsis.trim()
     '```'
 }
 ""
@@ -34,6 +34,6 @@ Import-Module ./bConnect.psd1 -Force
 (Get-Command -Module bConnect |? {$_ -match '^(New|Merge|Expand)-'} | Sort-Object Verb,Noun).Name|% {
     "### $_"
     '```'
-    (Get-Help $_).Synopsis
+    (Get-Help $_).Synopsis.trim()
     '```'
 }
