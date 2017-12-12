@@ -1,6 +1,6 @@
 # Cmdlets exported by this module
 
-* [Initialize-bConnect](#initialize-bconnect) ( *[Parameters](#parameters-0)* )
+* [Initialize-bConnect](#initialize-bconnect) ( *[Parameters](#parameters)* )
 * [Get-bApp](#get-bapp) ( *[Parameters](#parameters-1)* )
 * [Add-bApplication](#add-bapplication) ( *[Parameters](#parameters-2)* )
 * [Get-bApplication](#get-bapplication) ( *[Parameters](#parameters-3)* )

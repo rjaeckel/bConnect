@@ -29,7 +29,9 @@ function toc () {
     $cmds+=(Get-Command -Module bConnect |? {$_ -match '^(New|Merge|Expand)-'} | Sort-Object Verb,Noun).Name
     
     foreach($cmd in $cmds) {
-        "* [$cmd](#{0}) ( *[Parameters](#parameters-{1})* )" -F $cmd.tolower(),$tocs++
+        $paramAnchor=if($tocs){$tocs}else{""}
+        "* [$cmd](#{0}) ( *[Parameters](#parameters{1})* )" -F $cmd.tolower(),$paramAnchor
+        $tocs--
     }
 }
 & {
