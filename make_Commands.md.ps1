@@ -26,8 +26,8 @@ function toc () {
     $tocs=0
     [string[]]$cmds=@()
 
-    $cmds+=(Get-Command -Module bConnect -Verb Initialize).Name
-    $cmds+=(Get-Command -Module bConnect|? {$_ -notmatch '^(New|Merge|Expand|Search|Initialize)-'}|Sort-Object Noun,Verb).Name
+    $cmds+=(Get-Command -Module bConnect -Noun bConnect).Name|Sort-Object -Descending
+    $cmds+=(Get-Command -Module bConnect|? {$_ -notmatch '^(New|Merge|Expand|Search|Initialize|Clear)-'}|Sort-Object Noun,Verb).Name
     $cmds+=(Get-Command -Module bConnect -Verb Search).Name
     $cmds+=(Get-Command -Module bConnect |? {$_ -match '^(New|Merge|Expand)-'} | Sort-Object Verb,Noun).Name
     
@@ -44,6 +44,7 @@ function toc () {
     ""
     "## Initialize"
     syntax Initialize-bConnect 3
+    syntax Clear-bConnect 3
     ""
     "## Commands by Controller"
     ( Get-Command -Module bConnect |? {$_ -notmatch '^(New|Merge|Expand|Search|Initialize)-'}|

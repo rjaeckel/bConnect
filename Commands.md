@@ -1,71 +1,72 @@
 # Cmdlets exported by this module
 
 * [Initialize-bConnect](#initialize-bconnect) ( *[Parameters](#parameters)* )
-* [Get-bApp](#get-bapp) ( *[Parameters](#parameters-1)* )
-* [Add-bApplication](#add-bapplication) ( *[Parameters](#parameters-2)* )
-* [Get-bApplication](#get-bapplication) ( *[Parameters](#parameters-3)* )
-* [Remove-bApplication](#remove-bapplication) ( *[Parameters](#parameters-4)* )
-* [Set-bApplication](#set-bapplication) ( *[Parameters](#parameters-5)* )
-* [Get-bBootEnvironment](#get-bbootenvironment) ( *[Parameters](#parameters-6)* )
-* [Add-bDynamicGroup](#add-bdynamicgroup) ( *[Parameters](#parameters-7)* )
-* [Get-bDynamicGroup](#get-bdynamicgroup) ( *[Parameters](#parameters-8)* )
-* [Remove-bDynamicGroup](#remove-bdynamicgroup) ( *[Parameters](#parameters-9)* )
-* [Set-bDynamicGroup](#set-bdynamicgroup) ( *[Parameters](#parameters-10)* )
-* [Add-bEndpoint](#add-bendpoint) ( *[Parameters](#parameters-11)* )
-* [Get-bEndpoint](#get-bendpoint) ( *[Parameters](#parameters-12)* )
-* [Remove-bEndpoint](#remove-bendpoint) ( *[Parameters](#parameters-13)* )
-* [Set-bEndpoint](#set-bendpoint) ( *[Parameters](#parameters-14)* )
-* [Get-bEndpointInvSoftware](#get-bendpointinvsoftware) ( *[Parameters](#parameters-15)* )
-* [Get-bHardwareProfile](#get-bhardwareprofile) ( *[Parameters](#parameters-16)* )
-* [Get-bIcon](#get-bicon) ( *[Parameters](#parameters-17)* )
-* [Get-bInfo](#get-binfo) ( *[Parameters](#parameters-18)* )
-* [Get-bInventoryAppScan](#get-binventoryappscan) ( *[Parameters](#parameters-19)* )
-* [Get-bInventoryDataCustomScan](#get-binventorydatacustomscan) ( *[Parameters](#parameters-20)* )
-* [Get-bInventoryDataFileScan](#get-binventorydatafilescan) ( *[Parameters](#parameters-21)* )
-* [Remove-bInventoryDataFileScan](#remove-binventorydatafilescan) ( *[Parameters](#parameters-22)* )
-* [Get-bInventoryDataHardwareScan](#get-binventorydatahardwarescan) ( *[Parameters](#parameters-23)* )
-* [Get-bInventoryDataRegistryScan](#get-binventorydataregistryscan) ( *[Parameters](#parameters-24)* )
-* [Remove-bInventoryDataRegistryScan](#remove-binventorydataregistryscan) ( *[Parameters](#parameters-25)* )
-* [Get-bInventoryDataSnmpScan](#get-binventorydatasnmpscan) ( *[Parameters](#parameters-26)* )
-* [Get-bInventoryDataWmiScan](#get-binventorydatawmiscan) ( *[Parameters](#parameters-27)* )
-* [Get-bInventoryOverview](#get-binventoryoverview) ( *[Parameters](#parameters-28)* )
-* [Get-bJob](#get-bjob) ( *[Parameters](#parameters-29)* )
-* [Add-bJobInstance](#add-bjobinstance) ( *[Parameters](#parameters-30)* )
-* [Get-bJobInstance](#get-bjobinstance) ( *[Parameters](#parameters-31)* )
-* [Remove-bJobInstance](#remove-bjobinstance) ( *[Parameters](#parameters-32)* )
-* [Set-bJobInstance](#set-bjobinstance) ( *[Parameters](#parameters-33)* )
-* [Add-bOrgUnit](#add-borgunit) ( *[Parameters](#parameters-34)* )
-* [Get-bOrgUnit](#get-borgunit) ( *[Parameters](#parameters-35)* )
-* [Remove-bOrgUnit](#remove-borgunit) ( *[Parameters](#parameters-36)* )
-* [Set-bOrgUnit](#set-borgunit) ( *[Parameters](#parameters-37)* )
-* [Get-bSoftwareScanRule](#get-bsoftwarescanrule) ( *[Parameters](#parameters-38)* )
-* [Add-bStaticGroup](#add-bstaticgroup) ( *[Parameters](#parameters-39)* )
-* [Get-bStaticGroup](#get-bstaticgroup) ( *[Parameters](#parameters-40)* )
-* [Remove-bStaticGroup](#remove-bstaticgroup) ( *[Parameters](#parameters-41)* )
-* [Set-bStaticGroup](#set-bstaticgroup) ( *[Parameters](#parameters-42)* )
-* [Get-bVariable](#get-bvariable) ( *[Parameters](#parameters-43)* )
-* [Set-bVariable](#set-bvariable) ( *[Parameters](#parameters-44)* )
-* [Get-bVersion](#get-bversion) ( *[Parameters](#parameters-45)* )
-* [Search-bEndpoint](#search-bendpoint) ( *[Parameters](#parameters-46)* )
-* [Search-bGroup](#search-bgroup) ( *[Parameters](#parameters-47)* )
-* [Search-bJob](#search-bjob) ( *[Parameters](#parameters-48)* )
-* [Search-bOrgUnit](#search-borgunit) ( *[Parameters](#parameters-49)* )
-* [Search-bSoftware](#search-bsoftware) ( *[Parameters](#parameters-50)* )
-* [Expand-bEndpointOptions](#expand-bendpointoptions) ( *[Parameters](#parameters-51)* )
-* [Merge-bEndpointOptions](#merge-bendpointoptions) ( *[Parameters](#parameters-52)* )
-* [New-bApplication](#new-bapplication) ( *[Parameters](#parameters-53)* )
-* [New-bApplicationData](#new-bapplicationdata) ( *[Parameters](#parameters-54)* )
-* [New-bApplicationFile](#new-bapplicationfile) ( *[Parameters](#parameters-55)* )
-* [New-bApplicationLicense](#new-bapplicationlicense) ( *[Parameters](#parameters-56)* )
-* [New-bApplicationOption](#new-bapplicationoption) ( *[Parameters](#parameters-57)* )
-* [New-bApplicationUserSettings](#new-bapplicationusersettings) ( *[Parameters](#parameters-58)* )
-* [New-bAutFileRule](#new-bautfilerule) ( *[Parameters](#parameters-59)* )
-* [New-bDynamicGroup](#new-bdynamicgroup) ( *[Parameters](#parameters-60)* )
-* [New-bEndpoint](#new-bendpoint) ( *[Parameters](#parameters-61)* )
-* [New-bOrgUnit](#new-borgunit) ( *[Parameters](#parameters-62)* )
-* [New-bOrgUnitExtension](#new-borgunitextension) ( *[Parameters](#parameters-63)* )
-* [New-bStaticGroup](#new-bstaticgroup) ( *[Parameters](#parameters-64)* )
-* [New-bVariable](#new-bvariable) ( *[Parameters](#parameters-65)* )
+* [Clear-bConnect](#clear-bconnect) ( *[Parameters](#parameters-1)* )
+* [Get-bApp](#get-bapp) ( *[Parameters](#parameters-2)* )
+* [Add-bApplication](#add-bapplication) ( *[Parameters](#parameters-3)* )
+* [Get-bApplication](#get-bapplication) ( *[Parameters](#parameters-4)* )
+* [Remove-bApplication](#remove-bapplication) ( *[Parameters](#parameters-5)* )
+* [Set-bApplication](#set-bapplication) ( *[Parameters](#parameters-6)* )
+* [Get-bBootEnvironment](#get-bbootenvironment) ( *[Parameters](#parameters-7)* )
+* [Add-bDynamicGroup](#add-bdynamicgroup) ( *[Parameters](#parameters-8)* )
+* [Get-bDynamicGroup](#get-bdynamicgroup) ( *[Parameters](#parameters-9)* )
+* [Remove-bDynamicGroup](#remove-bdynamicgroup) ( *[Parameters](#parameters-10)* )
+* [Set-bDynamicGroup](#set-bdynamicgroup) ( *[Parameters](#parameters-11)* )
+* [Add-bEndpoint](#add-bendpoint) ( *[Parameters](#parameters-12)* )
+* [Get-bEndpoint](#get-bendpoint) ( *[Parameters](#parameters-13)* )
+* [Remove-bEndpoint](#remove-bendpoint) ( *[Parameters](#parameters-14)* )
+* [Set-bEndpoint](#set-bendpoint) ( *[Parameters](#parameters-15)* )
+* [Get-bEndpointInvSoftware](#get-bendpointinvsoftware) ( *[Parameters](#parameters-16)* )
+* [Get-bHardwareProfile](#get-bhardwareprofile) ( *[Parameters](#parameters-17)* )
+* [Get-bIcon](#get-bicon) ( *[Parameters](#parameters-18)* )
+* [Get-bInfo](#get-binfo) ( *[Parameters](#parameters-19)* )
+* [Get-bInventoryAppScan](#get-binventoryappscan) ( *[Parameters](#parameters-20)* )
+* [Get-bInventoryDataCustomScan](#get-binventorydatacustomscan) ( *[Parameters](#parameters-21)* )
+* [Get-bInventoryDataFileScan](#get-binventorydatafilescan) ( *[Parameters](#parameters-22)* )
+* [Remove-bInventoryDataFileScan](#remove-binventorydatafilescan) ( *[Parameters](#parameters-23)* )
+* [Get-bInventoryDataHardwareScan](#get-binventorydatahardwarescan) ( *[Parameters](#parameters-24)* )
+* [Get-bInventoryDataRegistryScan](#get-binventorydataregistryscan) ( *[Parameters](#parameters-25)* )
+* [Remove-bInventoryDataRegistryScan](#remove-binventorydataregistryscan) ( *[Parameters](#parameters-26)* )
+* [Get-bInventoryDataSnmpScan](#get-binventorydatasnmpscan) ( *[Parameters](#parameters-27)* )
+* [Get-bInventoryDataWmiScan](#get-binventorydatawmiscan) ( *[Parameters](#parameters-28)* )
+* [Get-bInventoryOverview](#get-binventoryoverview) ( *[Parameters](#parameters-29)* )
+* [Get-bJob](#get-bjob) ( *[Parameters](#parameters-30)* )
+* [Add-bJobInstance](#add-bjobinstance) ( *[Parameters](#parameters-31)* )
+* [Get-bJobInstance](#get-bjobinstance) ( *[Parameters](#parameters-32)* )
+* [Remove-bJobInstance](#remove-bjobinstance) ( *[Parameters](#parameters-33)* )
+* [Set-bJobInstance](#set-bjobinstance) ( *[Parameters](#parameters-34)* )
+* [Add-bOrgUnit](#add-borgunit) ( *[Parameters](#parameters-35)* )
+* [Get-bOrgUnit](#get-borgunit) ( *[Parameters](#parameters-36)* )
+* [Remove-bOrgUnit](#remove-borgunit) ( *[Parameters](#parameters-37)* )
+* [Set-bOrgUnit](#set-borgunit) ( *[Parameters](#parameters-38)* )
+* [Get-bSoftwareScanRule](#get-bsoftwarescanrule) ( *[Parameters](#parameters-39)* )
+* [Add-bStaticGroup](#add-bstaticgroup) ( *[Parameters](#parameters-40)* )
+* [Get-bStaticGroup](#get-bstaticgroup) ( *[Parameters](#parameters-41)* )
+* [Remove-bStaticGroup](#remove-bstaticgroup) ( *[Parameters](#parameters-42)* )
+* [Set-bStaticGroup](#set-bstaticgroup) ( *[Parameters](#parameters-43)* )
+* [Get-bVariable](#get-bvariable) ( *[Parameters](#parameters-44)* )
+* [Set-bVariable](#set-bvariable) ( *[Parameters](#parameters-45)* )
+* [Get-bVersion](#get-bversion) ( *[Parameters](#parameters-46)* )
+* [Search-bEndpoint](#search-bendpoint) ( *[Parameters](#parameters-47)* )
+* [Search-bGroup](#search-bgroup) ( *[Parameters](#parameters-48)* )
+* [Search-bJob](#search-bjob) ( *[Parameters](#parameters-49)* )
+* [Search-bOrgUnit](#search-borgunit) ( *[Parameters](#parameters-50)* )
+* [Search-bSoftware](#search-bsoftware) ( *[Parameters](#parameters-51)* )
+* [Expand-bEndpointOptions](#expand-bendpointoptions) ( *[Parameters](#parameters-52)* )
+* [Merge-bEndpointOptions](#merge-bendpointoptions) ( *[Parameters](#parameters-53)* )
+* [New-bApplication](#new-bapplication) ( *[Parameters](#parameters-54)* )
+* [New-bApplicationData](#new-bapplicationdata) ( *[Parameters](#parameters-55)* )
+* [New-bApplicationFile](#new-bapplicationfile) ( *[Parameters](#parameters-56)* )
+* [New-bApplicationLicense](#new-bapplicationlicense) ( *[Parameters](#parameters-57)* )
+* [New-bApplicationOption](#new-bapplicationoption) ( *[Parameters](#parameters-58)* )
+* [New-bApplicationUserSettings](#new-bapplicationusersettings) ( *[Parameters](#parameters-59)* )
+* [New-bAutFileRule](#new-bautfilerule) ( *[Parameters](#parameters-60)* )
+* [New-bDynamicGroup](#new-bdynamicgroup) ( *[Parameters](#parameters-61)* )
+* [New-bEndpoint](#new-bendpoint) ( *[Parameters](#parameters-62)* )
+* [New-bOrgUnit](#new-borgunit) ( *[Parameters](#parameters-63)* )
+* [New-bOrgUnitExtension](#new-borgunitextension) ( *[Parameters](#parameters-64)* )
+* [New-bStaticGroup](#new-bstaticgroup) ( *[Parameters](#parameters-65)* )
+* [New-bVariable](#new-bvariable) ( *[Parameters](#parameters-66)* )
 
 ## Initialize
 ### Initialize-bConnect
@@ -118,6 +119,13 @@ Initialize-bConnect [[-HostName] <string>] [[-UserName] <string>] [[-Password] <
   Aliases : None
   ParameterValue : 
   ```
+
+
+### Clear-bConnect
+```
+Clear-bConnect [<CommonParameters>]
+```
+#### Parameters
 
 
 
@@ -281,6 +289,15 @@ Get-bBootEnvironment [-Id] <guid> [<CommonParameters>]
   Aliases : None
   ParameterValue : guid
   ```
+
+
+
+### Controller Connect
+#### Clear-bConnect
+```
+Clear-bConnect [<CommonParameters>]
+```
+##### Parameters
 
 
 
