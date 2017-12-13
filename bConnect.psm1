@@ -2,11 +2,7 @@ Push-Location $PSScriptRoot
 'scaffold','bTypes','bActions','bHelpers'|% {
     Write-Verbose "Loading $_.ps1"
     . "./$_.ps1"
-}<#
-. ./scaffold.ps1
-. ./bTypes.ps1
-. ./bActions.ps1
-. ./bHelpers.ps1#>
+}
 Pop-Location
 
 Function Script:Get_ConnectCredentials {
@@ -16,7 +12,12 @@ Function Script:Get_ConnectCredentials {
     Write-Verbose "Requesting credentials for $UserName"
     Get-Credential -UserName $UserName -Message "bConnect API Credentials"
 }
-
+function Clear-Connect {
+    [CmdletBinding()]param()
+    process {
+        $PSDefaultParameterValues.Clear()
+    }
+}
 Function Initialize-Connect {
     [CmdletBinding()]param(
         [Parameter(ValueFromPipelineByPropertyName)]
@@ -30,6 +31,9 @@ Function Initialize-Connect {
         [version]$MinimumVersion="17.1.230.0",
         [switch]$retrying
     )
+    begin {
+        if($PSDefaultParameterValues.Count -eq 5) { return }
+    }
     process {
         $cmd='Invoke-Connect:'
         $ApiRoot="https://$HostName/bConnect"
@@ -47,7 +51,7 @@ Function Initialize-Connect {
             }
             try {
                 Write-Verbose -Message "Trying to receive information from backend"
-                (($Versions=Get-Info -verbose) | Get-Member -Name *Version).Name | % {
+                (($Versions=Get-Info) | Get-Member -Name *Version).Name | % {
                     $PSDefaultParameterValues."$cmd$_"=$Versions.$_
                     $_,$Versions.$_ -join ': '|Write-Verbose
                 }
@@ -103,8 +107,8 @@ Function Invoke-Connect {
     (Invoke-RestMethod -Method $method -Uri $uri -Body (&("ConvertTo-$format") $data) -Credential $Credentials -ContentType "application/$format")
 }
 
-Export-ModuleMember -function "Get-*","Set-*","Add-*","Edit-*","Remove-*",
-    "New-*","Search-*","Initialize-*","Expand-*","Merge-*" #,"Invoke-b*"
+Export-ModuleMember -function "Get-*","Set-*","Add-*","Remove-*",
+    "New-*","Search-*","Initialize-*","Clear-*","Expand-*","Merge-*" #,"Edit-*","Invoke-b*"
 
 
 #New-ModuleManifest -RootModule ./bConnect.psm1 -Author "Robert Jäckel" -ScriptsToProcess ./bTypes.ps1 -CompanyName "MLU Halle-Wittenberg | IT-Servicezentrum" -ModuleVersion "0.9.1"
