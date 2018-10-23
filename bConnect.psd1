@@ -27,7 +27,7 @@ Author = 'Robert Jäckel'
 CompanyName = 'MLU Halle-Wittenberg | IT-Servicezentrum'
 
 # Copyright statement for this module
-Copyright = '(c) Robert Jäckel. All rights reserved.'
+# Copyright = '(c) Robert Jäckel. All rights reserved.'
 
 # Description of the functionality provided by this module
 # Description = ''
