@@ -1439,22 +1439,22 @@ Merge-bEndpointOptions [[-ClientOptions] <ClientOptions>] [[-UserOptions] <Prima
 
 ### New-bApplication
 ```
-New-bApplication -update [-Name <string>] [-Vendor <string>] [-ValidForOS <ValidForOS[]>] [-Comment <string>] [-Category <string>] [-Version <string>] [-ParentId <guid>] [-EnableAUT] [-Installation <Object>] [-Uninstallation <Object>] [-ConsistencyChecks <string>] [-SecurityContext <SecurityContext>] [-Cost <float>] [-Files <Object[]>] [-Licenses <Object[]>] [-AUT <Object[]>] [<CommonParameters>]
+New-bApplication -update [-Vendor <string>] [-Name <string>] [-ValidForOS <ValidForOS[]>] [-Comment <string>] [-Category <string>] [-Version <string>] [-ParentId <guid>] [-EnableAUT] [-Installation <Object>] [-Uninstallation <Object>] [-ConsistencyChecks <string>] [-SecurityContext <SecurityContext>] [-Cost <float>] [-Files <Object[]>] [-Licenses <Object[]>] [-AUT <Object[]>] [<CommonParameters>]
 
-New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]> [-Comment <string>] [-Category <string>] [-Version <string>] [-ParentId <guid>] [-EnableAUT] [-Installation <Object>] [-Uninstallation <Object>] [-ConsistencyChecks <string>] [-SecurityContext <SecurityContext>] [-Cost <float>] [-Files <Object[]>] [-Licenses <Object[]>] [-AUT <Object[]>] [<CommonParameters>]
+New-bApplication [-Vendor] <string> [-Name] <string> [-ValidForOS] <ValidForOS[]> [-Comment <string>] [-Category <string>] [-Version <string>] [-ParentId <guid>] [-EnableAUT] [-Installation <Object>] [-Uninstallation <Object>] [-ConsistencyChecks <string>] [-SecurityContext <SecurityContext>] [-Cost <float>] [-Files <Object[]>] [-Licenses <Object[]>] [-AUT <Object[]>] [<CommonParameters>]
 ```
 #### Parameters
 
-* Name
+* Vendor
   ```
   Position : 0
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
+  Aliases : By
   ParameterValue : string
   ```
 
-* Vendor
+* Name
   ```
   Position : 1
   Required : true
@@ -1468,7 +1468,7 @@ New-bApplication [-Name] <string> [-Vendor] <string> [-ValidForOS] <ValidForOS[]
   Position : 2
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
+  Aliases : OS, For
   ParameterValue : ValidForOS[]
   ```
 
