@@ -71,14 +71,14 @@
 ## Initialize
 ### Initialize-bConnect
 ```
-Initialize-bConnect [[-HostName] <string>] [[-UserName] <string>] [[-Password] <securestring>] [[-MinimumVersion] <version>] [-retrying] [<CommonParameters>]
+Initialize-bConnect [-HostName] <string> [[-UserName] <string>] [-Password] <securestring> [-SkipCertificateCheck] [<CommonParameters>]
 ```
 #### Parameters
 
 * HostName
   ```
   Position : 0
-  Required : false
+  Required : true
   PipelineInput : true (ByPropertyName)
   Aliases : Host, Server
   ParameterValue : string
@@ -96,22 +96,13 @@ Initialize-bConnect [[-HostName] <string>] [[-UserName] <string>] [[-Password] <
 * Password
   ```
   Position : 2
-  Required : false
+  Required : true
   PipelineInput : true (ByPropertyName)
   Aliases : None
   ParameterValue : securestring
   ```
 
-* MinimumVersion
-  ```
-  Position : 3
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ParameterValue : version
-  ```
-
-* retrying
+* SkipCertificateCheck
   ```
   Position : Named
   Required : false
