@@ -165,12 +165,14 @@ Function New-Application {
 
         [parameter(ParameterSetName='update',ValueFromPipelineByPropertyName)]
         [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName,Position=0)]
-        [string]$Name,
-        [parameter(ParameterSetName='update',ValueFromPipelineByPropertyName)]
-        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName,Position=1)]
+        [Alias('By')]
         [string]$Vendor,
         [parameter(ParameterSetName='update',ValueFromPipelineByPropertyName)]
+        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName,Position=1)]
+        [string]$Name,
+        [parameter(ParameterSetName='update',ValueFromPipelineByPropertyName)]
         [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName,Position=2)]
+        [Alias('OS','For')]
         [bConnect.Application.ValidForOS[]]$ValidForOS,
         
         [parameter(ValueFromPipelineByPropertyName)][string]$Comment,
