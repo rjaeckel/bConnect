@@ -10,7 +10,7 @@
 
 Currently this module can be seen as a work in progress. The state should be compared to *alpha* release. Reasons:
 
-* I am not shure if the [verbs](https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx) used do acually fit well yet:
+* I am not shure if the [verbs](https://docs.microsoft.com/en-us/powershell/developer/cmdlet/approved-verbs-for-windows-powershell-commands) used do acually fit well yet:
   * Helper-Cmdlets *New-* should be merged into *Add-* and *Set-*
   * *New-* might be more suitable than *Add-* in case of real API entities.
   * Some *Set-* should probably be named *Edit-*
