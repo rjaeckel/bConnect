@@ -1,10 +1,10 @@
 # Powershell Module for baramundi bConnect API
 
-
 * **Distributed under [Apache License 2.0](LICENSE.txt)**
 * **Implemented API-Version**: *bMS 2017R1/bConnect 1.0*
 * ***alpha***-Status
 * [Detailed List of cmdlets](Commands.md)
+* [Simple Examples and API Usage](tests/proof-of-concept.ps1)
 
 # Work in progress - not for production usage yet!
 
