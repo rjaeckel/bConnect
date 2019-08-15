@@ -1262,26 +1262,26 @@ Get-bVariable [-Scope] <Scope> [-Category] <string> [-Name] <string> [-ObjectId 
 
 #### Set-bVariable
 ```
-Set-bVariable [-ObjectId] <guid> [-Scope] <Scope> [-Variables] <Object[]> [<CommonParameters>]
+Set-bVariable [-Scope] <Scope> [-ObjectId] <guid> [-Variables] <Object[]> [<CommonParameters>]
 ```
 ##### Parameters
 
-* ObjectId
+* Scope
   ```
   Position : 0
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : Id
-  ParameterValue : guid
+  Aliases : None
+  ParameterValue : Scope
   ```
 
-* Scope
+* ObjectId
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Scope
+  Aliases : Id
+  ParameterValue : guid
   ```
 
 * Variables
@@ -1389,7 +1389,7 @@ Search-bSoftware [-Term] <string> [<CommonParameters>]
 
 ### Expand-bEndpointOptions
 ```
-Expand-bEndpointOptions [-options] <uint64> [<CommonParameters>]
+Expand-bEndpointOptions [-options] <ulong> [<CommonParameters>]
 ```
 #### Parameters
 
@@ -1399,7 +1399,7 @@ Expand-bEndpointOptions [-options] <uint64> [<CommonParameters>]
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
   Aliases : None
-  ParameterValue : uint64
+  ParameterValue : ulong
   ```
 
 
@@ -1707,7 +1707,7 @@ New-bApplicationFile [-Source] <string> [-Type] <FileType> [<CommonParameters>]
 
 ### New-bApplicationLicense
 ```
-New-bApplicationLicense [-LicenseKey] <string> [[-Count] <uint16>] [[-Offline] <uint16>] [<CommonParameters>]
+New-bApplicationLicense [-LicenseKey] <string> [[-Count] <ushort>] [[-Offline] <ushort>] [<CommonParameters>]
 ```
 #### Parameters
 
@@ -1726,7 +1726,7 @@ New-bApplicationLicense [-LicenseKey] <string> [[-Count] <uint16>] [[-Offline] <
   Required : false
   PipelineInput : true (ByPropertyName)
   Aliases : None
-  ParameterValue : uint16
+  ParameterValue : ushort
   ```
 
 * Offline
@@ -1735,7 +1735,7 @@ New-bApplicationLicense [-LicenseKey] <string> [[-Count] <uint16>] [[-Offline] <
   Required : false
   PipelineInput : true (ByPropertyName)
   Aliases : None
-  ParameterValue : uint16
+  ParameterValue : ushort
   ```
 
 
@@ -1912,7 +1912,7 @@ New-bApplicationUserSettings -install [-baramundiDeployScript <string>] [-validF
 
 ### New-bAutFileRule
 ```
-New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CRC <uint64>] [-Version <string>] [-Company <string>] [-ProductName <string>] [-ProductVersion <string>] [-InternalName <string>] [-Language <string>] [-FileDescription <string>] [-FileVersionNumeric <string>] [-CommandLine <string>] [<CommonParameters>]
+New-bAutFileRule [-FileName <string>] [-FileSize <ulong>] [-Date <string>] [-CRC <ulong>] [-Version <string>] [-Company <string>] [-ProductName <string>] [-ProductVersion <string>] [-InternalName <string>] [-Language <string>] [-FileDescription <string>] [-FileVersionNumeric <string>] [-CommandLine <string>] [<CommonParameters>]
 ```
 #### Parameters
 
@@ -1940,7 +1940,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Required : false
   PipelineInput : true (ByPropertyName)
   Aliases : None
-  ParameterValue : uint64
+  ParameterValue : ulong
   ```
 
 * Date
@@ -1976,7 +1976,7 @@ New-bAutFileRule [-FileName <string>] [-FileSize <uint64>] [-Date <string>] [-CR
   Required : false
   PipelineInput : true (ByPropertyName)
   Aliases : None
-  ParameterValue : uint64
+  ParameterValue : ulong
   ```
 
 * FileVersionNumeric
@@ -2090,9 +2090,9 @@ New-bDynamicGroup [-Name] <string> [-Statement] <string> [-ParentId <guid>] [-Co
 
 ### New-bEndpoint
 ```
-New-bEndpoint -update [-DisplayName <string>] [-Type <Type>] [-GuidOrgUnit <guid>] [-Comments <string>] [-PrimaryUser <string>] [-Hostname <string>] [-Domain <string>] [-Options <uint32>] [-PrimaryMac <string>] [-GuidHardwareProfile <guid>] [-GuidBootEnvironment <guid>] [-UserCategory <string>] [-Owner <Owner>] [-ComplianceCheckCategory <ComplianceCheckCategory>] [-ComplianceCheckDisabledFrom <datetime>] [-ComplianceCheckDisabledUntil <datetime>] [-SerialNumber <string>] [-PublicKey <string>] [-ExtendedInternetMode] [-Mode <Mode>] [<CommonParameters>]
+New-bEndpoint -update [-DisplayName <string>] [-Type <Type>] [-GuidOrgUnit <guid>] [-Comments <string>] [-PrimaryUser <string>] [-Hostname <string>] [-Domain <string>] [-Options <uint>] [-PrimaryMac <string>] [-GuidHardwareProfile <guid>] [-GuidBootEnvironment <guid>] [-UserCategory <string>] [-Owner <Owner>] [-ComplianceCheckCategory <ComplianceCheckCategory>] [-ComplianceCheckDisabledFrom <datetime>] [-ComplianceCheckDisabledUntil <datetime>] [-SerialNumber <string>] [-PublicKey <string>] [-ExtendedInternetMode] [-Mode <Mode>] [<CommonParameters>]
 
-New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Comments <string>] [-PrimaryUser <string>] [-Hostname <string>] [-Domain <string>] [-Options <uint32>] [-PrimaryMac <string>] [-GuidHardwareProfile <guid>] [-GuidBootEnvironment <guid>] [-UserCategory <string>] [-Owner <Owner>] [-ComplianceCheckCategory <ComplianceCheckCategory>] [-ComplianceCheckDisabledFrom <datetime>] [-ComplianceCheckDisabledUntil <datetime>] [-SerialNumber <string>] [-PublicKey <string>] [-ExtendedInternetMode] [-Mode <Mode>] [<CommonParameters>]
+New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Comments <string>] [-PrimaryUser <string>] [-Hostname <string>] [-Domain <string>] [-Options <uint>] [-PrimaryMac <string>] [-GuidHardwareProfile <guid>] [-GuidBootEnvironment <guid>] [-UserCategory <string>] [-Owner <Owner>] [-ComplianceCheckCategory <ComplianceCheckCategory>] [-ComplianceCheckDisabledFrom <datetime>] [-ComplianceCheckDisabledUntil <datetime>] [-SerialNumber <string>] [-PublicKey <string>] [-ExtendedInternetMode] [-Mode <Mode>] [<CommonParameters>]
 ```
 #### Parameters
 
@@ -2219,7 +2219,7 @@ New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Com
   Required : false
   PipelineInput : true (ByPropertyName)
   Aliases : None
-  ParameterValue : uint32
+  ParameterValue : uint
   ```
 
 * Owner
@@ -2538,7 +2538,9 @@ New-bStaticGroup [-Name] <string> [-ParentId <guid>] [-EndpointIds <guid[]>] [-C
 
 ### New-bVariable
 ```
-New-bVariable [-Category] <string> [-Name] <string> [[-Value] <string>] [-UseDefault] [<CommonParameters>]
+New-bVariable [-Category] <string> [-Name] <string> [[-Value] <string>] [-Type <Type>] [<CommonParameters>]
+
+New-bVariable [-Category] <string> [-Name] <string> -UseDefault [-Type <Type>] [<CommonParameters>]
 ```
 #### Parameters
 
@@ -2569,10 +2571,19 @@ New-bVariable [-Category] <string> [-Name] <string> [[-Value] <string>] [-UseDef
   ParameterValue : string
   ```
 
-* UseDefault
+* Type
   ```
   Position : Named
   Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : None
+  ParameterValue : Type
+  ```
+
+* UseDefault
+  ```
+  Position : Named
+  Required : true
   PipelineInput : true (ByPropertyName)
   Aliases : None
   ParameterValue : 
