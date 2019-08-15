@@ -65,9 +65,9 @@ function Get-Variable {
 function Set-Variable {
     [cmdletbinding()]param(
         [Parameter(Mandatory,Position=0,ValueFromPipelineByPropertyName)]
-            [Alias('Id')][guid]$ObjectId,
-        [Parameter(Mandatory,Position=1,ValueFromPipelineByPropertyName)]
             [bConnect.Variable.Scope]$Scope,
+        [Parameter(Mandatory,Position=1,ValueFromPipelineByPropertyName)]
+            [Alias('Id')][guid]$ObjectId,
         [Parameter(Mandatory,Position=2,ValueFromPipelineByPropertyName)]
             [object[]]$Variables
     )
@@ -87,6 +87,7 @@ function Set-Variable {
         Invoke-Connect -Controller Search -Parameters $PSBoundParameters
     }
 }#>
+
 [System.Enum]::GetNames('bConnect.Search.Type')|% {
     . searchable $_
 }
