@@ -47,7 +47,7 @@ function toc () {
     syntax Clear-bConnect 3
     ""
     "## Commands by Controller"
-    ( Get-Command -Module bConnect |? {$_ -notmatch '^(New|Merge|Expand|Search|Initialize)-'}|
+    ( Get-Command -Module bConnect |? {$_ -notmatch '^(New|Merge|Expand|Search|Initialize|Clear)-'}|
     Sort-Object Noun,Verb|Group-Object Noun
     ) | % {
         ""

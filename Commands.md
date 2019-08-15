@@ -283,15 +283,6 @@ Get-bBootEnvironment [-Id] <guid> [<CommonParameters>]
 
 
 
-### Controller Connect
-#### Clear-bConnect
-```
-Clear-bConnect [<CommonParameters>]
-```
-##### Parameters
-
-
-
 ### Controller DynamicGroup
 #### Add-bDynamicGroup
 ```
