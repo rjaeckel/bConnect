@@ -71,7 +71,7 @@ Function Invoke-Connect {
                      "InventoryDataRegistryScans","InventoryDataFileScans","InventoryDataWMIScans","InventoryDataCustomScans","InventoryDataSNMPScans",`
                      "InventoryDataHardwareScans","InventoryOverviews","InventoryAppScans","SoftwareScanRules","EndpointInvSoftware")]
             [string]$controller,
-        [ValidateSet("json","xml")]
+        [ValidateSet( "json" )] #, "xml")]
             [string]$format="json",
         [Parameter(Position=1)]
         [ValidateSet("get","post","put","patch","delete")]
@@ -87,8 +87,15 @@ Function Invoke-Connect {
         
         
     )
-    $paramStr=($Parameters.keys|? {$_ -inotin ([System.Management.Automation.PSCmdlet]::CommonParameters)}|% {"{0}={1}" -F $_,$Parameters.$_}) -join "&"
+    $paramStr=($Parameters.keys|? {$_ -inotin $Script:IgnoreParameters}|% {"{0}={1}" -F $_,$Parameters.$_}) -join "&"
     [uri]$uri="$ApiRoot/v$bConnectVersion/$controller.$($format,$paramStr -join '?')"
     ### Achtung ohne klammern funktioniert mind. bei json-format das filtern �ber die pipeline nicht!!!
-    (Invoke-RestMethod -Method $method -Uri $uri -Body (&("ConvertTo-$format") $data) -ContentType "application/$format")
+    [string]$data_json = (& "ConvertTo-$format" $data -EnumsAsStrings -Compress)
+    $data_json|Write-Host -ForegroundColor Magenta  -ea Ignore
+    #$PSDefaultParameterValues | Out-Host
+
+    $res=(Invoke-RestMethod -Method $method -Uri $uri -Body $data_json -ContentType "application/$format")
+    $res|convertto-json -Compress|write-host -ForegroundColor Cyan -ea Ignore
+    #$res|out-host #-ForegroundColor Cyan -ea Ignore
+    $res
 }
