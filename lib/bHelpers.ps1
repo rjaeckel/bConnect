@@ -151,8 +151,10 @@ Function New-Variable {
     [cmdletbinding()]param(
         [Parameter(ValueFromPipelineByPropertyName,Mandatory,Position=0)][string]$Category,
         [Parameter(ValueFromPipelineByPropertyName,Mandatory,Position=1)][string]$Name,
-        [Parameter(ValueFromPipelineByPropertyName,Position=2)][string]$Value,
-        [Parameter(ValueFromPipelineByPropertyName)][switch]$UseDefault
+        [Parameter(ValueFromPipelineByPropertyName,Position=2,ParameterSetName='value')][string]$Value="",
+        [Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='defaults')][switch]$UseDefault,
+        [Parameter(ValueFromPipelineByPropertyName)][bConnect.Variable.Type]$Type="String"
+        
     )
     Process {
         New-Object psobject -Property $PSBoundParameters
@@ -191,6 +193,11 @@ Function New-Application {
     )
     $PSBoundParameters.Remove($PSCmdlet.ParameterSetName) > $null
     New-Object psobject -Property $PSBoundParameters
+    <#$object = New-Object psobject -Property $PSBoundParameters
+    if($object.ValidForOs) {
+        $object.ValidForOS = ,($object.ValidForOS |% toString)
+    }
+    $object#>
 
 }
 Function New-ApplicationFile {
