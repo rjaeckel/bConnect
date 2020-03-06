@@ -1,4 +1,9 @@
 
+function script:docComment {
+    param($Description)
+    # -- disabled as it breaks Command.md generation
+    #'<#','.NOTES',$Description,'#>' -join "`n"
+}
 function script:editable {
     param([parameter(Position=0)][string]$Controller,[string]$Ref='Id',
           [string]$Verb="Edit",[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
@@ -31,6 +36,7 @@ function script:addibleGet {
     )
     process {
         . ([scriptblock]::Create(
+            #(script:docComment "Add $Noun using GET")+
             "function $CmdName{[cmdletbinding()]"+"param("+
             ((&{
                 $ParamNames|% {"[Parameter(Mandatory,ValueFromPipelineByPropertyName)][guid]`${0}" -F $_}
@@ -45,14 +51,18 @@ Set-Alias addable script:addibleGet -Scope script
 function script:addible {
     param([parameter(Position=0)][string]$Controller,
         [string]$Verb="Add",[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
-        [string]$CmdName="$Verb-$Noun"
+        [string]$CmdName="$Verb-$Noun",
+        [string[]]$ParamNames=@()
     )
     process {
     . ([scriptblock]::Create(
+        #(script:docComment "Add $Noun using POST")+
         "function $CmdName {[cmdletbinding()]param("+
-        "[Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=0)]"+
-        "`$InputObject"+
-        ")process {`$InputObject|Invoke-Connect -Method post -Controller $Controller }}"
+        ((&{
+            $ParamNames |% {"[Parameter(Mandatory,ValueFromPipelineByPropertyName)][string]`${0}" -F $_ }
+            if(-not $ParamNames.Count) { "[Parameter(ValueFromPipelineByPropertyName,ValueFromPipeline,Mandatory)]`$InputObject" }
+        }) -join ',') +
+        ")process {`$InputObject|Invoke-Connect -Method post -Controller $Controller -Parameters `$PSBoundParameters }}"
     ))
     }
 }
@@ -63,6 +73,7 @@ function script:setableGet {
           [string]$CmdName="$Verb-$Noun")
     process {
         . ([scriptblock]::Create(
+            #(script:docComment "Set $Noun using GET")+
             "function $CmdName{[cmdletbinding()]"+"param("+
             ((&{
                 "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]`$$Ref"
@@ -80,6 +91,7 @@ function script:setable {
     )
     process {
     . ([scriptblock]::Create(
+        #(script:docComment "Set $Noun using PATCH")+
         "function $CmdName {[cmdletbinding()]param("+
         "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)]"+
         "[guid]`$$Ref,"+
@@ -96,6 +108,7 @@ function script:removable {
           [string]$CmdName="$Verb-$Noun")
     process {
         . ([scriptblock]::Create(
+            #(script:docComment "Remove $Noun using DELETE")+
             "function $CmdName{[cmdletbinding()]"+"param("+
             "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]`$$Ref"+
             ")process{Invoke-Connect -Method delete -Controller $Controller -Parameters `$PSBoundParameters}}"
@@ -113,6 +126,7 @@ function script:gettable {
     process {
         if($ParamNames.Count) { $first=$ParamNames[0] }
         . ([scriptblock]::Create(
+            #(script:docComment "Get $Controller using GET")+
             "function $CmdName{[cmdletbinding(DefaultParameterSetName='By$preferred')]"+"param("+
             ((&{
                 $ParamNames|% {"[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='By{0}'$(
@@ -132,6 +146,7 @@ function script:getableTpl {
     )
     process {
         . ([scriptblock]::Create(
+            #(script:docComment "List $Noun using GET")+
             "function $CmdName {[cmdletbinding(DefaultParameterSetName='all')]param("+
             ((&{
                 "
@@ -160,7 +175,9 @@ function script:getableTpl {
 }
 function script:searchable {
     param([bConnect.Search.Type]$Type)
-    . ([scriptblock]::Create(@"
+    . ([scriptblock]::Create(
+        #(script:docComment "Search $Type using GET")+    
+        @"
 function Search-$Type {
     [cmdletbinding()]
     param(

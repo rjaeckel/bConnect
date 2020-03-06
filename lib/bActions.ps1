@@ -1,26 +1,35 @@
 
 "OrgUnits","DynamicGroups","StaticGroups" |% {
-    . getable $_ -ParamNames Id,OrgUnit
+    . getable  $_ -ParamNames Id,OrgUnit
     . editable $_ 
 }
 "Endpoints" |% {
-    . getable $_ -ParamNames Id,OrgUnit,DynamicGroup,StaticGroup -CommonFlags PubKey,InstalledSoftware,SnmpData
+    . getable  $_ -ParamNames Id,OrgUnit,DynamicGroup,StaticGroup,User `
+                  -CommonFlags PubKey,InstalledSoftware,SnmpData
     . editable $_
 }
 "Jobs" |% {
-    . getable $_ -ParamNames Id,OrgUnit -CommonFlags Steps
+    . getable  $_ -ParamNames Id,OrgUnit,User `
+                  -CommonFlags Steps
+                  
+    # todo: create,delete,patch -functionality #2019R1
 }
 "JobInstances" |% {
-    . getable    $_ -ParamNames Id,EndpointId,JobId -CommonFlags Steps
-    . setableGet    $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
+    . getable    $_ -ParamNames Id,EndpointId,JobId `
+                    -CommonFlags Steps
+    . setableGet $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
     . deletable  $_
-    . addable    $_ -ParamNames EndpointId,JobId -CommonFlags StartIfExists
+    . addable    $_ -ParamNames EndpointId,JobId `
+                    -CommonFlags StartIfExists
+    # todo: user-functionality #2019R1
 }
 "HardwareProfiles","BootEnvironment" |% {
     . getable $_ -ParamNames Id
 }
 
-"Apps","Applications" |% { . getable $_ -ParamNames Id,OrgUnit,EndpointId }
+"Apps","Applications" |% {
+    . getable $_ -ParamNames Id,OrgUnit,EndpointId
+}
 
 "Applications" |% {
     . editable $_
@@ -43,6 +52,13 @@
 }
 "SoftwareScanRules","EndpointInvSoftware","../Version","../Info"  |% {
     . getable $_
+}
+"KioskJobs" |% {
+    . getable $_ -ParamNames JobDefinitionId,EndpointId,GroupId,User -Preferred JobDefinitionId
+    . addible $_ -ParamNames JobDefinitionId,TargetId
+    . removable $_ -Ref KioskJobId
+    #. setableGet $_ -Ref JobDefinitionId -SetParameters '[parameter(Mandatory)][string]$TargetId'
+    ## add!!
 }
 
 
@@ -75,18 +91,6 @@ function Set-Variable {
         $PSBoundParameters|Invoke-Connect -Method Put -Controller Variables
     }
 }
-
-<#function Search-Connect {
-    [cmdletbinding()]param(
-        [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)]
-            [bConnect.Search.Type]$Type,
-        [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=1)]
-            [ValidateLength(2,255)][string]$Term
-    )
-    process{
-        Invoke-Connect -Controller Search -Parameters $PSBoundParameters
-    }
-}#>
 
 [System.Enum]::GetNames('bConnect.Search.Type')|% {
     . searchable $_

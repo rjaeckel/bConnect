@@ -1,9 +1,12 @@
 Import-Module ./bConnect.psd1 -Force
+
+
 function syntax ($cmd,$header=4) {
     '#'*$header+" "+$cmd
     '```'
     (Get-Help $cmd).Synopsis.trim()
     '```'
+    (Get-Help $cmd).Description
     '#'+('#'*$header)+" Parameters"
     ""
     params $cmd

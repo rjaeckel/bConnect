@@ -35,38 +35,41 @@
 * [Get-bJobInstance](#get-bjobinstance) ( *[Parameters](#parameters-32)* )
 * [Remove-bJobInstance](#remove-bjobinstance) ( *[Parameters](#parameters-33)* )
 * [Set-bJobInstance](#set-bjobinstance) ( *[Parameters](#parameters-34)* )
-* [Add-bOrgUnit](#add-borgunit) ( *[Parameters](#parameters-35)* )
-* [Get-bOrgUnit](#get-borgunit) ( *[Parameters](#parameters-36)* )
-* [Remove-bOrgUnit](#remove-borgunit) ( *[Parameters](#parameters-37)* )
-* [Set-bOrgUnit](#set-borgunit) ( *[Parameters](#parameters-38)* )
-* [Get-bSoftwareScanRule](#get-bsoftwarescanrule) ( *[Parameters](#parameters-39)* )
-* [Add-bStaticGroup](#add-bstaticgroup) ( *[Parameters](#parameters-40)* )
-* [Get-bStaticGroup](#get-bstaticgroup) ( *[Parameters](#parameters-41)* )
-* [Remove-bStaticGroup](#remove-bstaticgroup) ( *[Parameters](#parameters-42)* )
-* [Set-bStaticGroup](#set-bstaticgroup) ( *[Parameters](#parameters-43)* )
-* [Get-bVariable](#get-bvariable) ( *[Parameters](#parameters-44)* )
-* [Set-bVariable](#set-bvariable) ( *[Parameters](#parameters-45)* )
-* [Get-bVersion](#get-bversion) ( *[Parameters](#parameters-46)* )
-* [Search-bEndpoint](#search-bendpoint) ( *[Parameters](#parameters-47)* )
-* [Search-bGroup](#search-bgroup) ( *[Parameters](#parameters-48)* )
-* [Search-bJob](#search-bjob) ( *[Parameters](#parameters-49)* )
-* [Search-bOrgUnit](#search-borgunit) ( *[Parameters](#parameters-50)* )
-* [Search-bSoftware](#search-bsoftware) ( *[Parameters](#parameters-51)* )
-* [Expand-bEndpointOptions](#expand-bendpointoptions) ( *[Parameters](#parameters-52)* )
-* [Merge-bEndpointOptions](#merge-bendpointoptions) ( *[Parameters](#parameters-53)* )
-* [New-bApplication](#new-bapplication) ( *[Parameters](#parameters-54)* )
-* [New-bApplicationData](#new-bapplicationdata) ( *[Parameters](#parameters-55)* )
-* [New-bApplicationFile](#new-bapplicationfile) ( *[Parameters](#parameters-56)* )
-* [New-bApplicationLicense](#new-bapplicationlicense) ( *[Parameters](#parameters-57)* )
-* [New-bApplicationOption](#new-bapplicationoption) ( *[Parameters](#parameters-58)* )
-* [New-bApplicationUserSettings](#new-bapplicationusersettings) ( *[Parameters](#parameters-59)* )
-* [New-bAutFileRule](#new-bautfilerule) ( *[Parameters](#parameters-60)* )
-* [New-bDynamicGroup](#new-bdynamicgroup) ( *[Parameters](#parameters-61)* )
-* [New-bEndpoint](#new-bendpoint) ( *[Parameters](#parameters-62)* )
-* [New-bOrgUnit](#new-borgunit) ( *[Parameters](#parameters-63)* )
-* [New-bOrgUnitExtension](#new-borgunitextension) ( *[Parameters](#parameters-64)* )
-* [New-bStaticGroup](#new-bstaticgroup) ( *[Parameters](#parameters-65)* )
-* [New-bVariable](#new-bvariable) ( *[Parameters](#parameters-66)* )
+* [Add-bKioskJob](#add-bkioskjob) ( *[Parameters](#parameters-35)* )
+* [Get-bKioskJob](#get-bkioskjob) ( *[Parameters](#parameters-36)* )
+* [Remove-bKioskJob](#remove-bkioskjob) ( *[Parameters](#parameters-37)* )
+* [Add-bOrgUnit](#add-borgunit) ( *[Parameters](#parameters-38)* )
+* [Get-bOrgUnit](#get-borgunit) ( *[Parameters](#parameters-39)* )
+* [Remove-bOrgUnit](#remove-borgunit) ( *[Parameters](#parameters-40)* )
+* [Set-bOrgUnit](#set-borgunit) ( *[Parameters](#parameters-41)* )
+* [Get-bSoftwareScanRule](#get-bsoftwarescanrule) ( *[Parameters](#parameters-42)* )
+* [Add-bStaticGroup](#add-bstaticgroup) ( *[Parameters](#parameters-43)* )
+* [Get-bStaticGroup](#get-bstaticgroup) ( *[Parameters](#parameters-44)* )
+* [Remove-bStaticGroup](#remove-bstaticgroup) ( *[Parameters](#parameters-45)* )
+* [Set-bStaticGroup](#set-bstaticgroup) ( *[Parameters](#parameters-46)* )
+* [Get-bVariable](#get-bvariable) ( *[Parameters](#parameters-47)* )
+* [Set-bVariable](#set-bvariable) ( *[Parameters](#parameters-48)* )
+* [Get-bVersion](#get-bversion) ( *[Parameters](#parameters-49)* )
+* [Search-bEndpoint](#search-bendpoint) ( *[Parameters](#parameters-50)* )
+* [Search-bGroup](#search-bgroup) ( *[Parameters](#parameters-51)* )
+* [Search-bJob](#search-bjob) ( *[Parameters](#parameters-52)* )
+* [Search-bOrgUnit](#search-borgunit) ( *[Parameters](#parameters-53)* )
+* [Search-bSoftware](#search-bsoftware) ( *[Parameters](#parameters-54)* )
+* [Expand-bEndpointOptions](#expand-bendpointoptions) ( *[Parameters](#parameters-55)* )
+* [Merge-bEndpointOptions](#merge-bendpointoptions) ( *[Parameters](#parameters-56)* )
+* [New-bApplication](#new-bapplication) ( *[Parameters](#parameters-57)* )
+* [New-bApplicationData](#new-bapplicationdata) ( *[Parameters](#parameters-58)* )
+* [New-bApplicationFile](#new-bapplicationfile) ( *[Parameters](#parameters-59)* )
+* [New-bApplicationLicense](#new-bapplicationlicense) ( *[Parameters](#parameters-60)* )
+* [New-bApplicationOption](#new-bapplicationoption) ( *[Parameters](#parameters-61)* )
+* [New-bApplicationUserSettings](#new-bapplicationusersettings) ( *[Parameters](#parameters-62)* )
+* [New-bAutFileRule](#new-bautfilerule) ( *[Parameters](#parameters-63)* )
+* [New-bDynamicGroup](#new-bdynamicgroup) ( *[Parameters](#parameters-64)* )
+* [New-bEndpoint](#new-bendpoint) ( *[Parameters](#parameters-65)* )
+* [New-bOrgUnit](#new-borgunit) ( *[Parameters](#parameters-66)* )
+* [New-bOrgUnitExtension](#new-borgunitextension) ( *[Parameters](#parameters-67)* )
+* [New-bStaticGroup](#new-bstaticgroup) ( *[Parameters](#parameters-68)* )
+* [New-bVariable](#new-bvariable) ( *[Parameters](#parameters-69)* )
 
 ## Initialize
 ### Initialize-bConnect
@@ -399,6 +402,8 @@ Get-bEndpoint -OrgUnit <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<Commo
 Get-bEndpoint -DynamicGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
 
 Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
+
+Get-bEndpoint -User <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
 ```
 ##### Parameters
 
@@ -457,6 +462,15 @@ Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<C
   ```
 
 * StaticGroup
+  ```
+  Position : Named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : None
+  ParameterValue : guid
+  ```
+
+* User
   ```
   Position : Named
   Required : true
@@ -862,6 +876,8 @@ Get-bJob [-Steps] [<CommonParameters>]
 Get-bJob [-Id] <guid> [-Steps] [<CommonParameters>]
 
 Get-bJob -OrgUnit <guid> [-Steps] [<CommonParameters>]
+
+Get-bJob -User <guid> [-Steps] [<CommonParameters>]
 ```
 ##### Parameters
 
@@ -884,6 +900,15 @@ Get-bJob -OrgUnit <guid> [-Steps] [<CommonParameters>]
   ```
 
 * OrgUnit
+  ```
+  Position : Named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : None
+  ParameterValue : guid
+  ```
+
+* User
   ```
   Position : Named
   Required : true
@@ -1016,6 +1041,98 @@ Set-bJobInstance [-Id] <guid> -cmd <Action> [<CommonParameters>]
   PipelineInput : false
   Aliases : None
   ParameterValue : Action
+  ```
+
+
+
+### Controller KioskJob
+#### Add-bKioskJob
+```
+Add-bKioskJob [-JobDefinitionId] <string> [-TargetId] <string> [<CommonParameters>]
+```
+##### Parameters
+
+* JobDefinitionId
+  ```
+  Position : 0
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : None
+  ParameterValue : string
+  ```
+
+* TargetId
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : None
+  ParameterValue : string
+  ```
+
+
+#### Get-bKioskJob
+```
+Get-bKioskJob [-JobDefinitionId] <guid> [<CommonParameters>]
+
+Get-bKioskJob -EndpointId <guid> [<CommonParameters>]
+
+Get-bKioskJob -GroupId <guid> [<CommonParameters>]
+
+Get-bKioskJob -User <guid> [<CommonParameters>]
+```
+##### Parameters
+
+* JobDefinitionId
+  ```
+  Position : 0
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : None
+  ParameterValue : guid
+  ```
+
+* EndpointId
+  ```
+  Position : Named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : None
+  ParameterValue : guid
+  ```
+
+* GroupId
+  ```
+  Position : Named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : None
+  ParameterValue : guid
+  ```
+
+* User
+  ```
+  Position : Named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : None
+  ParameterValue : guid
+  ```
+
+
+#### Remove-bKioskJob
+```
+Remove-bKioskJob [-KioskJobId] <guid> [<CommonParameters>]
+```
+##### Parameters
+
+* KioskJobId
+  ```
+  Position : 0
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : None
+  ParameterValue : guid
   ```
 
 

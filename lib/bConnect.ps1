@@ -67,12 +67,12 @@ Function Invoke-Connect {
     [cmdletbinding(PositionalBinding=$false)]param(
         [Parameter(Mandatory,Position=0)]
         [ValidateSet("../Version","../Info","Search","OrgUnits","DynamicGroups","StaticGroups","Endpoints","Jobs","JobInstances",`
-                     "HardwareProfiles","BootEnvironment","Variables","Apps","Icons","Applications",`
+                     "HardwareProfiles","BootEnvironment","Variables","Apps","Icons","Applications","KioskJobs",`
                      "InventoryDataRegistryScans","InventoryDataFileScans","InventoryDataWMIScans","InventoryDataCustomScans","InventoryDataSNMPScans",`
                      "InventoryDataHardwareScans","InventoryOverviews","InventoryAppScans","SoftwareScanRules","EndpointInvSoftware")]
             [string]$controller,
-        [ValidateSet( "json" )] #, "xml")]
-            [string]$format="json",
+        <#[ValidateSet( "json" )] #, "xml")]
+            [string]$format="json",#>
         [Parameter(Position=1)]
         [ValidateSet("get","post","put","patch","delete")]
             [string]$method="get",
@@ -87,15 +87,17 @@ Function Invoke-Connect {
         
         
     )
-    $paramStr=($Parameters.keys|? {$_ -inotin $Script:IgnoreParameters}|% {"{0}={1}" -F $_,$Parameters.$_}) -join "&"
-    [uri]$uri="$ApiRoot/v$bConnectVersion/$controller.$($format,$paramStr -join '?')"
+    $paramStr=($Parameters.keys|? {$_ -inotin ([System.Management.Automation.PSCmdlet]::CommonParameters)}|% {"{0}={1}" -F $_,$Parameters.$_}) -join "&"
+    [uri]$uri="$ApiRoot/v$bConnectVersion/$controller.json?$paramStr"
     ### Achtung ohne klammern funktioniert mind. bei json-format das filtern �ber die pipeline nicht!!!
-    [string]$data_json = (& "ConvertTo-$format" $data -EnumsAsStrings -Compress)
-    $data_json|Write-Host -ForegroundColor Magenta  -ea Ignore
-    #$PSDefaultParameterValues | Out-Host
-
-    $res=(Invoke-RestMethod -Method $method -Uri $uri -Body $data_json -ContentType "application/$format")
-    $res|convertto-json -Compress|write-host -ForegroundColor Cyan -ea Ignore
+    [string]$data_json = ConvertTo-Json $Data -EnumsAsStrings -Compress
+    "$($method.ToUpper()) $uri" | Write-Verbose
+    $res=(Invoke-RestMethod -Method $method -Uri $uri -Body $data_json -ContentType "application/json" -Verbose:$false)
+    
+    #    if($data_json) { "_${data_json}_"|Write-Host -ForegroundColor Magenta  -ea Ignore }
+    #    if($res) {$res|convertto-json -Compress |write-host -ForegroundColor Cyan -ea Ignore }
+    
+    
     #$res|out-host #-ForegroundColor Cyan -ea Ignore
     $res
 }
