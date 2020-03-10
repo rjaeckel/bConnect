@@ -64,8 +64,13 @@ function script:addible {
         ((&{
             $ParamNames |% {"[Parameter(Mandatory,ValueFromPipelineByPropertyName)][string]`${0}" -F $_ }
             if(-not $ParamNames.Count) { "[Parameter(ValueFromPipelineByPropertyName,ValueFromPipeline,Mandatory)]`$InputObject" }
-        }) -join ',') +
-        ")process {`$InputObject|Invoke-Connect -Method post -Controller $Controller -Parameters `$PSBoundParameters }}"
+        }) -join ',') + @"
+)
+process {
+    'InputObject'| % { if(`$PSBoundParameters.`$_){`$PSBoundParameters.Remove(`$_)>`$null; }}
+    `$InputObject|Invoke-Connect -Method post -Controller $Controller -Parameters `$PSBoundParameters
+}}
+"@
     ))
     }
 }
