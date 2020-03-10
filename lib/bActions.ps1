@@ -63,6 +63,10 @@
 
 
 function Get-Variable {
+    <#
+    .Synopsis
+    Get variables defined in specific Object-Scope (Client, Software, ...)
+    #>
     [cmdletbinding(DefaultParameterSetName='ByAny')]param(
         [parameter(ValueFromPipelineByPropertyName,Position=0,Mandatory)]
             [bConnect.Variable.Scope]$Scope,
@@ -79,6 +83,10 @@ function Get-Variable {
     }
 }
 function Set-Variable {
+    <#
+    .Synopsis
+    Set variables on specific Object (Client, Software, ...)
+    #>
     [cmdletbinding()]param(
         [Parameter(Mandatory,Position=0,ValueFromPipelineByPropertyName)]
             [bConnect.Variable.Scope]$Scope,
@@ -97,6 +105,10 @@ function Set-Variable {
 }
 
 function Get-Icon {
+    <#
+    .Synopsis
+    TODO
+    #>
     [cmdletbinding(DefaultParameterSetName='ByAny')]param(
         [Parameter(Mandatory,ParameterSetName='ByAppId',ValueFromPipeline,ValueFromPipelineByPropertyName)]
             [Alias('Id')][guid]$AppId,

@@ -1,4 +1,8 @@
 Function Script:Get_ConnectCredentials {
+    <#
+    .Synopsis
+    internal
+    #>
     [cmdletbinding()]param (
         [string]$UserName=($env:USERNAME,$env:USERDOMAIN -join '@')
     )
@@ -6,12 +10,20 @@ Function Script:Get_ConnectCredentials {
     Get-Credential -UserName $UserName -Message "bConnect API Credentials"
 }
 function Clear-Connect {
+    <#
+    .Synopsis
+    Clear the memory from your server connection
+    #>
     [CmdletBinding()]param()
     process {
         $PSDefaultParameterValues.Clear()
     }
 }
 Function Test-Connect {
+    <#
+    .Synopsis
+    Verify the version of the server against your scripts
+    #>
     [cmdletbinding(PositionalBinding=$false)]
     param(
         [version]$bMSVersion="17.1.230.0",
@@ -31,6 +43,10 @@ Function Test-Connect {
     }
 }
 Function Initialize-Connect {
+    <#
+    .Synopsis
+    Setup this module for use against your server
+    #>
     [CmdletBinding()]param(
         [Parameter(ValueFromPipelineByPropertyName,Mandatory)]
           [string][Alias('Host','Server')]$HostName,
@@ -64,6 +80,10 @@ Function Initialize-Connect {
     }
 }
 Function Invoke-Connect {
+    <#
+    .Synopsis
+    (internal) Invoke webrequest against bConnect API
+    #>
     [cmdletbinding(PositionalBinding=$false)]param(
         [Parameter(Mandatory,Position=0)]
         [ValidateSet("../Version","../Info","Search","OrgUnits","DynamicGroups","StaticGroups","Endpoints","Jobs","JobInstances",`

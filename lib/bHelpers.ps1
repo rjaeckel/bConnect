@@ -1,7 +1,18 @@
-Function Script:Test-MacAddr([Parameter(Mandatory,ValueFromPipeline)][string]$MAC) {
+Function Script:Test-MacAddr(
+    <#
+    .Synopsis
+    (internal)
+    #>
+    
+    [Parameter(Mandatory,ValueFromPipeline)][string]$MAC) {
     Process { $MAC -match "\b[A-F0-9]{2}(?:\:[A-F0-9]{2}){5}\b" }
 }
 Function Script:ExpandEnumFlags {
+    <#
+    .Synopsis
+    (internal)
+    #>
+    
     [cmdletbinding()]param(
         [Parameter(Mandatory,Position=0)][ValidateScript({$_.BaseType -eq [System.Enum]})][type]$As,
         [Parameter(Mandatory,Position=1,ValueFromPipeline)][uint32]$Value
@@ -11,6 +22,11 @@ Function Script:ExpandEnumFlags {
     }
 }
 Function Expand-EndpointOptions {
+    <#
+    .Synopsis
+    Helper to split up EndpointOptions
+    #>
+
     [OutputType([bConnect.Endpoint.ClientOptions],[bConnect.Endpoint.UserJobOptions],[bConnect.Endpoint.PrimaryUserOptions])]
     [cmdletbinding()]param(
         [parameter(Mandatory,ValueFromPipeline,ValueFromPipelineByPropertyName)]
@@ -23,6 +39,11 @@ Function Expand-EndpointOptions {
     }
 }
 Function Merge-EndpointOptions {
+    <#
+    .Synopsis
+    Helper to join up EndpointOptions
+    #>
+
     [cmdletbinding()]param(
         [Parameter(ValueFromPipeline)]
         [bConnect.Endpoint.ClientOptions]$ClientOptions,
@@ -44,6 +65,11 @@ Function Merge-EndpointOptions {
  #>
 
 Function New-OrgUnit {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding()]param(
         [parameter(ParameterSetName='update',Mandatory)][switch]$update,
 
@@ -62,6 +88,11 @@ Function New-OrgUnit {
     New-Object psobject -Property $PSBoundParameters
 }
 Function New-OrgUnitExtension {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding(PositionalBinding=$false)]param(
         [Parameter(ValueFromPipelineByPropertyName)][string]$DIP,
         [Parameter(ValueFromPipelineByPropertyName)][string]$Domain,
@@ -82,6 +113,11 @@ Function New-OrgUnitExtension {
     New-Object psobject -Property $PSBoundParameters
 }
 Function New-DynamicGroup {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding()]param(
         [Parameter(ParameterSetName='update',Mandatory)][switch]$update,
 
@@ -98,6 +134,11 @@ Function New-DynamicGroup {
     New-Object psobject -Property $PSBoundParameters
 }
 Function New-StaticGroup {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding()]param(
         [parameter(ParameterSetName='update',Mandatory)][switch]$update,
         [parameter(ValueFromPipelineByPropertyName,ParameterSetName='update')]
@@ -111,6 +152,11 @@ Function New-StaticGroup {
     New-Object psobject -Property $PSBoundParameters
 }
 Function New-Endpoint {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding()]param(
         [parameter(ParameterSetName='update',Mandatory)][switch]$update,
 
@@ -148,6 +194,11 @@ Function New-Endpoint {
     New-Object psobject -Property $PSBoundParameters
 }
 Function New-Variable {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding()]param(
         [Parameter(ValueFromPipelineByPropertyName,Mandatory,Position=0)][string]$Category,
         [Parameter(ValueFromPipelineByPropertyName,Mandatory,Position=1)][string]$Name,
@@ -162,6 +213,11 @@ Function New-Variable {
 }
 
 Function New-Application {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding()]param(
         [parameter(ParameterSetName='update',Mandatory)][switch]$update,
 
@@ -201,15 +257,27 @@ Function New-Application {
 
 }
 Function New-ApplicationFile {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding()]param(
         [parameter(ValueFromPipelineByPropertyName,Mandatory)][string]$Source,
-        [parameter(ValueFromPipelineByPropertyName,Mandatory)][bConnect.Application.FileType]$Type
+        [parameter(ValueFromPipelineByPropertyName,Mandatory)]
+        #[ValidateSet("File","FolderWithSubFolders","SingleFolder")]
+        [bConnect.Application.FileType]$Type
     )
     process {
         New-Object psobject -Property $PSBoundParameters
     }
 }
 Function New-ApplicationLicense {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding()]param(
         [parameter(Mandatory,ValueFromPipelineByPropertyName)][string]$LicenseKey,
         [parameter(ValueFromPipelineByPropertyName)][uint16]$Count=0,
@@ -220,6 +288,11 @@ Function New-ApplicationLicense {
     }
 }
 Function New-AutFileRule {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding(PositionalBinding=$false)]param(
         [parameter(ValueFromPipelineByPropertyName)][string]$FileName,
         [parameter(ValueFromPipelineByPropertyName)][uint64]$FileSize,
@@ -240,6 +313,11 @@ Function New-AutFileRule {
     }
 }
 Function New-ApplicationData {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding(DefaultParameterSetName='all')]param(
         [Parameter(Mandatory,ParameterSetName='install')][switch]$install,
         [parameter(ValueFromPipelineByPropertyName,Position=0)][string]$Command,
@@ -256,6 +334,11 @@ Function New-ApplicationData {
     }
 }
 Function New-ApplicationOption {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding(DefaultParameterSetName='all')]param(
         [Parameter(Mandatory,ParameterSetName='install')][switch]$install,
         [parameter(ValueFromPipelineByPropertyName)][bConnect.Application.RebootBehaviour]$RebootBehaviour,
@@ -276,6 +359,11 @@ Function New-ApplicationOption {
 }
 
 Function New-ApplicationUserSettings {
+    <#
+    .Synopsis
+    Creates draft object in memory
+    #>
+
     [cmdletbinding(DefaultParameterSetName='all')]param(
         [Parameter(Mandatory,ParameterSetName='install')][switch]$install,
         [parameter(ValueFromPipelineByPropertyName)][string]$baramundiDeployScript,

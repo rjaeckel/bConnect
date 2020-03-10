@@ -1,5 +1,4 @@
 # Cmdlets exported by this module
-
 * [Initialize-bConnect](#initialize-bconnect) ( *[Parameters](#parameters)* )
 * [Clear-bConnect](#clear-bconnect) ( *[Parameters](#parameters-1)* )
 * [Get-bApp](#get-bapp) ( *[Parameters](#parameters-2)* )
@@ -70,2631 +69,2045 @@
 * [New-bOrgUnitExtension](#new-borgunitextension) ( *[Parameters](#parameters-67)* )
 * [New-bStaticGroup](#new-bstaticgroup) ( *[Parameters](#parameters-68)* )
 * [New-bVariable](#new-bvariable) ( *[Parameters](#parameters-69)* )
-
 ## Initialize
 ### Initialize-bConnect
+> Setup this module for use against your server
 ```
-Initialize-bConnect [-HostName] <string> [[-UserName] <string>] [-Password] <securestring> [-SkipCertificateCheck] [<CommonParameters>]
+Initialize-bConnect [-HostName] <String> [[-UserName] <String>] [-Password] <SecureString> [-SkipCertificateCheck] [<CommonParameters>]
 ```
 #### Parameters
-
-* HostName
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : Host, Server
-  ParameterValue : string
-  ```
-
-* UserName
+* HostName `<String>`
   ```
   Position : 1
-  Required : false
-  PipelineInput : true (ByPropertyName)
-  Aliases : User
-  ParameterValue : string
-  ```
-
-* Password
-  ```
-  Position : 2
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : securestring
+  Aliases : 
   ```
-
-* SkipCertificateCheck
+* UserName `<String>`
   ```
-  Position : Named
+  Position : 2
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Password `<SecureString>`
+  ```
+  Position : 3
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* SkipCertificateCheck `<SwitchParameter>`
+  ```
+  Position : named
   Required : false
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 ### Clear-bConnect
+> Clear the memory from your server connection
 ```
 Clear-bConnect [<CommonParameters>]
 ```
 #### Parameters
-
-
-
 ## Commands by Controller
-
 ### Controller App
 #### Get-bApp
+> Get Apps using `GET`
 ```
 Get-bApp [<CommonParameters>]
-
-Get-bApp [-Id] <guid> [<CommonParameters>]
-
-Get-bApp -OrgUnit <guid> [<CommonParameters>]
-
-Get-bApp -EndpointId <guid> [<CommonParameters>]
+Get-bApp [-Id] <Guid> [<CommonParameters>]
+Get-bApp -OrgUnit <Guid> [<CommonParameters>]
+Get-bApp -EndpointId <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Id
+* Id `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* OrgUnit
+* OrgUnit `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
 ### Controller Application
 #### Add-bApplication
+> Add Application using `POST`. Use `New-bApplication` to create a draft object to pipe in.
 ```
 Add-bApplication [-InputObject] <Object> [<CommonParameters>]
 ```
 ##### Parameters
-
-* InputObject
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
-  ```
-
-
-#### Get-bApplication
-```
-Get-bApplication [<CommonParameters>]
-
-Get-bApplication [-Id] <guid> [<CommonParameters>]
-
-Get-bApplication -OrgUnit <guid> [<CommonParameters>]
-
-Get-bApplication -EndpointId <guid> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* EndpointId
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* OrgUnit
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Remove-bApplication
-```
-Remove-bApplication [-Id] <guid> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Set-bApplication
-```
-Set-bApplication [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* InputObject
+* InputObject `<Object>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
+  Aliases : 
   ```
-
-
-
-### Controller BootEnvironment
-#### Get-bBootEnvironment
+#### Get-bApplication
+> Get Applications using `GET`
 ```
-Get-bBootEnvironment [<CommonParameters>]
-
-Get-bBootEnvironment [-Id] <guid> [<CommonParameters>]
+Get-bApplication [<CommonParameters>]
+Get-bApplication [-Id] <Guid> [<CommonParameters>]
+Get-bApplication -OrgUnit <Guid> [<CommonParameters>]
+Get-bApplication -EndpointId <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Id
+* Id `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
+* EndpointId `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* OrgUnit `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Remove-bApplication
+> Remove Application using `DELETE`
+```
+Remove-bApplication [-Id] <Guid> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Set-bApplication
+> Set Application using `PATCH. Use `New-bApplication -update` to create a draft object to pipe in.
+```
+Set-bApplication [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+### Controller BootEnvironment
+#### Get-bBootEnvironment
+> Get BootEnvironment using `GET`
+```
+Get-bBootEnvironment [<CommonParameters>]
+Get-bBootEnvironment [-Id] <Guid> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
 ### Controller DynamicGroup
 #### Add-bDynamicGroup
+> Add DynamicGroup using `POST`. Use `New-bDynamicGroup` to create a draft object to pipe in.
 ```
 Add-bDynamicGroup [-InputObject] <Object> [<CommonParameters>]
 ```
 ##### Parameters
-
-* InputObject
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
-  ```
-
-
-#### Get-bDynamicGroup
-```
-Get-bDynamicGroup [<CommonParameters>]
-
-Get-bDynamicGroup [-Id] <guid> [<CommonParameters>]
-
-Get-bDynamicGroup -OrgUnit <guid> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* OrgUnit
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Remove-bDynamicGroup
-```
-Remove-bDynamicGroup [-Id] <guid> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Set-bDynamicGroup
-```
-Set-bDynamicGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* InputObject
+* InputObject `<Object>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
+  Aliases : 
   ```
-
-
-
+#### Get-bDynamicGroup
+> Get DynamicGroups using `GET`
+```
+Get-bDynamicGroup [<CommonParameters>]
+Get-bDynamicGroup [-Id] <Guid> [<CommonParameters>]
+Get-bDynamicGroup -OrgUnit <Guid> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+* OrgUnit `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Remove-bDynamicGroup
+> Remove DynamicGroup using `DELETE`
+```
+Remove-bDynamicGroup [-Id] <Guid> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Set-bDynamicGroup
+> Set DynamicGroup using `PATCH. Use `New-bDynamicGroup -update` to create a draft object to pipe in.
+```
+Set-bDynamicGroup [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
 ### Controller Endpoint
 #### Add-bEndpoint
+> Add Endpoint using `POST`. Use `New-bEndpoint` to create a draft object to pipe in.
 ```
 Add-bEndpoint [-InputObject] <Object> [<CommonParameters>]
 ```
 ##### Parameters
-
-* InputObject
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
-  ```
-
-
-#### Get-bEndpoint
-```
-Get-bEndpoint [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
-
-Get-bEndpoint [-Id] <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
-
-Get-bEndpoint -OrgUnit <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
-
-Get-bEndpoint -DynamicGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
-
-Get-bEndpoint -StaticGroup <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
-
-Get-bEndpoint -User <guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* InstalledSoftware
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ParameterValue : 
-  ```
-
-* PubKey
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ParameterValue : 
-  ```
-
-* SnmpData
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ParameterValue : 
-  ```
-
-* DynamicGroup
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* OrgUnit
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* StaticGroup
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* User
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Remove-bEndpoint
-```
-Remove-bEndpoint [-Id] <guid> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Set-bEndpoint
-```
-Set-bEndpoint [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* InputObject
+* InputObject `<Object>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
+  Aliases : 
   ```
-
-
-
+#### Get-bEndpoint
+> Get Endpoints using `GET`
+```
+Get-bEndpoint [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
+Get-bEndpoint [-Id] <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
+Get-bEndpoint -OrgUnit <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
+Get-bEndpoint -DynamicGroup <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
+Get-bEndpoint -StaticGroup <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
+Get-bEndpoint -User <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+* InstalledSoftware `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
+  Aliases : 
+  ```
+* PubKey `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
+  Aliases : 
+  ```
+* SnmpData `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
+  Aliases : 
+  ```
+* DynamicGroup `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* OrgUnit `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* StaticGroup `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* User `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Remove-bEndpoint
+> Remove Endpoint using `DELETE`
+```
+Remove-bEndpoint [-Id] <Guid> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Set-bEndpoint
+> Set Endpoint using `PATCH. Use `New-bEndpoint -update` to create a draft object to pipe in.
+```
+Set-bEndpoint [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
 ### Controller EndpointInvSoftware
 #### Get-bEndpointInvSoftware
+> Get EndpointInvSoftware using `GET`
 ```
 Get-bEndpointInvSoftware [<CommonParameters>]
 ```
 ##### Parameters
-
-
-
 ### Controller HardwareProfile
 #### Get-bHardwareProfile
+> Get HardwareProfiles using `GET`
 ```
 Get-bHardwareProfile [<CommonParameters>]
-
-Get-bHardwareProfile [-Id] <guid> [<CommonParameters>]
+Get-bHardwareProfile [-Id] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Id
+* Id `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
 ### Controller Icon
 #### Get-bIcon
+> TODO
 ```
 Get-bIcon [<CommonParameters>]
-
-Get-bIcon -AppId <guid> [<CommonParameters>]
-
-Get-bIcon -Scope <IconScope> [<CommonParameters>]
+Get-bIcon -AppId <Guid> [<CommonParameters>]
+Get-bIcon -Scope {App | Inventory} [<CommonParameters>]
 ```
 ##### Parameters
-
-* AppId
+* AppId `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : Id
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* Scope
+* Scope `<IconScope>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : IconScope
+  Aliases : 
   ```
-
-
-
 ### Controller Info
 #### Get-bInfo
+> Get ../Info using `GET`
 ```
 Get-bInfo [<CommonParameters>]
 ```
 ##### Parameters
-
-
-
 ### Controller InventoryAppScan
 #### Get-bInventoryAppScan
+> Get InventoryAppScans using `GET`
 ```
 Get-bInventoryAppScan [<CommonParameters>]
-
-Get-bInventoryAppScan [-EndpointId] <guid> [<CommonParameters>]
+Get-bInventoryAppScan [-EndpointId] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
 ### Controller InventoryDataCustomScan
 #### Get-bInventoryDataCustomScan
+> List InventoryDataCustomScans using `GET`
 ```
-Get-bInventoryDataCustomScan [-EndpointId <guid>] [-TemplateName <string>] [<CommonParameters>]
-
-Get-bInventoryDataCustomScan -Latest -TemplateName <string> [-EndpointId <guid>] [<CommonParameters>]
-
-Get-bInventoryDataCustomScan -EndpointId <guid> -TemplateName <string> -Scan <string> [<CommonParameters>]
+Get-bInventoryDataCustomScan [-EndpointId <Guid>] [-TemplateName <String>] [<CommonParameters>]
+Get-bInventoryDataCustomScan -Latest [-EndpointId <Guid>] -TemplateName <String> [<CommonParameters>]
+Get-bInventoryDataCustomScan -EndpointId <Guid> -TemplateName <String> -Scan <String> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : Named
-  Required : true
+  Position : named
+  Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : Id, Endpoint
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* Latest
+* TemplateName `<String>`
   ```
-  Position : Named
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Latest `<SwitchParameter>`
+  ```
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* Scan
+* Scan `<String>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : Time
-  ParameterValue : string
+  Aliases : 
   ```
-
-* TemplateName
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : Template
-  ParameterValue : string
-  ```
-
-
-
 ### Controller InventoryDataFileScan
 #### Get-bInventoryDataFileScan
+> Get InventoryDataFileScans using `GET`
 ```
 Get-bInventoryDataFileScan [<CommonParameters>]
-
-Get-bInventoryDataFileScan [-EndpointId] <guid> [<CommonParameters>]
+Get-bInventoryDataFileScan [-EndpointId] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
 #### Remove-bInventoryDataFileScan
+> Remove InventoryDataFileScan using `DELETE`
 ```
-Remove-bInventoryDataFileScan [-EndpointId] <guid> [<CommonParameters>]
+Remove-bInventoryDataFileScan [-EndpointId] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
 ### Controller InventoryDataHardwareScan
 #### Get-bInventoryDataHardwareScan
+> List InventoryDataHardwareScans using `GET`
 ```
-Get-bInventoryDataHardwareScan -EndpointId <guid> [-TemplateName <string>] [<CommonParameters>]
-
-Get-bInventoryDataHardwareScan -Latest -EndpointId <guid> -TemplateName <string> [<CommonParameters>]
-
-Get-bInventoryDataHardwareScan -EndpointId <guid> -TemplateName <string> -Scan <string> [<CommonParameters>]
+Get-bInventoryDataHardwareScan -EndpointId <Guid> [-TemplateName <String>] [<CommonParameters>]
+Get-bInventoryDataHardwareScan -Latest -EndpointId <Guid> -TemplateName <String> [<CommonParameters>]
+Get-bInventoryDataHardwareScan -EndpointId <Guid> -TemplateName <String> -Scan <String> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* TemplateName `<String>`
   ```
-  Position : Named
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* EndpointId `<Guid>`
+  ```
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : Id, Endpoint
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* Latest
+* Latest `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* Scan
+* Scan `<String>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : Time
-  ParameterValue : string
+  Aliases : 
   ```
-
-* TemplateName
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : Template
-  ParameterValue : string
-  ```
-
-
-
 ### Controller InventoryDataRegistryScan
 #### Get-bInventoryDataRegistryScan
+> Get InventoryDataRegistryScans using `GET`
 ```
 Get-bInventoryDataRegistryScan [<CommonParameters>]
-
-Get-bInventoryDataRegistryScan [-EndpointId] <guid> [<CommonParameters>]
+Get-bInventoryDataRegistryScan [-EndpointId] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
 #### Remove-bInventoryDataRegistryScan
+> Remove InventoryDataRegistryScan using `DELETE`
 ```
-Remove-bInventoryDataRegistryScan [-EndpointId] <guid> [<CommonParameters>]
+Remove-bInventoryDataRegistryScan [-EndpointId] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
 ### Controller InventoryDataSnmpScan
 #### Get-bInventoryDataSnmpScan
+> Get InventoryDataSnmpScans using `GET`
 ```
-Get-bInventoryDataSnmpScan [-EndpointId] <guid> [<CommonParameters>]
+Get-bInventoryDataSnmpScan [-EndpointId] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
 ### Controller InventoryDataWmiScan
 #### Get-bInventoryDataWmiScan
+> List InventoryDataWmiScans using `GET`
 ```
-Get-bInventoryDataWmiScan [-EndpointId <guid>] [-TemplateName <string>] [<CommonParameters>]
-
-Get-bInventoryDataWmiScan -Latest -TemplateName <string> [-EndpointId <guid>] [<CommonParameters>]
-
-Get-bInventoryDataWmiScan -EndpointId <guid> -TemplateName <string> -Scan <string> [<CommonParameters>]
+Get-bInventoryDataWmiScan [-EndpointId <Guid>] [-TemplateName <String>] [<CommonParameters>]
+Get-bInventoryDataWmiScan -Latest [-EndpointId <Guid>] -TemplateName <String> [<CommonParameters>]
+Get-bInventoryDataWmiScan -EndpointId <Guid> -TemplateName <String> -Scan <String> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : Named
-  Required : true
+  Position : named
+  Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : Id, Endpoint
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* Latest
+* TemplateName `<String>`
   ```
-  Position : Named
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Latest `<SwitchParameter>`
+  ```
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* Scan
+* Scan `<String>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : Time
-  ParameterValue : string
+  Aliases : 
   ```
-
-* TemplateName
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : Template
-  ParameterValue : string
-  ```
-
-
-
 ### Controller InventoryOverview
 #### Get-bInventoryOverview
+> Get InventoryOverviews using `GET`
 ```
 Get-bInventoryOverview [<CommonParameters>]
-
-Get-bInventoryOverview [-EndpointId] <guid> [<CommonParameters>]
+Get-bInventoryOverview [-EndpointId] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
 ### Controller Job
 #### Get-bJob
+> Get Jobs using `GET`
 ```
 Get-bJob [-Steps] [<CommonParameters>]
-
-Get-bJob [-Id] <guid> [-Steps] [<CommonParameters>]
-
-Get-bJob -OrgUnit <guid> [-Steps] [<CommonParameters>]
-
-Get-bJob -User <guid> [-Steps] [<CommonParameters>]
+Get-bJob [-Id] <Guid> [-Steps] [<CommonParameters>]
+Get-bJob -OrgUnit <Guid> [-Steps] [<CommonParameters>]
+Get-bJob -User <Guid> [-Steps] [<CommonParameters>]
 ```
 ##### Parameters
-
-* Id
+* Id `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* Steps
+* Steps `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* OrgUnit
+* OrgUnit `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* User
+* User `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
 ### Controller JobInstance
 #### Add-bJobInstance
+> Add JobInstance using `GET`
 ```
-Add-bJobInstance [-EndpointId] <guid> [-JobId] <guid> [-StartIfExists] [<CommonParameters>]
+Add-bJobInstance [-EndpointId] <Guid> [-JobId] <Guid> [-StartIfExists] [<CommonParameters>]
 ```
 ##### Parameters
-
-* EndpointId
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* JobId
+* EndpointId `<Guid>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* StartIfExists
+* JobId `<Guid>`
   ```
-  Position : Named
+  Position : 2
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* StartIfExists `<SwitchParameter>`
+  ```
+  Position : named
   Required : false
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 #### Get-bJobInstance
+> Get JobInstances using `GET`
 ```
 Get-bJobInstance [-Steps] [<CommonParameters>]
-
-Get-bJobInstance [-Id] <guid> [-Steps] [<CommonParameters>]
-
-Get-bJobInstance -EndpointId <guid> [-Steps] [<CommonParameters>]
-
-Get-bJobInstance -JobId <guid> [-Steps] [<CommonParameters>]
+Get-bJobInstance [-Id] <Guid> [-Steps] [<CommonParameters>]
+Get-bJobInstance -EndpointId <Guid> [-Steps] [<CommonParameters>]
+Get-bJobInstance -JobId <Guid> [-Steps] [<CommonParameters>]
 ```
 ##### Parameters
-
-* Id
+* Id `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* Steps
+* Steps `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* JobId
+* JobId `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
 #### Remove-bJobInstance
+> Remove JobInstance using `DELETE`
 ```
-Remove-bJobInstance [-Id] <guid> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Set-bJobInstance
-```
-Set-bJobInstance [-Id] <guid> -cmd <Action> [<CommonParameters>]
+Remove-bJobInstance [-Id] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* cmd
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : false
-  Aliases : None
-  ParameterValue : Action
-  ```
-
-
-
-### Controller KioskJob
-#### Add-bKioskJob
-```
-Add-bKioskJob [-JobDefinitionId] <string> [-TargetId] <string> [<CommonParameters>]
-```
-##### Parameters
-
-* JobDefinitionId
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* TargetId
+* Id `<Guid>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-
-#### Get-bKioskJob
+#### Set-bJobInstance
+> Set JobInstance using `GET`
 ```
-Get-bKioskJob [-JobDefinitionId] <guid> [<CommonParameters>]
-
-Get-bKioskJob -EndpointId <guid> [<CommonParameters>]
-
-Get-bKioskJob -GroupId <guid> [<CommonParameters>]
-
-Get-bKioskJob -User <guid> [<CommonParameters>]
+Set-bJobInstance [-Id] <Guid> -cmd {Start | Stop | Resume} [<CommonParameters>]
 ```
 ##### Parameters
-
-* JobDefinitionId
+* Id `<Guid>`
   ```
-  Position : 0
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* cmd `<Action>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : false
+  Aliases : 
+  ```
+### Controller KioskJob
+#### Add-bKioskJob
+> Add KioskJob using `POST`. Use `New-bKioskJob` to create a draft object to pipe in.
+```
+Add-bKioskJob [-JobDefinitionId] <String> [-TargetId] <String> [<CommonParameters>]
+```
+##### Parameters
+* JobDefinitionId `<String>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* TargetId `<String>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Get-bKioskJob
+> Get KioskJobs using `GET`
+```
+Get-bKioskJob [-JobDefinitionId] <Guid> [<CommonParameters>]
+Get-bKioskJob -EndpointId <Guid> [<CommonParameters>]
+Get-bKioskJob -GroupId <Guid> [<CommonParameters>]
+Get-bKioskJob -User <Guid> [<CommonParameters>]
+```
+##### Parameters
+* JobDefinitionId `<Guid>`
+  ```
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* EndpointId
+* EndpointId `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* GroupId
+* GroupId `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* User
+* User `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
 #### Remove-bKioskJob
+> Remove KioskJob using `DELETE`
 ```
-Remove-bKioskJob [-KioskJobId] <guid> [<CommonParameters>]
+Remove-bKioskJob [-KioskJobId] <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* KioskJobId
+* KioskJobId `<Guid>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
-
 ### Controller OrgUnit
 #### Add-bOrgUnit
+> Add OrgUnit using `POST`. Use `New-bOrgUnit` to create a draft object to pipe in.
 ```
 Add-bOrgUnit [-InputObject] <Object> [<CommonParameters>]
 ```
 ##### Parameters
-
-* InputObject
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
-  ```
-
-
-#### Get-bOrgUnit
-```
-Get-bOrgUnit [<CommonParameters>]
-
-Get-bOrgUnit [-Id] <guid> [<CommonParameters>]
-
-Get-bOrgUnit -OrgUnit <guid> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* OrgUnit
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Remove-bOrgUnit
-```
-Remove-bOrgUnit [-Id] <guid> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Set-bOrgUnit
-```
-Set-bOrgUnit [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* InputObject
+* InputObject `<Object>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
+  Aliases : 
   ```
-
-
-
+#### Get-bOrgUnit
+> Get OrgUnits using `GET`
+```
+Get-bOrgUnit [<CommonParameters>]
+Get-bOrgUnit [-Id] <Guid> [<CommonParameters>]
+Get-bOrgUnit -OrgUnit <Guid> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+* OrgUnit `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Remove-bOrgUnit
+> Remove OrgUnit using `DELETE`
+```
+Remove-bOrgUnit [-Id] <Guid> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Set-bOrgUnit
+> Set OrgUnit using `PATCH. Use `New-bOrgUnit -update` to create a draft object to pipe in.
+```
+Set-bOrgUnit [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
 ### Controller SoftwareScanRule
 #### Get-bSoftwareScanRule
+> Get SoftwareScanRules using `GET`
 ```
 Get-bSoftwareScanRule [<CommonParameters>]
 ```
 ##### Parameters
-
-
-
 ### Controller StaticGroup
 #### Add-bStaticGroup
+> Add StaticGroup using `POST`. Use `New-bStaticGroup` to create a draft object to pipe in.
 ```
 Add-bStaticGroup [-InputObject] <Object> [<CommonParameters>]
 ```
 ##### Parameters
-
-* InputObject
+* InputObject `<Object>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
+  Aliases : 
   ```
-
-
 #### Get-bStaticGroup
+> Get StaticGroups using `GET`
 ```
 Get-bStaticGroup [<CommonParameters>]
-
-Get-bStaticGroup [-Id] <guid> [<CommonParameters>]
-
-Get-bStaticGroup -OrgUnit <guid> [<CommonParameters>]
+Get-bStaticGroup [-Id] <Guid> [<CommonParameters>]
+Get-bStaticGroup -OrgUnit <Guid> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* OrgUnit
-  ```
-  Position : Named
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Remove-bStaticGroup
-```
-Remove-bStaticGroup [-Id] <guid> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-
-#### Set-bStaticGroup
-```
-Set-bStaticGroup [-Id] <guid> [-InputObject] <Object> [<CommonParameters>]
-```
-##### Parameters
-
-* Id
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* InputObject
+* Id `<Guid>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
+  Aliases : 
   ```
-
-
-
+* OrgUnit `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Remove-bStaticGroup
+> Remove StaticGroup using `DELETE`
+```
+Remove-bStaticGroup [-Id] <Guid> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+#### Set-bStaticGroup
+> Set StaticGroup using `PATCH. Use `New-bStaticGroup -update` to create a draft object to pipe in.
+```
+Set-bStaticGroup [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+##### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
 ### Controller Variable
 #### Get-bVariable
+> Get variables defined in specific Object-Scope (Client, Software, ...)
 ```
-Get-bVariable [-Scope] <Scope> [[-Category] <string>] [-ObjectId <guid>] [<CommonParameters>]
-
-Get-bVariable [-Scope] <Scope> [-Category] <string> [-Name] <string> [-ObjectId <guid>] [<CommonParameters>]
+Get-bVariable [-Scope] {Device | MobileDevice | Job | OrgUnit | Software | HardwareProfile} [[-Category] <String>] [-ObjectId <Guid>] [<CommonParameters>]
+Get-bVariable [-Scope] {Device | MobileDevice | Job | OrgUnit | Software | HardwareProfile} [-Category] <String> [-Name] <String> [-ObjectId <Guid>] [<CommonParameters>]
 ```
 ##### Parameters
-
-* Scope
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Scope
-  ```
-
-* Category
+* Scope `<Scope>`
   ```
   Position : 1
-  Required : false
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Name
-  ```
-  Position : 2
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* ObjectId
+* Category `<String>`
   ```
-  Position : Named
+  Position : 2
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : Id
-  ParameterValue : guid
+  Aliases : 
   ```
-
-
+* Name `<String>`
+  ```
+  Position : 3
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* ObjectId `<Guid>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
 #### Set-bVariable
+> Set variables on specific Object (Client, Software, ...)
 ```
-Set-bVariable [-Scope] <Scope> [-ObjectId] <guid> [-Variables] <Object[]> [<CommonParameters>]
+Set-bVariable [-Scope] {Device | MobileDevice | Job | OrgUnit | Software | HardwareProfile} [-ObjectId] <Guid> [-Variables] <Object[]> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Scope
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Scope
-  ```
-
-* ObjectId
+* Scope `<Scope>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : Id
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* Variables
+* ObjectId `<Guid>`
   ```
   Position : 2
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Object[]
+  Aliases : 
   ```
-
-
-
+* Variables `<Object[]>`
+  ```
+  Position : 3
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
 ### Controller Version
 #### Get-bVersion
+> Get ../Version using `GET`
 ```
 Get-bVersion [<CommonParameters>]
 ```
 ##### Parameters
-
-
 ### Controller Search
 #### Search-bEndpoint
+> Search Endpoints using `GET`
 ```
-Search-bEndpoint [-Term] <string> [<CommonParameters>]
+Search-bEndpoint [-Term] <String> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Term
+* Term `<String>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-
 #### Search-bGroup
+> Search Groups using `GET`
 ```
-Search-bGroup [-Term] <string> [<CommonParameters>]
+Search-bGroup [-Term] <String> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Term
+* Term `<String>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-
 #### Search-bJob
+> Search Jobs using `GET`
 ```
-Search-bJob [-Term] <string> [<CommonParameters>]
+Search-bJob [-Term] <String> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Term
+* Term `<String>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-
 #### Search-bOrgUnit
+> Search OrgUnits using `GET`
 ```
-Search-bOrgUnit [-Term] <string> [<CommonParameters>]
+Search-bOrgUnit [-Term] <String> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Term
+* Term `<String>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-
 #### Search-bSoftware
+> Search Softwares using `GET`
 ```
-Search-bSoftware [-Term] <string> [<CommonParameters>]
+Search-bSoftware [-Term] <String> [<CommonParameters>]
 ```
 ##### Parameters
-
-* Term
+* Term `<String>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-
-
 ## Helper Commands
-
 ### Expand-bEndpointOptions
+> Helper to split up EndpointOptions
 ```
-Expand-bEndpointOptions [-options] <ulong> [<CommonParameters>]
+Expand-bEndpointOptions [-options] <UInt64> [<CommonParameters>]
 ```
 #### Parameters
-
-* options
+* options `<UInt64>`
   ```
-  Position : 0
+  Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : None
-  ParameterValue : ulong
+  Aliases : 
   ```
-
-
 ### Merge-bEndpointOptions
+> Helper to join up EndpointOptions
 ```
-Merge-bEndpointOptions [[-ClientOptions] <ClientOptions>] [[-UserOptions] <PrimaryUserOptions>] [[-UserJobOptions] <UserJobOptions>] [<CommonParameters>]
+Merge-bEndpointOptions [[-ClientOptions] {EnableOsInstall | InheritAutoInstallation | EnableAUT | EnableEnergyManagement | Deactivated}] [[-UserOptions] {Initial | NotUsed | AlwaysUpdate | NeverUpdate}] [[-UserJobOptions] {AlwaysExecute | NeverExecute | ExecuteForPrimaryUser}] [<CommonParameters>]
 ```
 #### Parameters
-
-* ClientOptions
-  ```
-  Position : 0
-  Required : false
-  PipelineInput : true (ByValue)
-  Aliases : None
-  ParameterValue : ClientOptions
-  ```
-
-* UserOptions
+* ClientOptions `<ClientOptions>`
   ```
   Position : 1
   Required : false
   PipelineInput : true (ByValue)
-  Aliases : None
-  ParameterValue : PrimaryUserOptions
+  Aliases : 
   ```
-
-* UserJobOptions
+* UserOptions `<PrimaryUserOptions>`
   ```
   Position : 2
   Required : false
   PipelineInput : true (ByValue)
-  Aliases : None
-  ParameterValue : UserJobOptions
+  Aliases : 
   ```
-
-
+* UserJobOptions `<UserJobOptions>`
+  ```
+  Position : 3
+  Required : false
+  PipelineInput : true (ByValue)
+  Aliases : 
+  ```
 ### New-bApplication
+> Creates draft object in memory
 ```
-New-bApplication -update [-Vendor <string>] [-Name <string>] [-ValidForOS <ValidForOS[]>] [-Comment <string>] [-Category <string>] [-Version <string>] [-ParentId <guid>] [-EnableAUT] [-Installation <Object>] [-Uninstallation <Object>] [-ConsistencyChecks <string>] [-SecurityContext <SecurityContext>] [-Cost <float>] [-Files <Object[]>] [-Licenses <Object[]>] [-AUT <Object[]>] [<CommonParameters>]
-
-New-bApplication [-Vendor] <string> [-Name] <string> [-ValidForOS] <ValidForOS[]> [-Comment <string>] [-Category <string>] [-Version <string>] [-ParentId <guid>] [-EnableAUT] [-Installation <Object>] [-Uninstallation <Object>] [-ConsistencyChecks <string>] [-SecurityContext <SecurityContext>] [-Cost <float>] [-Files <Object[]>] [-Licenses <Object[]>] [-AUT <Object[]>] [<CommonParameters>]
+New-bApplication -update [-Vendor <String>] [-Name <String>] [-ValidForOS {NT4 | Windows2000 | WindowsXP | WindowsVista | Windows7 | Windows8 | Windows10 | WindowsServer2003 | WindowsServer2008 | WindowsServer2008R2 | WindowsServer2012 | WindowsXP_x64 | WindowsVista_x64 | Windows7_x64 | Windows8_x64 | Windows10_x64 | WindowsServer2003_x64 | WindowsServer2008_x64 | WindowsServer2008R2_x64 | WindowsServer2012_x64 | WindowsServer2016_x64}] [-Comment <String>] [-Category <String>] [-Version <String>] [-ParentId <Guid>] [-EnableAUT] [-Installation <Object>] [-Uninstallation <Object>] [-ConsistencyChecks <String>] [-SecurityContext {AnyUser | InstallUser | LocalInstallUser | LocalSystem | LoggedOnUser | RegisteredUser | SpecifiedUser}] [-Cost <Single>] [-Files <Object[]>] [-Licenses <Object[]>] [-AUT <Object[]>] [<CommonParameters>]
+New-bApplication [-Vendor] <String> [-Name] <String> [-ValidForOS] {NT4 | Windows2000 | WindowsXP | WindowsVista | Windows7 | Windows8 | Windows10 | WindowsServer2003 | WindowsServer2008 | WindowsServer2008R2 | WindowsServer2012 | WindowsXP_x64 | WindowsVista_x64 | Windows7_x64 | Windows8_x64 | Windows10_x64 | WindowsServer2003_x64 | WindowsServer2008_x64 | WindowsServer2008R2_x64 | WindowsServer2012_x64 | WindowsServer2016_x64} [-Comment <String>] [-Category <String>] [-Version <String>] [-ParentId <Guid>] [-EnableAUT] [-Installation <Object>] [-Uninstallation <Object>] [-ConsistencyChecks <String>] [-SecurityContext {AnyUser | InstallUser | LocalInstallUser | LocalSystem | LoggedOnUser | RegisteredUser | SpecifiedUser}] [-Cost <Single>] [-Files <Object[]>] [-Licenses <Object[]>] [-AUT <Object[]>] [<CommonParameters>]
 ```
 #### Parameters
-
-* Vendor
+* AUT `<Object[]>`
   ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : By
-  ParameterValue : string
-  ```
-
-* Name
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* ValidForOS
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : OS, For
-  ParameterValue : ValidForOS[]
-  ```
-
-* AUT
-  ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Object[]
+  Aliases : 
   ```
-
-* Category
+* Category `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Comment
+* Comment `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* ConsistencyChecks
+* ConsistencyChecks `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Cost
+* Cost `<Single>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : float
+  Aliases : 
   ```
-
-* EnableAUT
+* EnableAUT `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* Files
+* Files `<Object[]>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Object[]
+  Aliases : 
   ```
-
-* Installation
+* Installation `<Object>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : InstallationData
-  ParameterValue : Object
+  Aliases : 
   ```
-
-* Licenses
+* Licenses `<Object[]>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Object[]
+  Aliases : 
   ```
-
-* ParentId
+* Name `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* SecurityContext
+* ParentId `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : SecurityContext
+  Aliases : 
   ```
-
-* Uninstallation
+* SecurityContext `<SecurityContext>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : UninstallationData
-  ParameterValue : Object
+  Aliases : 
   ```
-
-* Version
+* Uninstallation `<Object>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* update
+* ValidForOS `<ValidForOS[]>`
   ```
-  Position : Named
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Vendor `<String>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Version `<String>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* update `<SwitchParameter>`
+  ```
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 ### New-bApplicationData
+> Creates draft object in memory
 ```
-New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] [-ResponseFile <string>] [-Engine <string>] [-EngineFile <string>] [-Options <Object>] [-UserSettings <Object>] [<CommonParameters>]
-
-New-bApplicationData [[-Command] <string>] [[-Parameter] <string>] -install [-ResponseFile <string>] [-Engine <string>] [-EngineFile <string>] [-Options <Object>] [-UserSettings <Object>] [<CommonParameters>]
+New-bApplicationData [[-Command] <String>] [[-Parameter] <String>] [-ResponseFile <String>] [-Engine <String>] [-EngineFile <String>] [-Options <Object>] [-UserSettings <Object>] [<CommonParameters>]
+New-bApplicationData -install [[-Command] <String>] [[-Parameter] <String>] [-ResponseFile <String>] [-Engine <String>] [-EngineFile <String>] [-Options <Object>] [-UserSettings <Object>] [<CommonParameters>]
 ```
 #### Parameters
-
-* Command
-  ```
-  Position : 0
-  Required : false
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Parameter
+* Command `<String>`
   ```
   Position : 1
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Engine
+* Parameter `<String>`
   ```
-  Position : Named
+  Position : 2
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* EngineFile
+* Engine `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Options
+* EngineFile `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
+  Aliases : 
   ```
-
-* ResponseFile
+* Options `<Object>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* UserSettings
+* ResponseFile `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
+  Aliases : 
   ```
-
-* install
+* UserSettings `<Object>`
+  > switch between un-/install 
+switch between un-/install
   ```
-  Position : Named
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* install `<SwitchParameter>`
+  ```
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 ### New-bApplicationFile
+> Creates draft object in memory
 ```
-New-bApplicationFile [-Source] <string> [-Type] <FileType> [<CommonParameters>]
+New-bApplicationFile [-Source] <String> [-Type] <Object> [<CommonParameters>]
 ```
 #### Parameters
-
-* Source
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Type
+* Source `<String>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : FileType
+  Aliases : 
   ```
-
-
+* Type `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
 ### New-bApplicationLicense
+> Creates draft object in memory
 ```
-New-bApplicationLicense [-LicenseKey] <string> [[-Count] <ushort>] [[-Offline] <ushort>] [<CommonParameters>]
+New-bApplicationLicense [-LicenseKey] <String> [[-Count] <UInt16>] [[-Offline] <UInt16>] [<CommonParameters>]
 ```
 #### Parameters
-
-* LicenseKey
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Count
+* LicenseKey `<String>`
   ```
   Position : 1
-  Required : false
+  Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : ushort
+  Aliases : 
   ```
-
-* Offline
+* Count `<UInt16>`
   ```
   Position : 2
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : ushort
+  Aliases : 
   ```
-
-
+* Offline `<UInt16>`
+  ```
+  Position : 3
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
 ### New-bApplicationOption
+> Creates draft object in memory
 ```
-New-bApplicationOption [-RebootBehaviour <RebootBehaviour>] [-RemoveUnknownSoftware] [-UseBbt] [-VisibleExecution <VisibleExecution>] [-CopyLocally] [-DisableInputDevices] [<CommonParameters>]
-
-New-bApplicationOption -install [-RebootBehaviour <RebootBehaviour>] [-RemoveUnknownSoftware] [-UseBbt] [-VisibleExecution <VisibleExecution>] [-CopyLocally] [-DisableInputDevices] [-AllowReinstall] [-DontSetAsInstalled] [-MapShare] [-Target <string>] [<CommonParameters>]
+New-bApplicationOption [-RebootBehaviour {NoReboot | Reboot | AppReboot | DeferrableReboot}] [-RemoveUnknownSoftware] [-UseBbt] [-VisibleExecution {Silent | NeedsDesktop | VisibleWhenuserLoggedOn}] [-CopyLocally] [-DisableInputDevices] [<CommonParameters>]
+New-bApplicationOption -install [-RebootBehaviour {NoReboot | Reboot | AppReboot | DeferrableReboot}] [-RemoveUnknownSoftware] [-UseBbt] [-VisibleExecution {Silent | NeedsDesktop | VisibleWhenuserLoggedOn}] [-CopyLocally] [-DisableInputDevices] [-AllowReinstall] [-DontSetAsInstalled] [-MapShare] [-Target <String>] [<CommonParameters>]
 ```
 #### Parameters
-
-* AllowReinstall
+* AllowReinstall `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* CopyLocally
+* CopyLocally `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* DisableInputDevices
+* DisableInputDevices `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* DontSetAsInstalled
+* DontSetAsInstalled `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* MapShare
+* MapShare `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* RebootBehaviour
+* RebootBehaviour `<RebootBehaviour>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : RebootBehaviour
+  Aliases : 
   ```
-
-* RemoveUnknownSoftware
+* RemoveUnknownSoftware `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* Target
+* Target `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* UseBbt
+* UseBbt `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* VisibleExecution
+* VisibleExecution `<VisibleExecution>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : VisibleExecution
+  Aliases : 
   ```
-
-* install
+* install `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 ### New-bApplicationUserSettings
+> Creates draft object in memory
 ```
-New-bApplicationUserSettings [-baramundiDeployScript <string>] [-validForInstallUser] [-RunBdsVisible] [-CopyScriptToClient] [<CommonParameters>]
-
-New-bApplicationUserSettings -install [-baramundiDeployScript <string>] [-validForInstallUser] [-RunBdsVisible] [-CopyScriptToClient] [-ExecuteAtEveryLogin] [<CommonParameters>]
+New-bApplicationUserSettings [-baramundiDeployScript <String>] [-validForInstallUser] [-RunBdsVisible] [-CopyScriptToClient] [<CommonParameters>]
+New-bApplicationUserSettings -install [-baramundiDeployScript <String>] [-validForInstallUser] [-RunBdsVisible] [-CopyScriptToClient] [-ExecuteAtEveryLogin] [<CommonParameters>]
 ```
 #### Parameters
-
-* baramundiDeployScript
+* baramundiDeployScript `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* CopyScriptToClient
+* CopyScriptToClient `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* ExecuteAtEveryLogin
+* ExecuteAtEveryLogin `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* RunBdsVisible
+* RunBdsVisible `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* validForInstallUser
+* validForInstallUser `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* install
+* install `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 ### New-bAutFileRule
+> Creates draft object in memory
 ```
-New-bAutFileRule [-FileName <string>] [-FileSize <ulong>] [-Date <string>] [-CRC <ulong>] [-Version <string>] [-Company <string>] [-ProductName <string>] [-ProductVersion <string>] [-InternalName <string>] [-Language <string>] [-FileDescription <string>] [-FileVersionNumeric <string>] [-CommandLine <string>] [<CommonParameters>]
+New-bAutFileRule [-FileName <String>] [-FileSize <UInt64>] [-Date <String>] [-CRC <UInt64>] [-Version <String>] [-Company <String>] [-ProductName <String>] [-ProductVersion <String>] [-InternalName <String>] [-Language <String>] [-FileDescription <String>] [-FileVersionNumeric <String>] [-CommandLine <String>] [<CommonParameters>]
 ```
 #### Parameters
-
-* CommandLine
+* CommandLine `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Company
+* Company `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* CRC
+* CRC `<UInt64>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : ulong
+  Aliases : 
   ```
-
-* Date
+* Date `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* FileDescription
+* FileDescription `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* FileName
+* FileName `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* FileSize
+* FileSize `<UInt64>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : ulong
+  Aliases : 
   ```
-
-* FileVersionNumeric
+* FileVersionNumeric `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* InternalName
+* InternalName `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Language
+* Language `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* ProductName
+* ProductName `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* ProductVersion
+* ProductVersion `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Version
+* Version `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-
 ### New-bDynamicGroup
+> Creates draft object in memory
 ```
-New-bDynamicGroup -update [-Name <string>] [-Statement <string>] [-ParentId <guid>] [-Comment <string>] [<CommonParameters>]
-
-New-bDynamicGroup [-Name] <string> [-Statement] <string> [-ParentId <guid>] [-Comment <string>] [<CommonParameters>]
+New-bDynamicGroup -update [-Name <String>] [-Statement <String>] [-ParentId <Guid>] [-Comment <String>] [<CommonParameters>]
+New-bDynamicGroup [-Name] <String> [-Statement] <String> [-ParentId <Guid>] [-Comment <String>] [<CommonParameters>]
 ```
 #### Parameters
-
-* Name
+* Comment `<String>`
   ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Statement
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Comment
-  ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* ParentId
+* Name `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* update
+* ParentId `<Guid>`
   ```
-  Position : Named
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Statement `<String>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* update `<SwitchParameter>`
+  ```
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 ### New-bEndpoint
+> Creates draft object in memory
 ```
-New-bEndpoint -update [-DisplayName <string>] [-Type <Type>] [-GuidOrgUnit <guid>] [-Comments <string>] [-PrimaryUser <string>] [-Hostname <string>] [-Domain <string>] [-Options <uint>] [-PrimaryMac <string>] [-GuidHardwareProfile <guid>] [-GuidBootEnvironment <guid>] [-UserCategory <string>] [-Owner <Owner>] [-ComplianceCheckCategory <ComplianceCheckCategory>] [-ComplianceCheckDisabledFrom <datetime>] [-ComplianceCheckDisabledUntil <datetime>] [-SerialNumber <string>] [-PublicKey <string>] [-ExtendedInternetMode] [-Mode <Mode>] [<CommonParameters>]
-
-New-bEndpoint [-DisplayName] <string> [-Type] <Type> [-GuidOrgUnit] <guid> [-Comments <string>] [-PrimaryUser <string>] [-Hostname <string>] [-Domain <string>] [-Options <uint>] [-PrimaryMac <string>] [-GuidHardwareProfile <guid>] [-GuidBootEnvironment <guid>] [-UserCategory <string>] [-Owner <Owner>] [-ComplianceCheckCategory <ComplianceCheckCategory>] [-ComplianceCheckDisabledFrom <datetime>] [-ComplianceCheckDisabledUntil <datetime>] [-SerialNumber <string>] [-PublicKey <string>] [-ExtendedInternetMode] [-Mode <Mode>] [<CommonParameters>]
+New-bEndpoint -update [-DisplayName <String>] [-Type {Unknown | WindowsEndpoint | AndroidEndpoint | iOSEndpoint | MacEndpoint | WindowsPhoneEndpoint | NetworkEndpoint}] [-GuidOrgUnit <Guid>] [-Comments <String>] [-PrimaryUser <String>] [-Hostname <String>] [-Domain <String>] [-Options <UInt32>] [-PrimaryMac <String>] [-GuidHardwareProfile <Guid>] [-GuidBootEnvironment <Guid>] [-UserCategory <String>] [-Owner {Company | Private | Unknown}] [-ComplianceCheckCategory {Active | Inactive | InactiveTemporarily}] [-ComplianceCheckDisabledFrom <DateTime>] [-ComplianceCheckDisabledUntil <DateTime>] [-SerialNumber <String>] [-PublicKey <String>] [-ExtendedInternetMode] [-Mode {LAN | Internet | Dynamic}] [<CommonParameters>]
+New-bEndpoint [-DisplayName] <String> [-Type] {Unknown | WindowsEndpoint | AndroidEndpoint | iOSEndpoint | MacEndpoint | WindowsPhoneEndpoint | NetworkEndpoint} [-GuidOrgUnit] <Guid> [-Comments <String>] [-PrimaryUser <String>] [-Hostname <String>] [-Domain <String>] [-Options <UInt32>] [-PrimaryMac <String>] [-GuidHardwareProfile <Guid>] [-GuidBootEnvironment <Guid>] [-UserCategory <String>] [-Owner {Company | Private | Unknown}] [-ComplianceCheckCategory {Active | Inactive | InactiveTemporarily}] [-ComplianceCheckDisabledFrom <DateTime>] [-ComplianceCheckDisabledUntil <DateTime>] [-SerialNumber <String>] [-PublicKey <String>] [-ExtendedInternetMode] [-Mode {LAN | Internet | Dynamic}] [<CommonParameters>]
 ```
 #### Parameters
-
-* DisplayName
+* Comments `<String>`
   ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Type
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Type
-  ```
-
-* GuidOrgUnit
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* Comments
-  ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* ComplianceCheckCategory
+* ComplianceCheckCategory `<ComplianceCheckCategory>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : ComplianceCheckCategory
+  Aliases : 
   ```
-
-* ComplianceCheckDisabledFrom
+* ComplianceCheckDisabledFrom `<DateTime>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : datetime
+  Aliases : 
   ```
-
-* ComplianceCheckDisabledUntil
+* ComplianceCheckDisabledUntil `<DateTime>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : datetime
+  Aliases : 
   ```
-
-* Domain
+* DisplayName `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* ExtendedInternetMode
+* Domain `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* GuidBootEnvironment
+* ExtendedInternetMode `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* GuidHardwareProfile
+* GuidBootEnvironment `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* Hostname
+* GuidHardwareProfile `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Mode
+* GuidOrgUnit `<Guid>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Mode
+  Aliases : 
   ```
-
-* Options
+* Hostname `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : uint
+  Aliases : 
   ```
-
-* Owner
+* Mode `<Mode>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Owner
+  Aliases : 
   ```
-
-* PrimaryMac
+* Options `<UInt32>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* PrimaryUser
+* Owner `<Owner>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* PublicKey
+* PrimaryMac `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* SerialNumber
+* PrimaryUser `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* UserCategory
+* PublicKey `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* update
+* SerialNumber `<String>`
   ```
-  Position : Named
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Type `<Type>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* UserCategory `<String>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* update `<SwitchParameter>`
+  ```
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 ### New-bOrgUnit
+> Creates draft object in memory
 ```
-New-bOrgUnit -update [-Name <string>] [-ParentId <guid>] [-Comment <string>] [-Extension <Object>] [<CommonParameters>]
-
-New-bOrgUnit [-Name] <string> [-ParentId] <guid> [-Comment <string>] [-Extension <Object>] [<CommonParameters>]
+New-bOrgUnit -update [-Name <String>] [-ParentId <Guid>] [-Comment <String>] [-Extension <Object>] [<CommonParameters>]
+New-bOrgUnit [-Name] <String> [-ParentId] <Guid> [-Comment <String>] [-Extension <Object>] [<CommonParameters>]
 ```
 #### Parameters
-
-* Name
+* Comment `<String>`
   ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* ParentId
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
-  ```
-
-* Comment
-  ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Extension
+* Extension `<Object>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Object
+  Aliases : 
   ```
-
-* update
+* Name `<String>`
   ```
-  Position : Named
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* ParentId `<Guid>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* update `<SwitchParameter>`
+  ```
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 ### New-bOrgUnitExtension
+> Creates draft object in memory
 ```
-New-bOrgUnitExtension [-DIP <string>] [-Domain <string>] [-LocalAdminPassword <string>] [-EnableDHCP] [-InheritAutoInstallJobs] [-SubnetMast <string>] [-Defaultgateway <string>] [-DnsServer <string>] [-DnsServer2 <string>] [-DnsDomain <string>] [-WinsServer <string>] [-WinsServer2 <string>] [-AutoInstallJobs <guid[]>] [-HardwareProfiles <guid[]>] [-RequestableJobs <guid[]>] [<CommonParameters>]
+New-bOrgUnitExtension [-DIP <String>] [-Domain <String>] [-LocalAdminPassword <String>] [-EnableDHCP] [-InheritAutoInstallJobs] [-SubnetMast <String>] [-Defaultgateway <String>] [-DnsServer <String>] [-DnsServer2 <String>] [-DnsDomain <String>] [-WinsServer <String>] [-WinsServer2 <String>] [-AutoInstallJobs <Guid[]>] [-HardwareProfiles <Guid[]>] [-RequestableJobs <Guid[]>] [<CommonParameters>]
 ```
 #### Parameters
-
-* AutoInstallJobs
+* AutoInstallJobs `<Guid[]>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid[]
+  Aliases : 
   ```
-
-* Defaultgateway
+* Defaultgateway `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* DIP
+* DIP `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* DnsDomain
+* DnsDomain `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* DnsServer
+* DnsServer `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* DnsServer2
+* DnsServer2 `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Domain
+* Domain `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* EnableDHCP
+* EnableDHCP `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* HardwareProfiles
+* HardwareProfiles `<Guid[]>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid[]
+  Aliases : 
   ```
-
-* InheritAutoInstallJobs
+* InheritAutoInstallJobs `<SwitchParameter>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-* LocalAdminPassword
+* LocalAdminPassword `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* RequestableJobs
+* RequestableJobs `<Guid[]>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid[]
+  Aliases : 
   ```
-
-* SubnetMast
+* SubnetMast `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* WinsServer
+* WinsServer `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* WinsServer2
+* WinsServer2 `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-
 ### New-bStaticGroup
+> Creates draft object in memory
 ```
-New-bStaticGroup -update [-Name <string>] [-ParentId <guid>] [-EndpointIds <guid[]>] [-Comment <string>] [<CommonParameters>]
-
-New-bStaticGroup [-Name] <string> [-ParentId <guid>] [-EndpointIds <guid[]>] [-Comment <string>] [<CommonParameters>]
+New-bStaticGroup -update [-Name <String>] [-ParentId <Guid>] [-EndpointIds <Guid[]>] [-Comment <String>] [<CommonParameters>]
+New-bStaticGroup [-Name] <String> [-ParentId <Guid>] [-EndpointIds <Guid[]>] [-Comment <String>] [<CommonParameters>]
 ```
 #### Parameters
-
-* Name
+* Comment `<String>`
   ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Comment
-  ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* EndpointIds
+* EndpointIds `<Guid[]>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid[]
+  Aliases : 
   ```
-
-* ParentId
+* Name `<String>`
   ```
-  Position : Named
+  Position : named
   Required : false
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : guid
+  Aliases : 
   ```
-
-* update
+* ParentId `<Guid>`
   ```
-  Position : Named
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* update `<SwitchParameter>`
+  ```
+  Position : named
   Required : true
   PipelineInput : false
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
-
 ### New-bVariable
+> Creates draft object in memory
 ```
-New-bVariable [-Category] <string> [-Name] <string> [[-Value] <string>] [-Type <Type>] [<CommonParameters>]
-
-New-bVariable [-Category] <string> [-Name] <string> -UseDefault [-Type <Type>] [<CommonParameters>]
+New-bVariable [-Category] <String> [-Name] <String> [[-Value] <String>] [-Type {Unknown | Number | String | Date | Checkbox | Dropdownbox | DropdownListbox | Filelink | Folder | Password | Certificate}] [<CommonParameters>]
+New-bVariable [-Category] <String> [-Name] <String> -UseDefault [-Type {Unknown | Number | String | Date | Checkbox | Dropdownbox | DropdownListbox | Filelink | Folder | Password | Certificate}] [<CommonParameters>]
 ```
 #### Parameters
-
-* Category
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Name
+* Category `<String>`
   ```
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
+  Aliases : 
   ```
-
-* Value
+* Name `<String>`
   ```
   Position : 2
-  Required : false
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : string
-  ```
-
-* Type
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : Type
-  ```
-
-* UseDefault
-  ```
-  Position : Named
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : None
-  ParameterValue : 
+  Aliases : 
   ```
-
+* Value `<String>`
+  ```
+  Position : 3
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Type `<Type>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* UseDefault `<SwitchParameter>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
 
