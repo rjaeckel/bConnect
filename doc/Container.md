@@ -110,7 +110,7 @@ Remove-bDynamicGroup [-Id] <Guid> [<CommonParameters>]
   Aliases : 
   ```
 ## Set-bDynamicGroup
-> Set DynamicGroup using `PATCH. Use [`New-bDynamicGroup -update`](#New-bDynamicGroup) to create a draft object to pipe in. 
+> Set DynamicGroup using `PATCH`. Use [`New-bDynamicGroup -update`](#New-bDynamicGroup) to create a draft object to pipe in. 
 ```
 Set-bDynamicGroup [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
 ```
@@ -246,7 +246,7 @@ Search-bOrgUnit [-Term] <String> [<CommonParameters>]
   Aliases : 
   ```
 ## Set-bOrgUnit
-> Set OrgUnit using `PATCH. Use [`New-bOrgUnit -update`](#New-bOrgUnit) to create a draft object to pipe in. 
+> Set OrgUnit using `PATCH`. Use [`New-bOrgUnit -update`](#New-bOrgUnit) to create a draft object to pipe in. 
 ```
 Set-bOrgUnit [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
 ```
@@ -467,7 +467,7 @@ Remove-bStaticGroup [-Id] <Guid> [<CommonParameters>]
   Aliases : 
   ```
 ## Set-bStaticGroup
-> Set StaticGroup using `PATCH. Use [`New-bStaticGroup -update`](#New-bStaticGroup) to create a draft object to pipe in. 
+> Set StaticGroup using `PATCH`. Use [`New-bStaticGroup -update`](#New-bStaticGroup) to create a draft object to pipe in. 
 ```
 Set-bStaticGroup [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
 ```

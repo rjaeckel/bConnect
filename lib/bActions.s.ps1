@@ -24,7 +24,7 @@ process{
 Function Set-OrgUnit {
 <#
 .Synopsis
-Set OrgUnit using `PATCH. Use [`New-bOrgUnit -update`](#New-bOrgUnit) to create a draft object to pipe in.
+Set OrgUnit using `PATCH`. Use [`New-bOrgUnit -update`](#New-bOrgUnit) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
@@ -70,7 +70,7 @@ process{
 Function Set-DynamicGroup {
 <#
 .Synopsis
-Set DynamicGroup using `PATCH. Use [`New-bDynamicGroup -update`](#New-bDynamicGroup) to create a draft object to pipe in.
+Set DynamicGroup using `PATCH`. Use [`New-bDynamicGroup -update`](#New-bDynamicGroup) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
@@ -116,7 +116,7 @@ process{
 Function Set-StaticGroup {
 <#
 .Synopsis
-Set StaticGroup using `PATCH. Use [`New-bStaticGroup -update`](#New-bStaticGroup) to create a draft object to pipe in.
+Set StaticGroup using `PATCH`. Use [`New-bStaticGroup -update`](#New-bStaticGroup) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
@@ -168,7 +168,7 @@ process{
 Function Set-Endpoint {
 <#
 .Synopsis
-Set Endpoint using `PATCH. Use [`New-bEndpoint -update`](#New-bEndpoint) to create a draft object to pipe in.
+Set Endpoint using `PATCH`. Use [`New-bEndpoint -update`](#New-bEndpoint) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
@@ -315,7 +315,7 @@ process{
 Function Set-Application {
 <#
 .Synopsis
-Set Application using `PATCH. Use [`New-bApplication -update`](#New-bApplication) to create a draft object to pipe in.
+Set Application using `PATCH`. Use [`New-bApplication -update`](#New-bApplication) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,

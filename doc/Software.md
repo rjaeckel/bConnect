@@ -228,7 +228,7 @@ Remove-bApplication [-Id] <Guid> [<CommonParameters>]
   Aliases : 
   ```
 ## Set-bApplication
-> Set Application using `PATCH. Use [`New-bApplication -update`](#New-bApplication) to create a draft object to pipe in. 
+> Set Application using `PATCH`. Use [`New-bApplication -update`](#New-bApplication) to create a draft object to pipe in. 
 ```
 Set-bApplication [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
 ```

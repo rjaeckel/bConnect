@@ -90,7 +90,7 @@ function script:setable {
     process {
     ([scriptblock]::Create(
         "Function $CmdName {`n"+
-        (script:docComment "Set $Noun using ``PATCH`. Use [``New-b$Noun -update``](#New-b$Noun) to create a draft object to pipe in.")+
+        (script:docComment "Set $Noun using ``PATCH``. Use [``New-b$Noun -update``](#New-b$Noun) to create a draft object to pipe in.")+
         "[cmdletbinding()]param(`n"+
         "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]`$$Ref,`n"+
         "[Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]`$InputObject"+

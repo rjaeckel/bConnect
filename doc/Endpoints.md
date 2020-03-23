@@ -288,7 +288,7 @@ Search-bEndpoint [-Term] <String> [<CommonParameters>]
   Aliases : 
   ```
 ## Set-bEndpoint
-> Set Endpoint using `PATCH. Use [`New-bEndpoint -update`](#New-bEndpoint) to create a draft object to pipe in. 
+> Set Endpoint using `PATCH`. Use [`New-bEndpoint -update`](#New-bEndpoint) to create a draft object to pipe in. 
 ```
 Set-bEndpoint [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
 ```
