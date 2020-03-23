@@ -142,7 +142,6 @@ Get-bVersion [<CommonParameters>]
 * [New-bStaticGroup](Container.md#New-bStaticGroup)
 * [Remove-bStaticGroup](Container.md#Remove-bStaticGroup)
 * [Set-bStaticGroup](Container.md#Set-bStaticGroup)
-## API-Endpoints
 ### Cmdlets zu Jobs
 * [Get-bJob](Jobs.md#Get-bJob)
 * [Search-bJob](Jobs.md#Search-bJob)
@@ -150,7 +149,6 @@ Get-bVersion [<CommonParameters>]
 * [Get-bJobInstance](Jobs.md#Get-bJobInstance)
 * [Remove-bJobInstance](Jobs.md#Remove-bJobInstance)
 * [Set-bJobInstance](Jobs.md#Set-bJobInstance)
-## API-Endpoints
 ### Cmdlets zu Endpoints
 * [Get-bBootEnvironment](Endpoints.md#Get-bBootEnvironment)
 * [Add-bEndpoint](Endpoints.md#Add-bEndpoint)
@@ -164,7 +162,6 @@ Get-bVersion [<CommonParameters>]
 * [Merge-bEndpointOptions](Endpoints.md#Merge-bEndpointOptions)
 * [Get-bHardwareProfile](Endpoints.md#Get-bHardwareProfile)
 * [Test-bMacAddr](Endpoints.md#Test-bMacAddr)
-## API-Endpoints
 ### Cmdlets zu Software
 * [Get-bApp](Software.md#Get-bApp)
 * [Add-bApplication](Software.md#Add-bApplication)
@@ -180,12 +177,10 @@ Get-bVersion [<CommonParameters>]
 * [New-bAutFileRule](Software.md#New-bAutFileRule)
 * [Search-bSoftware](Software.md#Search-bSoftware)
 * [Get-bSoftwareScanRule](Software.md#Get-bSoftwareScanRule)
-## API-Endpoints
 ### Cmdlets zu Variablen
 * [Get-bVariable](Variablen.md#Get-bVariable)
 * [New-bVariable](Variablen.md#New-bVariable)
 * [Set-bVariable](Variablen.md#Set-bVariable)
-## API-Endpoints
 ### Cmdlets zu Inventur
 * [Get-bInventoryAppScan](Inventur.md#Get-bInventoryAppScan)
 * [Get-bInventoryDataCustomScan](Inventur.md#Get-bInventoryDataCustomScan)
@@ -197,13 +192,11 @@ Get-bVersion [<CommonParameters>]
 * [Get-bInventoryDataSnmpScan](Inventur.md#Get-bInventoryDataSnmpScan)
 * [Get-bInventoryDataWmiScan](Inventur.md#Get-bInventoryDataWmiScan)
 * [Get-bInventoryOverview](Inventur.md#Get-bInventoryOverview)
-## API-Endpoints
 ### Cmdlets zu Kiosk
 * [Get-bIcon](Kiosk.md#Get-bIcon)
 * [Add-bKioskJob](Kiosk.md#Add-bKioskJob)
 * [Get-bKioskJob](Kiosk.md#Get-bKioskJob)
 * [Remove-bKioskJob](Kiosk.md#Remove-bKioskJob)
-## API-Endpoints
 ### Cmdlets zu _scaffolding
 * [bsetableGet](_scaffolding.md#bsetableGet)
 * [bsetable](_scaffolding.md#bsetable)

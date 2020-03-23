@@ -75,9 +75,9 @@ Start-Job {
             $API_CMDs.Name | _syntax -header 3
             
             & {"Container";"Jobs";"Endpoints";"Software";"Variablen";"Inventur";"Kiosk";"_scaffolding"} |
-            ForEach-Object {
+            ForEach-Object -Begin {"## API-Endpoints"} {
                 $DOCFILE,$DOC_HEAD="$_.md","_h$_.md"
-                "## API-Endpoints";"### Cmdlets zu $_"
+                "### Cmdlets zu $_"
                 "# Cmdlets zu $_" > $DOC_HEAD
                 "" > $DOCFILE
                 (Get-Variable -ValueOnly ("{0}_CMDs" -F $_)).Name | % {
