@@ -1,4 +1,7 @@
-$ErrorActionPreference = [System.Management.Automation.ActionPreference]::Continue
+#!/opt/microsoft/powershell/7/pwsh
+[CmdletBinding()]param()
+
+#$ErrorActionPreference = [System.Management.Automation.ActionPreference]::Continue
 
 function Script:EnumType {
     [cmdletbinding()]
@@ -23,12 +26,12 @@ function Script:EnumType {
     }
     
 }
+
 function Script:InitTypes {
     [cmdletbinding()]
     param(
         [string]$TargetNamespace='bConnect'
     )
-
     $Def=(
         {$PSDefaultParameterValues."EnumType:Namespace"="$TargetNamespace.Variable"
             EnumType -Name Type Unknown Number String Date Checkbox Dropdownbox DropdownListbox Filelink Folder Password Certificate
@@ -89,9 +92,12 @@ function Script:InitTypes {
     ) -join "`n"
     
     if($Def){
-        Write-Verbose $Def
-        Add-Type $Def
+        #Write-Debug $Def
+        if ($DebugPreference) { $Def |Out-File ./debug_bTypes.cs }
+        Add-Type $Def 
+    } else {
+        Write-Verbose "bConnect-Types already exist."
     }
 }
 
-InitTypes
+InitTypes -Debug:$DebugPreference -Verbose:$VerbosePreference

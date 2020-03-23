@@ -3,7 +3,7 @@
 * **Distributed under [Apache License 2.0](LICENSE.txt)**
 * **Implemented API-Version**: *bMS 2018R2/bConnect 1.0*
 * ***alpha***-Status; todo: *bMS 2019* features 
-* [Detailed List of cmdlets](Commands.md)
+* [Detailed List of cmdlets](doc/Commands.md)
 * [Simple Examples and API Usage](tests/proof-of-concept.ps1)
 
 # Work in progress - not for production usage yet!
@@ -32,7 +32,7 @@ Feel free to create an issue/ticket if something goes wrong.
 
 # Overview
 
-This module is mostly built using some kind of [scaffolding](blob/master/lib/scaffold.ps1).
+This module is mostly built using some kind of [scaffolding](doc/_scaffolding.md).
 
 ## Initialize-bConnect
 

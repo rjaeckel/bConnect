@@ -1,66 +1,76 @@
+#!/opt/microsoft/powershell/7/pwsh
+& {
 
 "OrgUnits","DynamicGroups","StaticGroups" |% {
-    . getable  $_ -ParamNames Id,OrgUnit
-    . editable $_ 
+    getable  $_ -ParamNames Id,OrgUnit
+    editable $_ 
 }
 "Endpoints" |% {
-    . getable  $_ -ParamNames Id,OrgUnit,DynamicGroup,StaticGroup,User `
+    getable  $_ -ParamNames Id,OrgUnit,DynamicGroup,StaticGroup,User `
                   -CommonFlags PubKey,InstalledSoftware,SnmpData
-    . editable $_
+    editable $_
 }
 "Jobs" |% {
-    . getable  $_ -ParamNames Id,OrgUnit,User `
+    getable  $_ -ParamNames Id,OrgUnit,User `
                   -CommonFlags Steps
                   
     # todo: create,delete,patch -functionality #2019R1
 }
 "JobInstances" |% {
-    . getable    $_ -ParamNames Id,EndpointId,JobId `
+    getable    $_ -ParamNames Id,EndpointId,JobId `
                     -CommonFlags Steps
-    . setableGet $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
-    . deletable  $_
-    . addable    $_ -ParamNames EndpointId,JobId `
+    setableGet $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
+    deletable  $_
+    addable    $_ -ParamNames EndpointId,JobId `
                     -CommonFlags StartIfExists
     # todo: user-functionality #2019R1
 }
 "HardwareProfiles","BootEnvironment" |% {
-    . getable $_ -ParamNames Id
+    getable $_ -ParamNames Id
 }
 
 "Apps","Applications" |% {
-    . getable $_ -ParamNames Id,OrgUnit,EndpointId
+    getable $_ -ParamNames Id,OrgUnit,EndpointId
 }
 
 "Applications" |% {
-    . editable $_
+    editable $_
 }
 "InventoryDataRegistryScans","InventoryDataFileScans" |% {
-    . getable $_ -ParamNames EndpointId
-    . deletable $_ -Ref EndpointId
+    getable $_ -ParamNames EndpointId
+    deletable $_ -Ref EndpointId
 }
 "InventoryDataWmiScans","InventoryDataCustomScans" |% {
-    . getableTpl $_
+    getableTpl $_
 }
 "InventoryDataHardwareScans" |% {
-    . getableTpl -EpRequired $_
+    getableTpl -EpRequired $_
 }
 "InventoryDataSnmpScans" |% {
-    . getable $_ -ParamNames EndpointId -Preferred EndpointId #required parameter
+    getable $_ -ParamNames EndpointId -Preferred EndpointId #required parameter
 }
 "InventoryOverviews","InventoryAppScans" |% {
-    . getable $_ -ParamNames EndpointId
+    getable $_ -ParamNames EndpointId
 }
 "SoftwareScanRules","EndpointInvSoftware","../Version","../Info"  |% {
-    . getable $_
+    getable $_
 }
 "KioskJobs" |% {
-    . getable $_ -ParamNames JobDefinitionId,EndpointId,GroupId,User -Preferred JobDefinitionId
-    . addible $_ -ParamNames JobDefinitionId,TargetId
-    . removable $_ -Ref KioskJobId
+    getable $_ -ParamNames JobDefinitionId,EndpointId,GroupId,User -Preferred JobDefinitionId
+    addible $_ -ParamNames JobDefinitionId,TargetId
+    removable $_ -Ref KioskJobId
     #. setableGet $_ -Ref JobDefinitionId -SetParameters '[parameter(Mandatory)][string]$TargetId'
     ## add!!
 }
 
+
+[System.Enum]::GetNames('bConnect.Search.Type')|% {
+    searchable $_
+}
+
+} > lib/bActions.s.ps1
+
+. lib/bActions.s.ps1
 
 function Get-Variable {
     <#
@@ -98,10 +108,6 @@ function Set-Variable {
     process {
         $PSBoundParameters|Invoke-Connect -Method Put -Controller Variables
     }
-}
-
-[System.Enum]::GetNames('bConnect.Search.Type')|% {
-    . searchable $_
 }
 
 function Get-Icon {
