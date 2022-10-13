@@ -1,3 +1,4 @@
+#!/opt/microsoft/powershell/7/pwsh
 Function Script:Get_ConnectCredentials {
     <#
     .Synopsis

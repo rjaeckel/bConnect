@@ -1,30 +1,19 @@
-
+#!/opt/microsoft/powershell/7/pwsh
 function script:docComment {
+    [cmdletbinding()]
     param($Description)
-    # -- disabled as it breaks Command.md generation
-    '<#','.Synopsis',$Description,'#>','','' -join "`n"
+    process { "<#`n.S$("ynopsis")", $Description,'#>','' -join "`n" }
 }
+
 function script:editable {
     param([parameter(Position=0)][string]$Controller,[string]$Ref='Id',
           [string]$Verb="Edit",[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
           [string]$CmdName="$Verb-$Noun"
     )
     process {
-        <#. ([scriptblock]::Create(
-            "function $CmdName {[cmdletbinding()]param("+
-            "[Parameter(Mandatory,ParameterSetName='delete',ValueFromPipelineByPropertyName,Position=1)]"+
-            "[Parameter(Mandatory,ParameterSetName='patch',ValueFromPipelineByPropertyName,Position=0)]"+
-            "[guid]`$$Ref,"+
-            "[Parameter(Mandatory,ParameterSetName='post',Position=0)][switch]`$Create,"+
-            "[Parameter(Mandatory,ParameterSetName='delete',Position=0)][switch]`$Remove,"+
-            "[Parameter(Mandatory,ParameterSetName='patch',ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]"+
-            "[Parameter(Mandatory,ParameterSetName='post',ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]"+
-            "`$InputObject"+
-            ")process {`$InputObject|Invoke-Connect -Method `$PSCmdlet.ParameterSetName -Controller $Controller -Parameters @{$Ref=`$$Ref}}}"
-        ))#>
-        . script:removable $Controller -Ref $Ref
-        . script:setable $Controller -Ref $Ref
-        . script:addible $Controller
+        script:removable $Controller -Ref $Ref
+        script:setable $Controller -Ref $Ref
+        script:addible $Controller
     } #end process
 }
 
@@ -35,15 +24,15 @@ function script:addibleGet {
           [string]$CmdName="$Verb-$Noun"
     )
     process {
-        . ([scriptblock]::Create(
+        ([scriptblock]::Create(
             "Function $CmdName{`n"+
             (script:docComment "Add $Noun using ``GET``")+
-            "`n[cmdletbinding()]"+"param("+
+            "`n[cmdletbinding()]param(`n"+
             ((&{
                 $ParamNames|% {"[Parameter(Mandatory,ValueFromPipelineByPropertyName)][guid]`${0}" -F $_}
                 $CommonFlags|% {'[Parameter()][switch]${0}' -F $_}
-             }) -join ',')+
-            ")process{Invoke-Connect -Controller $Controller -Parameters `$PSBoundParameters}}"
+             }) -join ",`n")+
+            ")`nprocess{`n`tInvoke-Connect -Controller $Controller -Parameters `$PSBoundParameters`n}} # END $CmdName`n"
         ))
     }
 }
@@ -57,19 +46,19 @@ function script:addible {
         [string[]]$ParamNames=@()
     )
     process {
-    . ([scriptblock]::Create(
+     ([scriptblock]::Create(
         "Function $CmdName {`n"+
-        (script:docComment "Add $Noun using ``POST``. Use ``New-b$Noun`` to create a draft object to pipe in.")+
-        "`n[cmdletbinding()]param("+
+        (script:docComment "Add $Noun using ``POST``. Use [``New-b$Noun``](#New-b$Noun) to create a draft object to pipe in.")+
+        "[cmdletbinding()]param(`n"+
         ((&{
             $ParamNames |% {"[Parameter(Mandatory,ValueFromPipelineByPropertyName)][string]`${0}" -F $_ }
             if(-not $ParamNames.Count) { "[Parameter(ValueFromPipelineByPropertyName,ValueFromPipeline,Mandatory)]`$InputObject" }
-        }) -join ',') + @"
+        }) -join ",`n") + @"
 )
 process {
     'InputObject'| % { if(`$PSBoundParameters.`$_){`$PSBoundParameters.Remove(`$_)>`$null; }}
     `$InputObject|Invoke-Connect -Method post -Controller $Controller -Parameters `$PSBoundParameters
-}}
+}} # END $CmdName
 "@
     ))
     }
@@ -80,15 +69,15 @@ function script:setableGet {
           [string]$Verb='Set',[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
           [string]$CmdName="$Verb-$Noun")
     process {
-        . ([scriptblock]::Create(
+        ([scriptblock]::Create(
             "Function $CmdName{`n"+
             (script:docComment "Set $Noun using ``GET``")+
-            "`n[cmdletbinding()]"+"param("+
+            "[cmdletbinding()]param(`n"+
             ((&{
                 "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]`$$Ref"
                 $SetParameters | % {$_}
-             }) -join ',')+
-            ")process{Invoke-Connect -Controller $Controller -Parameters `$PSBoundParameters}}"
+             }) -join ",`n")+
+            ")`nprocess{`n`tInvoke-Connect -Controller $Controller -Parameters `$PSBoundParameters`n}} # END $CmdName`n"
         ))
     }
 }
@@ -99,15 +88,13 @@ function script:setable {
         [string]$CmdName="$Verb-$Noun"
     )
     process {
-    . ([scriptblock]::Create(
+    ([scriptblock]::Create(
         "Function $CmdName {`n"+
-        (script:docComment "Set $Noun using ``PATCH`. Use ``New-b$Noun -update`` to create a draft object to pipe in.")+
-        "`n[cmdletbinding()]param("+
-        "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)]"+
-        "[guid]`$$Ref,"+
-        "[Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]"+
-        "`$InputObject"+
-        ")process {`$InputObject|Invoke-Connect -Method patch -Controller $Controller -Parameters @{$Ref=`$$Ref}}}"
+        (script:docComment "Set $Noun using ``PATCH``. Use [``New-b$Noun -update``](#New-b$Noun) to create a draft object to pipe in.")+
+        "[cmdletbinding()]param(`n"+
+        "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]`$$Ref,`n"+
+        "[Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]`$InputObject"+
+        ")`nprocess{`n`t`$InputObject|Invoke-Connect -Method patch -Controller $Controller -Parameters @{$Ref=`$$Ref}`n}} # END $CmdName`n"
     ))
     } #end process
 }
@@ -117,12 +104,12 @@ function script:removable {
           [string]$Verb='Remove',[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
           [string]$CmdName="$Verb-$Noun")
     process {
-        . ([scriptblock]::Create(
+        ([scriptblock]::Create(
             "Function $CmdName{`n"+
             (script:docComment "Remove $Noun using ``DELETE``")+
-            "`n[cmdletbinding()]"+"param("+
+            "[cmdletbinding()]param(`n"+
             "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]`$$Ref"+
-            ")process{Invoke-Connect -Method delete -Controller $Controller -Parameters `$PSBoundParameters}}"
+            ")`nprocess{`n`tInvoke-Connect -Method delete -Controller $Controller -Parameters `$PSBoundParameters`n}} # END $CmdName`n"
         ))
     }
 }
@@ -136,17 +123,17 @@ function script:gettable {
     )
     process {
         if($ParamNames.Count) { $first=$ParamNames[0] }
-        . ([scriptblock]::Create(
+        ([scriptblock]::Create(
             "Function $CmdName{`n"+
             (script:docComment "Get $Controller using ``GET``")+
-            "`n[cmdletbinding(DefaultParameterSetName='By$preferred')]"+"param("+
+            "[cmdletbinding(DefaultParameterSetName='By$preferred')]param(`n"+
             ((&{
                 $ParamNames|% {"[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='By{0}'$(
                     if($first -eq $_){ ',ValueFromPipeline,Position=0' }
                 ))][guid]`${0}" -F $_}
                 $CommonFlags|% {'[Parameter()][switch]${0}' -F $_}
-             }) -join ',')+
-            ")process{Invoke-Connect -Controller $Controller -Parameters `$PSBoundParameters}}"
+             }) -join ",`n")+
+            ")`nprocess{`n`tInvoke-Connect -Controller $Controller -Parameters `$PSBoundParameters`n}} # END $CmdName`n"
         ))
     }
 }
@@ -157,49 +144,55 @@ function script:getableTpl {
           [string]$CmdName="$Verb-$Noun"
     )
     process {
-        . ([scriptblock]::Create(
-            "Function $CmdName {`n"+
-            (script:docComment "List $($Noun)s using ``GET``")+
-            "`n[cmdletbinding(DefaultParameterSetName='all')]param("+
+        [scriptblock]::Create(
             ((&{
-                "
-                [Parameter(Mandatory,ParameterSetName='latest')][switch]`$Latest"
-                "
-                [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='all'$(if($EpRequired){",Mandatory"}))]
-                [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='latest'$(if($EpRequired){",Mandatory"}))]
-                [Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='time')]
-                [Alias('Id','Endpoint')][guid]`$EndpointId"
-                "
-                [Parameter(ValueFromPipelineByPropertyName,ParameterSetName='all')]
-                [Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='latest')]
-                [Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='time')]
-                [Alias('Template')][string]`$TemplateName"
-                "
-                [Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='time')]
-                [ValidatePattern('^(?>\d{4}-(?>0\d|1[0-2])-(?>[0-2]\d|[3][01])T(?>[01]\d|2[0-3])(?>:[0-5]\d){2}Z)$')]
-                [Alias('Time')][string]`$Scan"
-            })-join ',')+
-            ")process{
-                'Latest'| % {if(`$PSBoundParameters.`$_){`$PSBoundParameters.Remove(`$_)>`$null;`$PSBoundParameters.Scan=`$_}}
-                Invoke-Connect -Controller $Controller -Parameters `$PSBoundParameters}
-            }"
-        ))
-    }
-}
-function script:searchable {
-    param([bConnect.Search.Type]$Type)
-    . ([scriptblock]::Create(
-        "Function Search-$Type {`n"+
-        (script:docComment "Search $($Type)s using ``GET``")+@"
-    [cmdletbinding()]
-    param(
-        [Parameter(Mandatory,Position=0,ValueFromPipeline)]
-        [ValidateLength(2,255)][string]`$Term
+                "Function $CmdName {"
+                (script:docComment "List $($Noun)s using ``GET``")
+                "[cmdletbinding(DefaultParameterSetName='all')]param("
+                ""
+@"
+[Parameter(Mandatory,ParameterSetName='latest')][switch]`$Latest,
+
+[Parameter(ValueFromPipelineByPropertyName,ParameterSetName='all'$(if($EpRequired){",Mandatory"}))]
+[Parameter(ValueFromPipelineByPropertyName,ParameterSetName='latest'$(if($EpRequired){",Mandatory"}))]
+[Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='time')]
+[Alias('Id','Endpoint')][guid]`$EndpointId,
+
+[Parameter(ValueFromPipelineByPropertyName,ParameterSetName='all')]
+[Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='latest')]
+[Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='time')]
+[Alias('Template')][string]`$TemplateName,
+
+[Parameter(ValueFromPipelineByPropertyName,Mandatory,ParameterSetName='time')]
+[ValidatePattern('^(?>\d{4}-(?>0\d|1[0-2])-(?>[0-2]\d|[3][01])T(?>[01]\d|2[0-3])(?>:[0-5]\d){2}Z)$')]
+[Alias('Time')][string]`$Scan
+)
+process{
+    'Latest'| % {if(`$PSBoundParameters.`$_){
+        `$PSBoundParameters.Remove(`$_)>`$null
+        `$PSBoundParameters.Scan=`$_
+    }}
+    Invoke-Connect -Controller $Controller -Parameters `$PSBoundParameters
+}}
+"@
+
+        }) -join "`n")
     )
-    process{
-        Invoke-Connect -Controller Search -Parameters @{Type='$Type';Term=`$Term}
-    }
-}
+}}
+function script:searchable {
+    [cmdletbinding()]
+    param([bConnect.Search.Type]$Type)
+    ([scriptblock]::Create(
+        "Function Search-$Type {`n"+
+        (script:docComment "Search $($Type)s using ``GET``")+
+@"
+[cmdletbinding()]param(
+    [Parameter(Mandatory,Position=0,ValueFromPipeline)]
+    [ValidateLength(2,255)]
+    [string]`$Term)
+process{
+    Invoke-Connect -Controller Search -Parameters @{Type='$Type';Term=`$Term}
+}} # END $CmdName
 "@
     ))
 }

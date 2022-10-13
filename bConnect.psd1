@@ -9,7 +9,7 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = './bConnect.psm1'
+RootModule = 'bConnect.psm1'
 
 # Version number of this module.
 ModuleVersion = '0.9.0'
@@ -57,7 +57,7 @@ CompanyName = 'MLU Halle-Wittenberg | IT-Servicezentrum'
 # RequiredAssemblies = @()
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module.
-ScriptsToProcess = './lib/bTypes.ps1'
+#ScriptsToProcess = './lib/bTypes.ps1'
 
 # Type files (.ps1xml) to be loaded when importing this module
 # TypesToProcess = @()
@@ -84,7 +84,7 @@ AliasesToExport = '*'
 # DscResourcesToExport = @()
 
 # List of all modules packaged with this module
-# ModuleList = @()
+#ModuleList = @("bTypes")
 
 # List of all files packaged with this module
 # FileList = @()
@@ -98,7 +98,7 @@ PrivateData = @{
         # Tags = @()
 
         # A URL to the license for this module.
-        LicenseUri = './License.txt'
+        LicenseUri = 'License.txt'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/rjaeckel/bConnect'
@@ -107,7 +107,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = './Readme.md'
+        ReleaseNotes = 'Readme.md'
 
     } # End of PSData hashtable
 
