@@ -122,3 +122,32 @@ Function Invoke-Connect {
     #$res|out-host #-ForegroundColor Cyan -ea Ignore
     $res
 }
+
+Function Export-ConnectCredentials {
+    [CmdletBinding()]param(
+        [Parameter(Mandatory)]
+        [System.IO.FileInfo]$Path,
+        [switch]$Force,
+        [switch]$Confirm
+    )
+    process {
+        if($PSDefaultParameterValues.Count -gt 1) {
+            $PSDefaultParameterValues | Export-Clixml @PSBoundParameters
+        } else {
+            throw "Initialize-bConnect first!"
+        }
+    }
+}
+Function Import-ConnectCredentials {
+    [cmdletbinding()]param(
+        [Parameter(Mandatory)]
+        [ValidateScript({$_.Exists},ErrorMessage="File does not exist: {0}")]
+        [System.IO.FileInfo]$Path
+    )
+    process {
+        $data = Import-Clixml @PSBoundParameters -ea stop
+        $data.keys |% { $PSDefaultParameterValues[$_]=$data.$_ } >$null
+        "{0} parameters setup" -F $PSDefaultParameterValues.Count|Write-Verbose
+        get-info
+    }
+}
