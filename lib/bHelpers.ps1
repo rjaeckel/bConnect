@@ -190,7 +190,11 @@ Function New-Endpoint {
         
     )
     $PSBoundParameters.Remove($PSCmdlet.ParameterSetName) > $null
-    
+    'Type','Owner','Mode','ComplianceCheckCategory' | ForEach-Object {
+        if($PSBoundParameters.ContainsKey($_) {
+            ${$_}=[string]${$_}
+        }
+    }
     New-Object psobject -Property $PSBoundParameters
 }
 Function New-Variable {
