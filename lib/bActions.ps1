@@ -68,9 +68,9 @@
     searchable $_
 }
 
-} > lib/bActions.s.ps1
+} > $PSScriptRoot/bActions.s.ps1
 
-. lib/bActions.s.ps1
+. $PSScriptRoot/bActions.s.ps1
 
 function Get-Variable {
     <#
