@@ -58,7 +58,7 @@ Start-Job {
 
         $Module_CMDs = Get-Command -Module bConnect | Sort-Object Noun,Verb
         $_scaffolding_CMDs=($Module_CMDs |? Noun -EQ "") -match "b(le|doc|init)|Enum|mk_"
-        $API_CMDs=$Module_CMDs|? Noun -IN bConnect,bInfo,bVersion
+        $API_CMDs=$Module_CMDs|? Noun -IN bConnect,bInfo,bVersion,bConnectCredentials
         $Container_CMDs=$Module_CMDs|? Noun -IN bOrgUnit,bOrgUnitExtension,bGroup,bStaticGroup,bDynamicGroup
         $Jobs_CMDs=$Module_CMDs|? Noun -Match bJob
         $Endpoints_CMDs=$Module_CMDs|? Noun -Match 'Endpoint|Boot|HardwareProfile|MacAddr'

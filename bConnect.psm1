@@ -33,7 +33,8 @@ Export-ModuleMember -Function ([string[]]@(
     "Initialize-*","Clear-*",
     #"Edit-*","Invoke-b*", 
     "Expand-*","Merge-*",
-    "New-*") + $_debug_cmdlets
+    "New-*",
+    "Export-*", "Import-*") + $_debug_cmdlets
 )}
 
 }

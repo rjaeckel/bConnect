@@ -110,6 +110,44 @@ Test-bConnect [-bMSVersion <Version>] [-bConnectVersion <Version>] [<CommonParam
   PipelineInput : false
   Aliases : 
   ```
+### Export-bConnectCredentials
+```
+Export-bConnectCredentials [-Path] <FileInfo> [-Force] [-Confirm] [<CommonParameters>]
+```
+#### Parameters
+* Path `<FileInfo>`
+  ```
+  Position : 0
+  Required : true
+  PipelineInput : false
+  Aliases : None
+  ```
+* Confirm `<switch>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* Force `<switch>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+### Import-bConnectCredentials
+```
+Import-bConnectCredentials [-Path] <FileInfo> [<CommonParameters>]
+```
+#### Parameters
+* Path `<FileInfo>`
+  ```
+  Position : 0
+  Required : true
+  PipelineInput : false
+  Aliases : None
+  ```
 ### Get-bInfo
 > Get ../Info using `GET` 
 ```
