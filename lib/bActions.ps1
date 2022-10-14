@@ -79,6 +79,7 @@
 "ServerState" |% {
     getable $_
 }
+
 "MicrosoftUpdateInventories" |% {
     getable $_ -ParamNames EndpointId,GroupId `
                 -CommonFlags ExtendedInformation,Recursive `
@@ -90,14 +91,25 @@
 }
 "VulnerabilityExclusions" |% {
     getable $_ -ParamNames ObjectId `
-                -CommonFlags includeSubfolders
+                -CommonFlags IncludeSubfolders
+}
+"MicrosoftDefenderThreats" |% {
+    getable $_ -ParamNames Id,EndpointId,GroupId `
+                -CommonFlags IncludeSubfolders
+}
+"IpNetworks" |% {
+    getable $_ -ParamNames Id,Name
+    addible $_
+    setable $_ -Ref Id
+    removable $_ -Ref Id
 }
 
 [System.Enum]::GetNames('bConnect.Search.Type')|% {
     searchable $_
 }
 
-}) -replace "\[guid\]\`$User",'[string]$User' > $PSScriptRoot/bActions.s.ps1
+}) -replace "\[guid\]\`$User",'[string]$User' `
+   -replace "\[guid\]\`$Name",'[string]$Name'  > $PSScriptRoot/bActions.s.ps1
 . $PSScriptRoot/bActions.s.ps1
 
 function Get-Variable {
@@ -159,3 +171,8 @@ function Get-Icon {
 # Todo: VPPUsers
 # Todo: VPPLicenseAssociations
 # Todo: MicrosoftUpdateProfiles
+# Todo: MicrosoftUpdateManagementSettings
+# Todo: ModernEnrollment
+# Todo: BfcrxIntegrity
+# Todo: ManagementAgentSetupIntegrity
+# Todo: EndpointSSHInfo

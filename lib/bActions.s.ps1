@@ -700,10 +700,70 @@ Get VulnerabilityExclusions using `GET`
 #>
 [cmdletbinding(DefaultParameterSetName='ByAny')]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByObjectId',ValueFromPipeline,Position=0)][guid]$ObjectId,
-[Parameter()][switch]$includeSubfolders)
+[Parameter()][switch]$IncludeSubfolders)
 process{
 	Invoke-Connect -Controller VulnerabilityExclusions -Parameters $PSBoundParameters
 }} # END Get-VulnerabilityExclusion
+
+Function Get-MicrosoftDefenderThreat{
+<#
+.Synopsis
+Get MicrosoftDefenderThreats using `GET`
+#>
+[cmdletbinding(DefaultParameterSetName='ByAny')]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ById',ValueFromPipeline,Position=0)][guid]$Id,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByEndpointId')][guid]$EndpointId,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByGroupId')][guid]$GroupId,
+[Parameter()][switch]$IncludeSubfolders)
+process{
+	Invoke-Connect -Controller MicrosoftDefenderThreats -Parameters $PSBoundParameters
+}} # END Get-MicrosoftDefenderThreat
+
+Function Get-IpNetwork{
+<#
+.Synopsis
+Get IpNetworks using `GET`
+#>
+[cmdletbinding(DefaultParameterSetName='ByAny')]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ById',ValueFromPipeline,Position=0)][guid]$Id,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByName')][string]$Name)
+process{
+	Invoke-Connect -Controller IpNetworks -Parameters $PSBoundParameters
+}} # END Get-IpNetwork
+
+Function Add-IpNetwork {
+<#
+.Synopsis
+Add IpNetwork using `POST`. Use [`New-bIpNetwork`](#New-bIpNetwork) to create a draft object to pipe in.
+#>
+[cmdletbinding()]param(
+[Parameter(ValueFromPipelineByPropertyName,ValueFromPipeline,Mandatory)]$InputObject)
+process {
+    'InputObject'| % { if($PSBoundParameters.$_){$PSBoundParameters.Remove($_)>$null; }}
+    $InputObject|Invoke-Connect -Method post -Controller IpNetworks -Parameters $PSBoundParameters
+}} # END Add-IpNetwork
+Function Set-IpNetwork {
+<#
+.Synopsis
+Set IpNetwork using `PATCH`. Use [`New-bIpNetwork -update`](#New-bIpNetwork) to create a draft object to pipe in.
+#>
+[cmdletbinding()]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
+process{
+	$InputObject|Invoke-Connect -Method patch -Controller IpNetworks -Parameters @{Id=$Id}
+}} # END Set-IpNetwork
+
+Function Remove-IpNetwork{
+<#
+.Synopsis
+Remove IpNetwork using `DELETE`
+#>
+[cmdletbinding()]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id)
+process{
+	Invoke-Connect -Method delete -Controller IpNetworks -Parameters $PSBoundParameters
+}} # END Remove-IpNetwork
 
 Function Search-Endpoint {
 <#

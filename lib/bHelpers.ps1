@@ -429,3 +429,13 @@ function New-EndpointSecret {
         thow "not implemented yet"
     }
 }
+function New-IpNetwork {
+    <#
+    .SYNOPSIS
+    Creates draft object in memory TODO
+    #>
+    [CmdletBinding()]param()
+    process {
+        thow "not implemented yet"
+    }
+}

@@ -92,7 +92,8 @@ Function Invoke-Connect {
                      "InventoryDataRegistryScans","InventoryDataFileScans","InventoryDataWMIScans","InventoryDataCustomScans","InventoryDataSNMPScans",`
                      "InventoryDataHardwareScans","InventoryOverviews","InventoryAppScans","SoftwareScanRules","EndpointInvSoftware",
                      "UniversalDynamicGroup","ServerState","EndpointSecrets","MicrosoftUpdateInventories","ComplianceViolations",
-                     "VulnerabilityExclusions")]
+                     "VulnerabilityExclusions",
+                     "IPNetworks")]
             [string]$controller,
         <#[ValidateSet( "json" )] #, "xml")]
             [string]$format="json",#>
