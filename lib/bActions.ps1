@@ -63,7 +63,7 @@
 }
 "KioskJobs" |% {
     getable $_ -ParamNames JobDefinitionId,EndpointId,GroupId,User -Preferred JobDefinitionId
-    addible $_ -ParamNames JobDefinitionId,TargetId
+    addible $_
     removable $_ -Ref KioskJobId
     #todo: post with username and jobid
 }
@@ -72,6 +72,10 @@
     getable $_ -ParamNames Id,Orgunit -CommonFlags IsArgusSynced
 }
 
+"EndpointSecrets"|% {
+    getable $_ -ParamNames EndpointId -Preferred EndpointId
+    setable $_ -Ref EndpointId
+}
 
 [System.Enum]::GetNames('bConnect.Search.Type')|% {
     searchable $_

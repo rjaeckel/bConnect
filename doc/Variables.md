@@ -1,7 +1,7 @@
-# Cmdlets zu Variablen
-* [Get-bVariable](Variablen.md#Get-bVariable)
-* [New-bVariable](Variablen.md#New-bVariable)
-* [Set-bVariable](Variablen.md#Set-bVariable)
+# Cmdlets regarding Variables
+* [Get-bVariable](Variables.md#Get-bVariable)
+* [New-bVariable](Variables.md#New-bVariable)
+* [Set-bVariable](Variables.md#Set-bVariable)
 
 
 ## Get-bVariable

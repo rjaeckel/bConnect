@@ -1,7 +1,8 @@
-# Cmdlets zu Kiosk
+# Cmdlets regarding Kiosk
 * [Get-bIcon](Kiosk.md#Get-bIcon)
 * [Add-bKioskJob](Kiosk.md#Add-bKioskJob)
 * [Get-bKioskJob](Kiosk.md#Get-bKioskJob)
+* [New-bKioskJob](Kiosk.md#New-bKioskJob)
 * [Remove-bKioskJob](Kiosk.md#Remove-bKioskJob)
 
 
@@ -30,21 +31,14 @@ Get-bIcon -Scope {App | Inventory} [<CommonParameters>]
 ## Add-bKioskJob
 > Add KioskJob using `POST`. Use [`New-bKioskJob`](#New-bKioskJob) to create a draft object to pipe in. 
 ```
-Add-bKioskJob [-JobDefinitionId] <String> [-TargetId] <String> [<CommonParameters>]
+Add-bKioskJob [-InputObject] <Object> [<CommonParameters>]
 ```
 ### Parameters
-* JobDefinitionId `<String>`
+* InputObject `<Object>`
   ```
   Position : 1
   Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* TargetId `<String>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByPropertyName)
+  PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
   ```
 ## Get-bKioskJob
@@ -82,6 +76,34 @@ Get-bKioskJob -User <String> [<CommonParameters>]
   Position : named
   Required : true
   PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+## New-bKioskJob
+> Creates draft object in memory 
+```
+New-bKioskJob -JobDefinitionId <Guid> -TargetId <Guid> [<CommonParameters>]
+New-bKioskJob -JobDefinitionId <Guid> -User <String> [<CommonParameters>]
+```
+### Parameters
+* JobDefinitionId `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : false
+  Aliases : 
+  ```
+* TargetId `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : false
+  Aliases : 
+  ```
+* User `<String>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : false
   Aliases : 
   ```
 ## Remove-bKioskJob

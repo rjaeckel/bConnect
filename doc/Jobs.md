@@ -1,4 +1,4 @@
-# Cmdlets zu Jobs
+# Cmdlets regarding Jobs
 * [Add-bJob](Jobs.md#Add-bJob)
 * [Get-bJob](Jobs.md#Get-bJob)
 * [New-bJob](Jobs.md#New-bJob)

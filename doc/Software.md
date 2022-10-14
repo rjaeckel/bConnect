@@ -1,4 +1,4 @@
-# Cmdlets zu Software
+# Cmdlets regarding Software
 * [Get-bApp](Software.md#Get-bApp)
 * [Add-bApplication](Software.md#Add-bApplication)
 * [Get-bApplication](Software.md#Get-bApplication)

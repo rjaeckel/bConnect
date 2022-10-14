@@ -383,6 +383,21 @@ Function New-ApplicationUserSettings {
     }
 }
 
+function New-KioskJob {
+    <#
+    .SYNOPSIS
+    Creates draft object in memory
+    #>
+    [CmdletBinding()]param(
+        [Parameter(Mandatory)][guid]$JobDefinitionId,
+        [Parameter(Mandatory,ParameterSetName='Targeted')][guid]$TargetId,
+        [Parameter(Mandatory,ParameterSetName='User')][string]$User
+    )
+    process {
+        New-Object psobject -Property $PSBoundParameters
+    }
+}
+
 function New-Job {
     <#
     .SYNOPSIS
@@ -395,6 +410,16 @@ function New-Job {
 }
 
 function New-JobStep {
+    <#
+    .SYNOPSIS
+    Creates draft object in memory TODO
+    #>
+    [CmdletBinding()]param()
+    process {
+        thow "not implemented yet"
+    }
+}
+function New-EndpointSecret {
     <#
     .SYNOPSIS
     Creates draft object in memory TODO

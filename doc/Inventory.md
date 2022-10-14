@@ -1,14 +1,14 @@
-# Cmdlets zu Inventur
-* [Get-bInventoryAppScan](Inventur.md#Get-bInventoryAppScan)
-* [Get-bInventoryDataCustomScan](Inventur.md#Get-bInventoryDataCustomScan)
-* [Get-bInventoryDataFileScan](Inventur.md#Get-bInventoryDataFileScan)
-* [Remove-bInventoryDataFileScan](Inventur.md#Remove-bInventoryDataFileScan)
-* [Get-bInventoryDataHardwareScan](Inventur.md#Get-bInventoryDataHardwareScan)
-* [Get-bInventoryDataRegistryScan](Inventur.md#Get-bInventoryDataRegistryScan)
-* [Remove-bInventoryDataRegistryScan](Inventur.md#Remove-bInventoryDataRegistryScan)
-* [Get-bInventoryDataSnmpScan](Inventur.md#Get-bInventoryDataSnmpScan)
-* [Get-bInventoryDataWmiScan](Inventur.md#Get-bInventoryDataWmiScan)
-* [Get-bInventoryOverview](Inventur.md#Get-bInventoryOverview)
+# Cmdlets regarding Inventory
+* [Get-bInventoryAppScan](Inventory.md#Get-bInventoryAppScan)
+* [Get-bInventoryDataCustomScan](Inventory.md#Get-bInventoryDataCustomScan)
+* [Get-bInventoryDataFileScan](Inventory.md#Get-bInventoryDataFileScan)
+* [Remove-bInventoryDataFileScan](Inventory.md#Remove-bInventoryDataFileScan)
+* [Get-bInventoryDataHardwareScan](Inventory.md#Get-bInventoryDataHardwareScan)
+* [Get-bInventoryDataRegistryScan](Inventory.md#Get-bInventoryDataRegistryScan)
+* [Remove-bInventoryDataRegistryScan](Inventory.md#Remove-bInventoryDataRegistryScan)
+* [Get-bInventoryDataSnmpScan](Inventory.md#Get-bInventoryDataSnmpScan)
+* [Get-bInventoryDataWmiScan](Inventory.md#Get-bInventoryDataWmiScan)
+* [Get-bInventoryOverview](Inventory.md#Get-bInventoryOverview)
 
 
 ## Get-bInventoryAppScan

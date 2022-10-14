@@ -1,4 +1,4 @@
-# Cmdlets zu Endpoints
+# Cmdlets regarding Endpoints
 * [Get-bBootEnvironment](Endpoints.md#Get-bBootEnvironment)
 * [Add-bEndpoint](Endpoints.md#Add-bEndpoint)
 * [Get-bEndpoint](Endpoints.md#Get-bEndpoint)
@@ -9,6 +9,9 @@
 * [Get-bEndpointInvSoftware](Endpoints.md#Get-bEndpointInvSoftware)
 * [Expand-bEndpointOptions](Endpoints.md#Expand-bEndpointOptions)
 * [Merge-bEndpointOptions](Endpoints.md#Merge-bEndpointOptions)
+* [Get-bEndpointSecret](Endpoints.md#Get-bEndpointSecret)
+* [New-bEndpointSecret](Endpoints.md#New-bEndpointSecret)
+* [Set-bEndpointSecret](Endpoints.md#Set-bEndpointSecret)
 * [Get-bHardwareProfile](Endpoints.md#Get-bHardwareProfile)
 * [Test-bMacAddr](Endpoints.md#Test-bMacAddr)
 
@@ -359,6 +362,45 @@ Merge-bEndpointOptions [[-ClientOptions] {EnableOsInstall | InheritAutoInstallat
   Position : 3
   Required : false
   PipelineInput : true (ByValue)
+  Aliases : 
+  ```
+## Get-bEndpointSecret
+> Get EndpointSecrets using `GET` 
+```
+Get-bEndpointSecret [-EndpointId] <Guid> [<CommonParameters>]
+```
+### Parameters
+* EndpointId `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## New-bEndpointSecret
+> Creates draft object in memory TODO 
+```
+New-bEndpointSecret [<CommonParameters>]
+```
+### Parameters
+## Set-bEndpointSecret
+> Set EndpointSecret using `PATCH`. Use [`New-bEndpointSecret -update`](#New-bEndpointSecret) to create a draft object to pipe in. 
+```
+Set-bEndpointSecret [-EndpointId] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* EndpointId `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
   ```
 ## Get-bHardwareProfile

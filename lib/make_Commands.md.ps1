@@ -57,14 +57,14 @@ Start-Job {
         Push-Location doc -ea STOP
 
         $Module_CMDs = Get-Command -Module bConnect | Sort-Object Noun,Verb
-        $_scaffolding_CMDs=($Module_CMDs |? Noun -EQ "") -match "b(le|doc|init)|Enum|mk_"
+        $_scaffolding_CMDs=($Module_CMDs |? Noun -EQ "") -match "b(le|doc|init)|Enum|mk_"|Sort-Object Verb
         $API_CMDs=$Module_CMDs|? Noun -IN bConnect,bInfo,bVersion,bConnectCredentials
-        $Container_CMDs=$Module_CMDs|? Noun -IN bOrgUnit,bOrgUnitExtension,bGroup,bStaticGroup,bDynamicGroup,bUniversalDynamicGroup
+        $Containers_CMDs=$Module_CMDs|? Noun -IN bOrgUnit,bOrgUnitExtension,bGroup,bStaticGroup,bDynamicGroup,bUniversalDynamicGroup
         $Jobs_CMDs=$Module_CMDs|? Noun -Match bJob
         $Endpoints_CMDs=$Module_CMDs|? Noun -Match 'Endpoint|Boot|HardwareProfile|MacAddr'
         $Software_CMDs=$Module_CMDs|? Noun -Match 'App(lication.*)?$|bSoftware|bAut'
-        $Variablen_CMDs=$Module_CMDs|? Noun -Match Variable
-        $Inventur_CMDs=$Module_CMDs|? Noun -Match Inventory
+        $Variables_CMDs=$Module_CMDs|? Noun -Match Variable
+        $Inventory_CMDs=$Module_CMDs|? Noun -Match Inventory
         $Kiosk_CMDs=$Module_CMDs|? Noun -Match 'Kiosk|Icon'
 
         & {
@@ -74,11 +74,11 @@ Start-Job {
 
             $API_CMDs.Name | _syntax -header 3
             
-            & {"Container";"Jobs";"Endpoints";"Software";"Variablen";"Inventur";"Kiosk";"_scaffolding"} |
+            & {"Containers";"Jobs";"Endpoints";"Software";"Variables";"Inventory";"Kiosk";"_scaffolding"} |
             ForEach-Object -Begin {"## API-Endpoints"} {
                 $DOCFILE,$DOC_HEAD="$_.md","_h$_.md"
-                "### Cmdlets zu $_"
-                "# Cmdlets zu $_" > $DOC_HEAD
+                "### Cmdlets regarding $_"
+                "# Cmdlets regarding $_" > $DOC_HEAD
                 "" > $DOCFILE
                 (Get-Variable -ValueOnly ("{0}_CMDs" -F $_)).Name | % {
                     "* [$_]($DOCFILE#$_)" |% { $_ >>$DOC_HEAD; $_}

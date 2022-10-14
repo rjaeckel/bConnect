@@ -605,8 +605,7 @@ Function Add-KioskJob {
 Add KioskJob using `POST`. Use [`New-bKioskJob`](#New-bKioskJob) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
-[Parameter(Mandatory,ValueFromPipelineByPropertyName)][string]$JobDefinitionId,
-[Parameter(Mandatory,ValueFromPipelineByPropertyName)][string]$TargetId)
+[Parameter(ValueFromPipelineByPropertyName,ValueFromPipeline,Mandatory)]$InputObject)
 process {
     'InputObject'| % { if($PSBoundParameters.$_){$PSBoundParameters.Remove($_)>$null; }}
     $InputObject|Invoke-Connect -Method post -Controller KioskJobs -Parameters $PSBoundParameters
@@ -634,6 +633,29 @@ Get UniversalDynamicGroup using `GET`
 process{
 	Invoke-Connect -Controller UniversalDynamicGroup -Parameters $PSBoundParameters
 }} # END Get-UniversalDynamicGroup
+
+Function Get-EndpointSecret{
+<#
+.Synopsis
+Get EndpointSecrets using `GET`
+#>
+[cmdletbinding(DefaultParameterSetName='ByEndpointId')]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByEndpointId',ValueFromPipeline,Position=0)][guid]$EndpointId)
+process{
+	Invoke-Connect -Controller EndpointSecrets -Parameters $PSBoundParameters
+}} # END Get-EndpointSecret
+
+Function Set-EndpointSecret {
+<#
+.Synopsis
+Set EndpointSecret using `PATCH`. Use [`New-bEndpointSecret -update`](#New-bEndpointSecret) to create a draft object to pipe in.
+#>
+[cmdletbinding()]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$EndpointId,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
+process{
+	$InputObject|Invoke-Connect -Method patch -Controller EndpointSecrets -Parameters @{EndpointId=$EndpointId}
+}} # END Set-EndpointSecret
 
 Function Search-Endpoint {
 <#
