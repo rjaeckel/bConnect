@@ -147,6 +147,7 @@ Get Endpoints using `GET`
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByDynamicGroup')][guid]$DynamicGroup,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByStaticGroup')][guid]$StaticGroup,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByUser')][guid]$User,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByUniversalDynamicGroup')][guid]$UniversalDynamicGroup,
 [Parameter()][switch]$PubKey,
 [Parameter()][switch]$InstalledSoftware,
 [Parameter()][switch]$SnmpData)

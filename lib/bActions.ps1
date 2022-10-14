@@ -6,7 +6,7 @@
     editable $_ 
 }
 "Endpoints" |% {
-    getable  $_ -ParamNames Id,OrgUnit,DynamicGroup,StaticGroup,User `
+    getable  $_ -ParamNames Id,OrgUnit,DynamicGroup,StaticGroup,User,UniversalDynamicGroup `
                   -CommonFlags PubKey,InstalledSoftware,SnmpData
     editable $_
 }
