@@ -246,7 +246,8 @@ Get JobInstances using `GET`
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ById',ValueFromPipeline,Position=0)][guid]$Id,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByEndpointId')][guid]$EndpointId,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByJobId')][guid]$JobId,
-[Parameter()][switch]$Steps)
+[Parameter()][switch]$Steps,
+[Parameter()][switch]$IncludeJobDefinition)
 process{
 	Invoke-Connect -Controller JobInstances -Parameters $PSBoundParameters
 }} # END Get-JobInstance

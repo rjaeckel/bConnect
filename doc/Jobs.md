@@ -151,10 +151,10 @@ Add-bJobInstance [-EndpointId] <Guid> [-JobId] <Guid> [-StartIfExists] [<CommonP
 ## Get-bJobInstance
 > Get JobInstances using `GET` 
 ```
-Get-bJobInstance [-Steps] [<CommonParameters>]
-Get-bJobInstance [-Id] <Guid> [-Steps] [<CommonParameters>]
-Get-bJobInstance -EndpointId <Guid> [-Steps] [<CommonParameters>]
-Get-bJobInstance -JobId <Guid> [-Steps] [<CommonParameters>]
+Get-bJobInstance [-Steps] [-IncludeJobDefinition] [<CommonParameters>]
+Get-bJobInstance [-Id] <Guid> [-Steps] [-IncludeJobDefinition] [<CommonParameters>]
+Get-bJobInstance -EndpointId <Guid> [-Steps] [-IncludeJobDefinition] [<CommonParameters>]
+Get-bJobInstance -JobId <Guid> [-Steps] [-IncludeJobDefinition] [<CommonParameters>]
 ```
 ### Parameters
 * Id `<Guid>`
@@ -162,6 +162,13 @@ Get-bJobInstance -JobId <Guid> [-Steps] [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+* IncludeJobDefinition `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
   Aliases : 
   ```
 * Steps `<SwitchParameter>`

@@ -21,7 +21,7 @@
 }
 "JobInstances" |% {
     getable    $_ -ParamNames Id,EndpointId,JobId `
-                    -CommonFlags Steps
+                    -CommonFlags Steps,IncludeJobDefinition
     setableGet $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
     deletable  $_
     # deprecated fore post-preference
