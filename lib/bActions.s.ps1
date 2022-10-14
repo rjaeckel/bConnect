@@ -714,7 +714,7 @@ Get MicrosoftDefenderThreats using `GET`
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ById',ValueFromPipeline,Position=0)][guid]$Id,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByEndpointId')][guid]$EndpointId,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByGroupId')][guid]$GroupId,
-[Parameter()][switch]$IncludeSubfolders)
+[Parameter(ParameterSetName='ByGroupId')][switch]$IncludeSubfolders)
 process{
 	Invoke-Connect -Controller MicrosoftDefenderThreats -Parameters $PSBoundParameters
 }} # END Get-MicrosoftDefenderThreat

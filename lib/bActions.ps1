@@ -95,7 +95,7 @@
 }
 "MicrosoftDefenderThreats" |% {
     getable $_ -ParamNames Id,EndpointId,GroupId `
-                -CommonFlags IncludeSubfolders
+                -CommonFlags _IncludeSubfolders
 }
 "IpNetworks" |% {
     getable $_ -ParamNames Id,Name
@@ -109,7 +109,8 @@
 }
 
 }) -replace "\[guid\]\`$User",'[string]$User' `
-   -replace "\[guid\]\`$Name",'[string]$Name'  > $PSScriptRoot/bActions.s.ps1
+    -replace "\[guid\]\`$Name",'[string]$Name' `
+    -replace "\[Parameter\(\)\]\[switch\]\`$_","[Parameter(ParameterSetName='ByGroupId')][switch]$"  > $PSScriptRoot/bActions.s.ps1
 . $PSScriptRoot/bActions.s.ps1
 
 function Get-Variable {

@@ -65,6 +65,8 @@ Start-Job {
         $Software_CMDs=$Module_CMDs|? Noun -Match 'App(lication.*)?$|bSoftware|bAut'
         $Variables_CMDs=$Module_CMDs|? Noun -Match Variable
         $Inventory_CMDs=$Module_CMDs|? Noun -Match Inventory
+        $Server_CMDs=$Module_CMDs|? Noun -Match 'Server|Network'
+        $Security_CMDs=$Module_CMDs|? Noun -Match 'Violation|Vulnerability|Threat'
         $Kiosk_CMDs=$Module_CMDs|? Noun -Match 'Kiosk|Icon'
 
         & {
@@ -74,7 +76,7 @@ Start-Job {
 
             $API_CMDs.Name | _syntax -header 3
             
-            & {"Containers";"Jobs";"Endpoints";"Software";"Variables";"Inventory";"Kiosk";"_scaffolding"} |
+            & {"Containers";"Jobs";"Endpoints";"Software";"Variables";"Inventory";"Kiosk";"Server";"Security";"_scaffolding"} |
             ForEach-Object -Begin {"## API-Endpoints"} {
                 $DOCFILE,$DOC_HEAD="$_.md","_h$_.md"
                 "### Cmdlets regarding $_"

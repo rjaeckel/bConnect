@@ -246,6 +246,17 @@ Get-bVersion [<CommonParameters>]
 * [Get-bKioskJob](Kiosk.md#Get-bKioskJob)
 * [New-bKioskJob](Kiosk.md#New-bKioskJob)
 * [Remove-bKioskJob](Kiosk.md#Remove-bKioskJob)
+### Cmdlets regarding Server
+* [Add-bIpNetwork](Server.md#Add-bIpNetwork)
+* [Get-bIpNetwork](Server.md#Get-bIpNetwork)
+* [New-bIpNetwork](Server.md#New-bIpNetwork)
+* [Remove-bIpNetwork](Server.md#Remove-bIpNetwork)
+* [Set-bIpNetwork](Server.md#Set-bIpNetwork)
+* [Get-bServerState](Server.md#Get-bServerState)
+### Cmdlets regarding Security
+* [Get-bComplianceViolation](Security.md#Get-bComplianceViolation)
+* [Get-bMicrosoftDefenderThreat](Security.md#Get-bMicrosoftDefenderThreat)
+* [Get-bVulnerabilityExclusion](Security.md#Get-bVulnerabilityExclusion)
 ### Cmdlets regarding _scaffolding
 * [beditable](_scaffolding.md#beditable)
 * [bsetableGet](_scaffolding.md#bsetableGet)
