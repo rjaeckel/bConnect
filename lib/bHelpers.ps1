@@ -393,3 +393,14 @@ function New-Job {
         thow "not implemented yet"
     }
 }
+
+function New-JobStep {
+    <#
+    .SYNOPSIS
+    Creates draft object in memory
+    #>
+    [CmdletBinding()]param()
+    process {
+        thow "not implemented yet"
+    }
+}
