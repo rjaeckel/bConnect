@@ -1,6 +1,7 @@
 # Cmdlets zu Jobs
 * [Add-bJob](Jobs.md#Add-bJob)
 * [Get-bJob](Jobs.md#Get-bJob)
+* [New-bJob](Jobs.md#New-bJob)
 * [Remove-bJob](Jobs.md#Remove-bJob)
 * [Search-bJob](Jobs.md#Search-bJob)
 * [Set-bJob](Jobs.md#Set-bJob)
@@ -8,6 +9,7 @@
 * [Get-bJobInstance](Jobs.md#Get-bJobInstance)
 * [Remove-bJobInstance](Jobs.md#Remove-bJobInstance)
 * [Set-bJobInstance](Jobs.md#Set-bJobInstance)
+* [New-bJobStep](Jobs.md#New-bJobStep)
 
 
 ## Add-bJob
@@ -60,6 +62,12 @@ Get-bJob -User <Guid> [-Steps] [<CommonParameters>]
   PipelineInput : true (ByPropertyName)
   Aliases : 
   ```
+## New-bJob
+> Creates draft object in memory TODO 
+```
+New-bJob [<CommonParameters>]
+```
+### Parameters
 ## Remove-bJob
 > Remove Job using `DELETE` 
 ```
@@ -210,4 +218,10 @@ Set-bJobInstance [-Id] <Guid> -cmd {Start | Stop | Resume} [<CommonParameters>]
   PipelineInput : false
   Aliases : 
   ```
+## New-bJobStep
+> Creates draft object in memory TODO 
+```
+New-bJobStep [<CommonParameters>]
+```
+### Parameters
 

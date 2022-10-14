@@ -386,7 +386,7 @@ Function New-ApplicationUserSettings {
 function New-Job {
     <#
     .SYNOPSIS
-    Creates draft object in memory
+    Creates draft object in memory TODO
     #>
     [CmdletBinding()]param()
     process {
@@ -397,7 +397,7 @@ function New-Job {
 function New-JobStep {
     <#
     .SYNOPSIS
-    Creates draft object in memory
+    Creates draft object in memory TODO
     #>
     [CmdletBinding()]param()
     process {

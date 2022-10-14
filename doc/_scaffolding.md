@@ -1,19 +1,52 @@
 # Cmdlets zu _scaffolding
+* [bEnumType](_scaffolding.md#bEnumType)
 * [bsetableGet](_scaffolding.md#bsetableGet)
 * [bsetable](_scaffolding.md#bsetable)
 * [bsearchable](_scaffolding.md#bsearchable)
 * [bremovable](_scaffolding.md#bremovable)
 * [bInitTypes](_scaffolding.md#bInitTypes)
+* [bgettable](_scaffolding.md#bgettable)
 * [baddible](_scaffolding.md#baddible)
 * [baddibleGet](_scaffolding.md#baddibleGet)
 * [bdocComment](_scaffolding.md#bdocComment)
 * [beditable](_scaffolding.md#beditable)
-* [bEnumType](_scaffolding.md#bEnumType)
-* [bExpandEnumFlags](_scaffolding.md#bExpandEnumFlags)
 * [bgetableTpl](_scaffolding.md#bgetableTpl)
-* [bgettable](_scaffolding.md#bgettable)
+* [bExpandEnumFlags](_scaffolding.md#bExpandEnumFlags)
 
 
+## bEnumType
+```
+bEnumType [-Name] <Object> [-Options] <string[]> [-Namespace <string>] [-Flags] [<CommonParameters>]
+```
+### Parameters
+* Name `<Object>`
+  ```
+  Position : 0
+  Required : true
+  PipelineInput : false
+  Aliases : None
+  ```
+* Options `<string[]>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (FromRemainingArguments)
+  Aliases : None
+  ```
+* Flags `<switch>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* Namespace `<string>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
 ## bsetableGet
 ```
 bsetableGet [[-Controller] <string>] [-Ref <string>] [-SetParameters <string[]>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [<CommonParameters>]
@@ -172,6 +205,60 @@ bInitTypes [[-TargetNamespace] <string>] [<CommonParameters>]
   PipelineInput : false
   Aliases : None
   ```
+## bgettable
+```
+bgettable [[-Controller] <string>] [-ParamNames <string[]>] [-CommonFlags <string[]>] [-Preferred <string>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [<CommonParameters>]
+```
+### Parameters
+* Controller `<string>`
+  ```
+  Position : 0
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* CmdName `<string>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* CommonFlags `<string[]>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* Noun `<string>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* ParamNames `<string[]>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* Preferred `<string>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* Verb `<string>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
 ## baddible
 ```
 baddible [[-Controller] <string>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [-ParamNames <string[]>] [<CommonParameters>]
@@ -311,59 +398,6 @@ beditable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <stri
   PipelineInput : false
   Aliases : None
   ```
-## bEnumType
-```
-bEnumType [-Name] <Object> [-Options] <string[]> [-Namespace <string>] [-Flags] [<CommonParameters>]
-```
-### Parameters
-* Name `<Object>`
-  ```
-  Position : 0
-  Required : true
-  PipelineInput : false
-  Aliases : None
-  ```
-* Options `<string[]>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (FromRemainingArguments)
-  Aliases : None
-  ```
-* Flags `<switch>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* Namespace `<string>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-## bExpandEnumFlags
-> (internal) 
-```
-bExpandEnumFlags [-As] <Type> [-Value] <UInt32> [<CommonParameters>]
-```
-### Parameters
-* As `<Type>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : false
-  Aliases : 
-  ```
-* Value `<UInt32>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByValue)
-  Aliases : 
-  ```
 ## bgetableTpl
 ```
 bgetableTpl [[-Controller] <string>] [-EpRequired] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [<CommonParameters>]
@@ -404,58 +438,24 @@ bgetableTpl [[-Controller] <string>] [-EpRequired] [-Verb <string>] [-Noun <stri
   PipelineInput : false
   Aliases : None
   ```
-## bgettable
+## bExpandEnumFlags
+> (internal) 
 ```
-bgettable [[-Controller] <string>] [-ParamNames <string[]>] [-CommonFlags <string[]>] [-Preferred <string>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [<CommonParameters>]
+bExpandEnumFlags [-As] <Type> [-Value] <UInt32> [<CommonParameters>]
 ```
 ### Parameters
-* Controller `<string>`
+* As `<Type>`
   ```
-  Position : 0
-  Required : false
+  Position : 1
+  Required : true
   PipelineInput : false
-  Aliases : None
+  Aliases : 
   ```
-* CmdName `<string>`
+* Value `<UInt32>`
   ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* CommonFlags `<string[]>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* Noun `<string>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* ParamNames `<string[]>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* Preferred `<string>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* Verb `<string>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue)
+  Aliases : 
   ```
 

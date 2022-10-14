@@ -184,6 +184,7 @@ Get-bVersion [<CommonParameters>]
 ### Cmdlets zu Jobs
 * [Add-bJob](Jobs.md#Add-bJob)
 * [Get-bJob](Jobs.md#Get-bJob)
+* [New-bJob](Jobs.md#New-bJob)
 * [Remove-bJob](Jobs.md#Remove-bJob)
 * [Search-bJob](Jobs.md#Search-bJob)
 * [Set-bJob](Jobs.md#Set-bJob)
@@ -191,6 +192,7 @@ Get-bVersion [<CommonParameters>]
 * [Get-bJobInstance](Jobs.md#Get-bJobInstance)
 * [Remove-bJobInstance](Jobs.md#Remove-bJobInstance)
 * [Set-bJobInstance](Jobs.md#Set-bJobInstance)
+* [New-bJobStep](Jobs.md#New-bJobStep)
 ### Cmdlets zu Endpoints
 * [Get-bBootEnvironment](Endpoints.md#Get-bBootEnvironment)
 * [Add-bEndpoint](Endpoints.md#Add-bEndpoint)
@@ -240,17 +242,17 @@ Get-bVersion [<CommonParameters>]
 * [Get-bKioskJob](Kiosk.md#Get-bKioskJob)
 * [Remove-bKioskJob](Kiosk.md#Remove-bKioskJob)
 ### Cmdlets zu _scaffolding
+* [bEnumType](_scaffolding.md#bEnumType)
 * [bsetableGet](_scaffolding.md#bsetableGet)
 * [bsetable](_scaffolding.md#bsetable)
 * [bsearchable](_scaffolding.md#bsearchable)
 * [bremovable](_scaffolding.md#bremovable)
 * [bInitTypes](_scaffolding.md#bInitTypes)
+* [bgettable](_scaffolding.md#bgettable)
 * [baddible](_scaffolding.md#baddible)
 * [baddibleGet](_scaffolding.md#baddibleGet)
 * [bdocComment](_scaffolding.md#bdocComment)
 * [beditable](_scaffolding.md#beditable)
-* [bEnumType](_scaffolding.md#bEnumType)
-* [bExpandEnumFlags](_scaffolding.md#bExpandEnumFlags)
 * [bgetableTpl](_scaffolding.md#bgetableTpl)
-* [bgettable](_scaffolding.md#bgettable)
+* [bExpandEnumFlags](_scaffolding.md#bExpandEnumFlags)
 

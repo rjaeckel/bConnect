@@ -24,6 +24,8 @@
                     -CommonFlags Steps
     setableGet $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
     deletable  $_
+    # deprecated fore post-preference
+    # todo: post-functionality
     addable    $_ -ParamNames EndpointId,JobId `
                     -CommonFlags StartIfExists
     # todo: user-functionality #2019R1
