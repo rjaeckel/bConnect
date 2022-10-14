@@ -586,6 +586,19 @@ process{
 	Invoke-Connect -Method delete -Controller KioskJobs -Parameters $PSBoundParameters
 }} # END Remove-KioskJob
 
+Function Get-UniversalDynamicGroup{
+<#
+.Synopsis
+Get UniversalDynamicGroup using `GET`
+#>
+[cmdletbinding(DefaultParameterSetName='ByAny')]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ById',ValueFromPipeline,Position=0)][guid]$Id,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByOrgunit')][guid]$Orgunit,
+[Parameter()][switch]$IsArgusSynced)
+process{
+	Invoke-Connect -Controller UniversalDynamicGroup -Parameters $PSBoundParameters
+}} # END Get-UniversalDynamicGroup
+
 Function Search-Endpoint {
 <#
 .Synopsis

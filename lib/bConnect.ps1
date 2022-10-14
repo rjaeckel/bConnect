@@ -90,7 +90,8 @@ Function Invoke-Connect {
         [ValidateSet("../Version","../Info","Search","OrgUnits","DynamicGroups","StaticGroups","Endpoints","Jobs","JobInstances",`
                      "HardwareProfiles","BootEnvironment","Variables","Apps","Icons","Applications","KioskJobs",`
                      "InventoryDataRegistryScans","InventoryDataFileScans","InventoryDataWMIScans","InventoryDataCustomScans","InventoryDataSNMPScans",`
-                     "InventoryDataHardwareScans","InventoryOverviews","InventoryAppScans","SoftwareScanRules","EndpointInvSoftware")]
+                     "InventoryDataHardwareScans","InventoryOverviews","InventoryAppScans","SoftwareScanRules","EndpointInvSoftware",
+                     "UniversalDynamicGroup")]
             [string]$controller,
         <#[ValidateSet( "json" )] #, "xml")]
             [string]$format="json",#>

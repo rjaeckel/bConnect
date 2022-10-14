@@ -180,6 +180,7 @@ Get-bVersion [<CommonParameters>]
 * [New-bStaticGroup](Container.md#New-bStaticGroup)
 * [Remove-bStaticGroup](Container.md#Remove-bStaticGroup)
 * [Set-bStaticGroup](Container.md#Set-bStaticGroup)
+* [Get-bUniversalDynamicGroup](Container.md#Get-bUniversalDynamicGroup)
 ### Cmdlets zu Jobs
 * [Get-bJob](Jobs.md#Get-bJob)
 * [Search-bJob](Jobs.md#Search-bJob)

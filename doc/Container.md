@@ -17,6 +17,7 @@
 * [New-bStaticGroup](Container.md#New-bStaticGroup)
 * [Remove-bStaticGroup](Container.md#Remove-bStaticGroup)
 * [Set-bStaticGroup](Container.md#Set-bStaticGroup)
+* [Get-bUniversalDynamicGroup](Container.md#Get-bUniversalDynamicGroup)
 
 
 ## Add-bDynamicGroup
@@ -484,6 +485,35 @@ Set-bStaticGroup [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
   Position : 2
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## Get-bUniversalDynamicGroup
+> Get UniversalDynamicGroup using `GET` 
+```
+Get-bUniversalDynamicGroup [-IsArgusSynced] [<CommonParameters>]
+Get-bUniversalDynamicGroup [-Id] <Guid> [-IsArgusSynced] [<CommonParameters>]
+Get-bUniversalDynamicGroup -Orgunit <Guid> [-IsArgusSynced] [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+* IsArgusSynced `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
+  Aliases : 
+  ```
+* Orgunit `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
   Aliases : 
   ```
 

@@ -63,6 +63,10 @@
     ## add!!
 }
 
+"UniversalDynamicGroup" |% {
+    getable $_ -ParamNames Id,Orgunit -CommonFlags IsArgusSynced
+}
+
 
 [System.Enum]::GetNames('bConnect.Search.Type')|% {
     searchable $_
