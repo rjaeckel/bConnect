@@ -91,7 +91,7 @@ Function Invoke-Connect {
                      "HardwareProfiles","BootEnvironment","Variables","Apps","Icons","Applications","KioskJobs",`
                      "InventoryDataRegistryScans","InventoryDataFileScans","InventoryDataWMIScans","InventoryDataCustomScans","InventoryDataSNMPScans",`
                      "InventoryDataHardwareScans","InventoryOverviews","InventoryAppScans","SoftwareScanRules","EndpointInvSoftware",
-                     "UniversalDynamicGroup","ServerState","EndpointSecrets")]
+                     "UniversalDynamicGroup","ServerState","EndpointSecrets","MicrosoftUpdateInventories")]
             [string]$controller,
         <#[ValidateSet( "json" )] #, "xml")]
             [string]$format="json",#>

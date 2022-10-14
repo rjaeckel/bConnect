@@ -79,6 +79,12 @@
 "ServerState" |% {
     getable $_
 }
+"MicrosoftUpdateInventories" |% {
+    getable $_ -ParamNames EndpointId,GroupId `
+                -CommonFlags ExtendedInformation,Recursive `
+                -Noun MicrosoftUpdateInventory
+        # Todo: Recursive only allowed for GroupID
+}
 
 [System.Enum]::GetNames('bConnect.Search.Type')|% {
     searchable $_
@@ -143,3 +149,5 @@ function Get-Icon {
 
 # Todo: VariableDefinitions
 # Todo: EndpointEnrollment
+# Todo: VPPUsers
+# Todo: VPPLicenseAssociations

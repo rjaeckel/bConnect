@@ -9,6 +9,7 @@
 * [Get-bInventoryDataSnmpScan](Inventory.md#Get-bInventoryDataSnmpScan)
 * [Get-bInventoryDataWmiScan](Inventory.md#Get-bInventoryDataWmiScan)
 * [Get-bInventoryOverview](Inventory.md#Get-bInventoryOverview)
+* [Get-bMicrosoftUpdateInventory](Inventory.md#Get-bMicrosoftUpdateInventory)
 
 
 ## Get-bInventoryAppScan
@@ -212,6 +213,42 @@ Get-bInventoryOverview [-EndpointId] <Guid> [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## Get-bMicrosoftUpdateInventory
+> Get MicrosoftUpdateInventories using `GET` 
+```
+Get-bMicrosoftUpdateInventory [-ExtendedInformation] [-Recursive] [<CommonParameters>]
+Get-bMicrosoftUpdateInventory [-EndpointId] <Guid> [-ExtendedInformation] [-Recursive] [<CommonParameters>]
+Get-bMicrosoftUpdateInventory -GroupId <Guid> [-ExtendedInformation] [-Recursive] [<CommonParameters>]
+```
+### Parameters
+* EndpointId `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+* ExtendedInformation `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
+  Aliases : 
+  ```
+* Recursive `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
+  Aliases : 
+  ```
+* GroupId `<Guid>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
   Aliases : 
   ```
 

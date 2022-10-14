@@ -668,6 +668,20 @@ process{
 	Invoke-Connect -Controller ServerState -Parameters $PSBoundParameters
 }} # END Get-ServerState
 
+Function Get-MicrosoftUpdateInventory{
+<#
+.Synopsis
+Get MicrosoftUpdateInventories using `GET`
+#>
+[cmdletbinding(DefaultParameterSetName='ByAny')]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByEndpointId',ValueFromPipeline,Position=0)][guid]$EndpointId,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByGroupId')][guid]$GroupId,
+[Parameter()][switch]$ExtendedInformation,
+[Parameter()][switch]$Recursive)
+process{
+	Invoke-Connect -Controller MicrosoftUpdateInventories -Parameters $PSBoundParameters
+}} # END Get-MicrosoftUpdateInventory
+
 Function Search-Endpoint {
 <#
 .Synopsis
