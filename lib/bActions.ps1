@@ -88,6 +88,10 @@
 "ComplianceViolations" |% {
     getable $_ -ParamNames EndpointId
 }
+"VulnerabilityExclusions" |% {
+    getable $_ -ParamNames ObjectId `
+                -CommonFlags includeSubfolders
+}
 
 [System.Enum]::GetNames('bConnect.Search.Type')|% {
     searchable $_
@@ -154,3 +158,4 @@ function Get-Icon {
 # Todo: EndpointEnrollment
 # Todo: VPPUsers
 # Todo: VPPLicenseAssociations
+# Todo: MicrosoftUpdateProfiles

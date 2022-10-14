@@ -693,6 +693,18 @@ process{
 	Invoke-Connect -Controller ComplianceViolations -Parameters $PSBoundParameters
 }} # END Get-ComplianceViolation
 
+Function Get-VulnerabilityExclusion{
+<#
+.Synopsis
+Get VulnerabilityExclusions using `GET`
+#>
+[cmdletbinding(DefaultParameterSetName='ByAny')]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByObjectId',ValueFromPipeline,Position=0)][guid]$ObjectId,
+[Parameter()][switch]$includeSubfolders)
+process{
+	Invoke-Connect -Controller VulnerabilityExclusions -Parameters $PSBoundParameters
+}} # END Get-VulnerabilityExclusion
+
 Function Search-Endpoint {
 <#
 .Synopsis

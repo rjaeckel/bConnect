@@ -247,9 +247,8 @@ Get-bVersion [<CommonParameters>]
 * [New-bKioskJob](Kiosk.md#New-bKioskJob)
 * [Remove-bKioskJob](Kiosk.md#Remove-bKioskJob)
 ### Cmdlets regarding _scaffolding
-* [bExpandEnumFlags](_scaffolding.md#bExpandEnumFlags)
-* [bsetableGet](_scaffolding.md#bsetableGet)
 * [bsetable](_scaffolding.md#bsetable)
+* [bsetableGet](_scaffolding.md#bsetableGet)
 * [bsearchable](_scaffolding.md#bsearchable)
 * [bremovable](_scaffolding.md#bremovable)
 * [bInitTypes](_scaffolding.md#bInitTypes)
@@ -259,5 +258,6 @@ Get-bVersion [<CommonParameters>]
 * [bdocComment](_scaffolding.md#bdocComment)
 * [beditable](_scaffolding.md#beditable)
 * [bEnumType](_scaffolding.md#bEnumType)
+* [bExpandEnumFlags](_scaffolding.md#bExpandEnumFlags)
 * [bgetableTpl](_scaffolding.md#bgetableTpl)
 
