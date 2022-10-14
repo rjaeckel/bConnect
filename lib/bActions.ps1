@@ -1,5 +1,6 @@
 #!/opt/microsoft/powershell/7/pwsh
-& {
+
+(& {
 
 "OrgUnits","DynamicGroups","StaticGroups" |% {
     getable  $_ -ParamNames Id,OrgUnit
@@ -64,8 +65,7 @@
     getable $_ -ParamNames JobDefinitionId,EndpointId,GroupId,User -Preferred JobDefinitionId
     addible $_ -ParamNames JobDefinitionId,TargetId
     removable $_ -Ref KioskJobId
-    #. setableGet $_ -Ref JobDefinitionId -SetParameters '[parameter(Mandatory)][string]$TargetId'
-    ## add!!
+    #todo: post with username and jobid
 }
 
 "UniversalDynamicGroup" |% {
@@ -77,8 +77,7 @@
     searchable $_
 }
 
-} > $PSScriptRoot/bActions.s.ps1
-
+}) -replace "\[guid\]\`$User",'[string]$User' > $PSScriptRoot/bActions.s.ps1
 . $PSScriptRoot/bActions.s.ps1
 
 function Get-Variable {
@@ -134,3 +133,5 @@ function Get-Icon {
         Invoke-Connect -Controller Icons -Parameters $PSBoundParameters
     }
 }
+
+# Todo: VariableDefinitions

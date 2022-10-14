@@ -146,7 +146,7 @@ Get Endpoints using `GET`
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByOrgUnit')][guid]$OrgUnit,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByDynamicGroup')][guid]$DynamicGroup,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByStaticGroup')][guid]$StaticGroup,
-[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByUser')][guid]$User,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByUser')][string]$User,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByUniversalDynamicGroup')][guid]$UniversalDynamicGroup,
 [Parameter()][switch]$PubKey,
 [Parameter()][switch]$InstalledSoftware,
@@ -197,7 +197,7 @@ Get Jobs using `GET`
 [cmdletbinding(DefaultParameterSetName='ByAny')]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ById',ValueFromPipeline,Position=0)][guid]$Id,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByOrgUnit')][guid]$OrgUnit,
-[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByUser')][guid]$User,
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByUser')][string]$User,
 [Parameter()][switch]$Steps)
 process{
 	Invoke-Connect -Controller Jobs -Parameters $PSBoundParameters
@@ -594,7 +594,7 @@ Get KioskJobs using `GET`
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByJobDefinitionId',ValueFromPipeline,Position=0)][guid]$JobDefinitionId,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByEndpointId')][guid]$EndpointId,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByGroupId')][guid]$GroupId,
-[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByUser')][guid]$User)
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByUser')][string]$User)
 process{
 	Invoke-Connect -Controller KioskJobs -Parameters $PSBoundParameters
 }} # END Get-KioskJob

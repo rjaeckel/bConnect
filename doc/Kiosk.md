@@ -53,7 +53,7 @@ Add-bKioskJob [-JobDefinitionId] <String> [-TargetId] <String> [<CommonParameter
 Get-bKioskJob [-JobDefinitionId] <Guid> [<CommonParameters>]
 Get-bKioskJob -EndpointId <Guid> [<CommonParameters>]
 Get-bKioskJob -GroupId <Guid> [<CommonParameters>]
-Get-bKioskJob -User <Guid> [<CommonParameters>]
+Get-bKioskJob -User <String> [<CommonParameters>]
 ```
 ### Parameters
 * JobDefinitionId `<Guid>`
@@ -77,7 +77,7 @@ Get-bKioskJob -User <Guid> [<CommonParameters>]
   PipelineInput : true (ByPropertyName)
   Aliases : 
   ```
-* User `<Guid>`
+* User `<String>`
   ```
   Position : named
   Required : true

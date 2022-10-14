@@ -48,7 +48,7 @@ Get-bEndpoint [-Id] <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonPa
 Get-bEndpoint -OrgUnit <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
 Get-bEndpoint -DynamicGroup <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
 Get-bEndpoint -StaticGroup <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
-Get-bEndpoint -User <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
+Get-bEndpoint -User <String> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
 Get-bEndpoint -UniversalDynamicGroup <Guid> [-PubKey] [-InstalledSoftware] [-SnmpData] [<CommonParameters>]
 ```
 ### Parameters
@@ -108,7 +108,7 @@ Get-bEndpoint -UniversalDynamicGroup <Guid> [-PubKey] [-InstalledSoftware] [-Snm
   PipelineInput : true (ByPropertyName)
   Aliases : 
   ```
-* User `<Guid>`
+* User `<String>`
   ```
   Position : named
   Required : true

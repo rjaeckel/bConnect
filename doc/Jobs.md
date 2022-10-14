@@ -31,7 +31,7 @@ Add-bJob [-InputObject] <Object> [<CommonParameters>]
 Get-bJob [-Steps] [<CommonParameters>]
 Get-bJob [-Id] <Guid> [-Steps] [<CommonParameters>]
 Get-bJob -OrgUnit <Guid> [-Steps] [<CommonParameters>]
-Get-bJob -User <Guid> [-Steps] [<CommonParameters>]
+Get-bJob -User <String> [-Steps] [<CommonParameters>]
 ```
 ### Parameters
 * Id `<Guid>`
@@ -55,7 +55,7 @@ Get-bJob -User <Guid> [-Steps] [<CommonParameters>]
   PipelineInput : true (ByPropertyName)
   Aliases : 
   ```
-* User `<Guid>`
+* User `<String>`
   ```
   Position : named
   Required : true
