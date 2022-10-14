@@ -1,12 +1,28 @@
 # Cmdlets zu Jobs
+* [Add-bJob](Jobs.md#Add-bJob)
 * [Get-bJob](Jobs.md#Get-bJob)
+* [Remove-bJob](Jobs.md#Remove-bJob)
 * [Search-bJob](Jobs.md#Search-bJob)
+* [Set-bJob](Jobs.md#Set-bJob)
 * [Add-bJobInstance](Jobs.md#Add-bJobInstance)
 * [Get-bJobInstance](Jobs.md#Get-bJobInstance)
 * [Remove-bJobInstance](Jobs.md#Remove-bJobInstance)
 * [Set-bJobInstance](Jobs.md#Set-bJobInstance)
 
 
+## Add-bJob
+> Add Job using `POST`. Use [`New-bJob`](#New-bJob) to create a draft object to pipe in. 
+```
+Add-bJob [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* InputObject `<Object>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
 ## Get-bJob
 > Get Jobs using `GET` 
 ```
@@ -44,6 +60,19 @@ Get-bJob -User <Guid> [-Steps] [<CommonParameters>]
   PipelineInput : true (ByPropertyName)
   Aliases : 
   ```
+## Remove-bJob
+> Remove Job using `DELETE` 
+```
+Remove-bJob [-Id] <Guid> [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
 ## Search-bJob
 > Search Jobs using `GET` 
 ```
@@ -55,6 +84,33 @@ Search-bJob [-Term] <String> [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : true (ByValue)
+  Aliases : 
+  ```
+## Set-bJob
+> Set Job using `PATCH`. Use [`New-bJob -update`](#New-bJob) to create a draft object to pipe in. 
+```
+Set-bJob [-Id] <Guid> [-ignoreAssignments] [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+* ignoreAssignments `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
   Aliases : 
   ```
 ## Add-bJobInstance

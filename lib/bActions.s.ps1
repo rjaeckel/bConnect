@@ -203,6 +203,40 @@ process{
 	Invoke-Connect -Controller Jobs -Parameters $PSBoundParameters
 }} # END Get-Job
 
+Function Remove-Job{
+<#
+.Synopsis
+Remove Job using `DELETE`
+#>
+[cmdletbinding()]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id)
+process{
+	Invoke-Connect -Method delete -Controller Jobs -Parameters $PSBoundParameters
+}} # END Remove-Job
+
+Function Set-Job {
+<#
+.Synopsis
+Set Job using `PATCH`. Use [`New-bJob -update`](#New-bJob) to create a draft object to pipe in.
+#>
+[cmdletbinding()]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
+[Parameter()][switch]$ignoreAssignments,[Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
+process{
+	$InputObject|Invoke-Connect -Method patch -Controller Jobs -Parameters @{Id=$Id}
+}} # END Set-Job
+
+Function Add-Job {
+<#
+.Synopsis
+Add Job using `POST`. Use [`New-bJob`](#New-bJob) to create a draft object to pipe in.
+#>
+[cmdletbinding()]param(
+[Parameter(ValueFromPipelineByPropertyName,ValueFromPipeline,Mandatory)]$InputObject)
+process {
+    'InputObject'| % { if($PSBoundParameters.$_){$PSBoundParameters.Remove($_)>$null; }}
+    $InputObject|Invoke-Connect -Method post -Controller Jobs -Parameters $PSBoundParameters
+}} # END Add-Job
 Function Get-JobInstance{
 <#
 .Synopsis

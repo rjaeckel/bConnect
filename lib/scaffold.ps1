@@ -85,7 +85,8 @@ function script:setableGet {
 function script:setable {
     param([parameter(Position=0)][string]$Controller,[string]$Ref='Id',
         [string]$Verb="Set",[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
-        [string]$CmdName="$Verb-$Noun"
+        [string]$CmdName="$Verb-$Noun",
+        [string[]]$CommonFlags=@()
     )
     process {
     ([scriptblock]::Create(
@@ -93,6 +94,7 @@ function script:setable {
         (script:docComment "Set $Noun using ``PATCH``. Use [``New-b$Noun -update``](#New-b$Noun) to create a draft object to pipe in.")+
         "[cmdletbinding()]param(`n"+
         "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]`$$Ref,`n"+
+        (($CommonFlags|% {'[Parameter()][switch]${0},' -F $_})-join "`n")+
         "[Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]`$InputObject"+
         ")`nprocess{`n`t`$InputObject|Invoke-Connect -Method patch -Controller $Controller -Parameters @{$Ref=`$$Ref}`n}} # END $CmdName`n"
     ))

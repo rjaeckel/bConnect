@@ -182,8 +182,11 @@ Get-bVersion [<CommonParameters>]
 * [Set-bStaticGroup](Container.md#Set-bStaticGroup)
 * [Get-bUniversalDynamicGroup](Container.md#Get-bUniversalDynamicGroup)
 ### Cmdlets zu Jobs
+* [Add-bJob](Jobs.md#Add-bJob)
 * [Get-bJob](Jobs.md#Get-bJob)
+* [Remove-bJob](Jobs.md#Remove-bJob)
 * [Search-bJob](Jobs.md#Search-bJob)
+* [Set-bJob](Jobs.md#Set-bJob)
 * [Add-bJobInstance](Jobs.md#Add-bJobInstance)
 * [Get-bJobInstance](Jobs.md#Get-bJobInstance)
 * [Remove-bJobInstance](Jobs.md#Remove-bJobInstance)

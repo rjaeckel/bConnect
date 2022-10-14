@@ -14,7 +14,10 @@
     getable  $_ -ParamNames Id,OrgUnit,User `
                   -CommonFlags Steps
                   
-    # todo: create,delete,patch -functionality #2019R1
+    # todo: post,delete,patch -functionality #2019R1
+    removable $_
+    setable $_ -CommonFlags ignoreAssignments
+    addible $_
 }
 "JobInstances" |% {
     getable    $_ -ParamNames Id,EndpointId,JobId `

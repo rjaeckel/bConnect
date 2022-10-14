@@ -382,3 +382,14 @@ Function New-ApplicationUserSettings {
         New-Object psobject -Property $PSBoundParameters
     }
 }
+
+function New-Job {
+    <#
+    .SYNOPSIS
+    Creates draft object in memory
+    #>
+    [CmdletBinding()]param()
+    process {
+        thow "not implemented yet"
+    }
+}

@@ -63,7 +63,7 @@ bsetableGet [[-Controller] <string>] [-Ref <string>] [-SetParameters <string[]>]
   ```
 ## bsetable
 ```
-bsetable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [<CommonParameters>]
+bsetable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [-CommonFlags <string[]>] [<CommonParameters>]
 ```
 ### Parameters
 * Controller `<string>`
@@ -74,6 +74,13 @@ bsetable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <strin
   Aliases : None
   ```
 * CmdName `<string>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* CommonFlags `<string[]>`
   ```
   Position : Named
   Required : false
