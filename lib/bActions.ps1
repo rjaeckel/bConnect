@@ -85,6 +85,9 @@
                 -Noun MicrosoftUpdateInventory
         # Todo: Recursive only allowed for GroupID
 }
+"ComplianceViolations" |% {
+    getable $_ -ParamNames EndpointId
+}
 
 [System.Enum]::GetNames('bConnect.Search.Type')|% {
     searchable $_

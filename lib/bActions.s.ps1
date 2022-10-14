@@ -682,6 +682,17 @@ process{
 	Invoke-Connect -Controller MicrosoftUpdateInventories -Parameters $PSBoundParameters
 }} # END Get-MicrosoftUpdateInventory
 
+Function Get-ComplianceViolation{
+<#
+.Synopsis
+Get ComplianceViolations using `GET`
+#>
+[cmdletbinding(DefaultParameterSetName='ByAny')]param(
+[Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByEndpointId',ValueFromPipeline,Position=0)][guid]$EndpointId)
+process{
+	Invoke-Connect -Controller ComplianceViolations -Parameters $PSBoundParameters
+}} # END Get-ComplianceViolation
+
 Function Search-Endpoint {
 <#
 .Synopsis
