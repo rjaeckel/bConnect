@@ -1,34 +1,22 @@
 # Cmdlets regarding _scaffolding
-* [bdocComment](_scaffolding.md#bdocComment)
-* [bremovable](_scaffolding.md#bremovable)
+* [baddibleGet](_scaffolding.md#baddibleGet)
 * [bInitTypes](_scaffolding.md#bInitTypes)
 * [bgettable](_scaffolding.md#bgettable)
 * [bgetableTpl](_scaffolding.md#bgetableTpl)
 * [bExpandEnumFlags](_scaffolding.md#bExpandEnumFlags)
 * [bEnumType](_scaffolding.md#bEnumType)
 * [beditable](_scaffolding.md#beditable)
+* [bdocComment](_scaffolding.md#bdocComment)
 * [bsearchable](_scaffolding.md#bsearchable)
-* [bsetable](_scaffolding.md#bsetable)
 * [baddible](_scaffolding.md#baddible)
+* [bsetable](_scaffolding.md#bsetable)
 * [bsetableGet](_scaffolding.md#bsetableGet)
-* [baddibleGet](_scaffolding.md#baddibleGet)
+* [bremovable](_scaffolding.md#bremovable)
 
 
-## bdocComment
+## baddibleGet
 ```
-bdocComment [[-Description] <Object>] [<CommonParameters>]
-```
-### Parameters
-* Description `<Object>`
-  ```
-  Position : 0
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-## bremovable
-```
-bremovable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [<CommonParameters>]
+baddibleGet [[-Controller] <string>] [-ParamNames <string[]>] [-CommonFlags <string[]>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [<CommonParameters>]
 ```
 ### Parameters
 * Controller `<string>`
@@ -45,6 +33,13 @@ bremovable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <str
   PipelineInput : false
   Aliases : None
   ```
+* CommonFlags `<string[]>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
 * Noun `<string>`
   ```
   Position : Named
@@ -52,7 +47,7 @@ bremovable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <str
   PipelineInput : false
   Aliases : None
   ```
-* Ref `<string>`
+* ParamNames `<string[]>`
   ```
   Position : Named
   Required : false
@@ -265,6 +260,18 @@ beditable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <stri
   PipelineInput : false
   Aliases : None
   ```
+## bdocComment
+```
+bdocComment [[-Description] <Object>] [<CommonParameters>]
+```
+### Parameters
+* Description `<Object>`
+  ```
+  Position : 0
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
 ## bsearchable
 ```
 bsearchable [[-Type] <Type>] [<CommonParameters>]
@@ -273,6 +280,46 @@ bsearchable [[-Type] <Type>] [<CommonParameters>]
 * Type `<Type>`
   ```
   Position : 0
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+## baddible
+```
+baddible [[-Controller] <string>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [-ParamNames <string[]>] [<CommonParameters>]
+```
+### Parameters
+* Controller `<string>`
+  ```
+  Position : 0
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* CmdName `<string>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* Noun `<string>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* ParamNames `<string[]>`
+  ```
+  Position : Named
+  Required : false
+  PipelineInput : false
+  Aliases : None
+  ```
+* Verb `<string>`
+  ```
+  Position : Named
   Required : false
   PipelineInput : false
   Aliases : None
@@ -311,46 +358,6 @@ bsetable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <strin
   Aliases : None
   ```
 * Ref `<string>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* Verb `<string>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-## baddible
-```
-baddible [[-Controller] <string>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [-ParamNames <string[]>] [<CommonParameters>]
-```
-### Parameters
-* Controller `<string>`
-  ```
-  Position : 0
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* CmdName `<string>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* Noun `<string>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
-* ParamNames `<string[]>`
   ```
   Position : Named
   Required : false
@@ -411,9 +418,9 @@ bsetableGet [[-Controller] <string>] [-Ref <string>] [-SetParameters <string[]>]
   PipelineInput : false
   Aliases : None
   ```
-## baddibleGet
+## bremovable
 ```
-baddibleGet [[-Controller] <string>] [-ParamNames <string[]>] [-CommonFlags <string[]>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [<CommonParameters>]
+bremovable [[-Controller] <string>] [-Ref <string>] [-Verb <string>] [-Noun <string>] [-CmdName <string>] [<CommonParameters>]
 ```
 ### Parameters
 * Controller `<string>`
@@ -430,13 +437,6 @@ baddibleGet [[-Controller] <string>] [-ParamNames <string[]>] [-CommonFlags <str
   PipelineInput : false
   Aliases : None
   ```
-* CommonFlags `<string[]>`
-  ```
-  Position : Named
-  Required : false
-  PipelineInput : false
-  Aliases : None
-  ```
 * Noun `<string>`
   ```
   Position : Named
@@ -444,7 +444,7 @@ baddibleGet [[-Controller] <string>] [-ParamNames <string[]>] [-CommonFlags <str
   PipelineInput : false
   Aliases : None
   ```
-* ParamNames `<string[]>`
+* Ref `<string>`
   ```
   Position : Named
   Required : false

@@ -76,6 +76,9 @@
     getable $_ -ParamNames EndpointId -Preferred EndpointId
     setable $_ -Ref EndpointId
 }
+"ServerState" |% {
+    getable $_
+}
 
 [System.Enum]::GetNames('bConnect.Search.Type')|% {
     searchable $_
@@ -139,3 +142,4 @@ function Get-Icon {
 }
 
 # Todo: VariableDefinitions
+# Todo: EndpointEnrollment

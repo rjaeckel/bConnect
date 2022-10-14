@@ -657,6 +657,17 @@ process{
 	$InputObject|Invoke-Connect -Method patch -Controller EndpointSecrets -Parameters @{EndpointId=$EndpointId}
 }} # END Set-EndpointSecret
 
+Function Get-ServerState{
+<#
+.Synopsis
+Get ServerState using `GET`
+#>
+[cmdletbinding(DefaultParameterSetName='ByAny')]param(
+)
+process{
+	Invoke-Connect -Controller ServerState -Parameters $PSBoundParameters
+}} # END Get-ServerState
+
 Function Search-Endpoint {
 <#
 .Synopsis
