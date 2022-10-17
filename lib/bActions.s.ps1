@@ -825,3 +825,15 @@ Search Softwares using `GET`
 process{
     Invoke-Connect -Controller Search -Parameters @{Type='Software';Term=$Term}
 }} # END 
+Function Search-ADObject {
+<#
+.Synopsis
+Search ADObjects using `GET`
+#>
+[cmdletbinding()]param(
+    [Parameter(Mandatory,Position=0,ValueFromPipeline)]
+    [ValidateLength(2,255)]
+    [string]$Term)
+process{
+    Invoke-Connect -Controller Search -Parameters @{Type='ADObject';Term=$Term}
+}} # END 

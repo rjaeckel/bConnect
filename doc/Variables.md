@@ -7,8 +7,8 @@
 ## Get-bVariable
 > Get variables defined in specific Object-Scope (Client, Software, ...) 
 ```
-Get-bVariable [-Scope] {Device | MobileDevice | Job | OrgUnit | Software | HardwareProfile} [[-Category] <String>] [-ObjectId <Guid>] [<CommonParameters>]
-Get-bVariable [-Scope] {Device | MobileDevice | Job | OrgUnit | Software | HardwareProfile} [-Category] <String> [-Name] <String> [-ObjectId <Guid>] [<CommonParameters>]
+Get-bVariable [-Scope] {Device | MobileDevice | Job | OrgUnit | Software | HardwareProfile | ICDevice | NetworkDevice | AndroidDevice | IOSDevice | WindowsPhoneDevice} [[-Category] <String>] [-ObjectId <Guid>] [<CommonParameters>]
+Get-bVariable [-Scope] {Device | MobileDevice | Job | OrgUnit | Software | HardwareProfile | ICDevice | NetworkDevice | AndroidDevice | IOSDevice | WindowsPhoneDevice} [-Category] <String> [-Name] <String> [-ObjectId <Guid>] [<CommonParameters>]
 ```
 ### Parameters
 * Scope `<Scope>`
@@ -84,7 +84,7 @@ New-bVariable [-Category] <String> [-Name] <String> -UseDefault [-Type {Unknown 
 ## Set-bVariable
 > Set variables on specific Object (Client, Software, ...) 
 ```
-Set-bVariable [-Scope] {Device | MobileDevice | Job | OrgUnit | Software | HardwareProfile} [-ObjectId] <Guid> [-Variables] <Object[]> [<CommonParameters>]
+Set-bVariable [-Scope] {Device | MobileDevice | Job | OrgUnit | Software | HardwareProfile | ICDevice | NetworkDevice | AndroidDevice | IOSDevice | WindowsPhoneDevice} [-ObjectId] <Guid> [-Variables] <Object[]> [<CommonParameters>]
 ```
 ### Parameters
 * Scope `<Scope>`
