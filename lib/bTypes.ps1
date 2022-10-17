@@ -45,23 +45,23 @@ function Script:InitTypes {
             EnumType -Name ManagementState -Options Unknown=0,Enrollable=1,Enrolling=2,Managed=3,Unmanaged=4
             EnumType -Name Owner -Options Unknown=-2,Company=0,Private=1
             EnumType -Name ComplianceCheckCategory -Options Active=0,Inactive=1,InactiveTemporarily=2
-            EnumType -Name ClientOptions:uint -Flags -Options EnableOsInstall=0x00000001,
+            EnumType -Name ClientOptions:uint -Flags -Options     EnableOsInstall=0x00000001,
                                                           InheritAutoInstallation=0x00000002,
                                                                         EnableAUT=0x00000100,
                                                            EnableEnergyManagement=0x00000200,
                                                                       Deactivated=0x80000000
-            EnumType -Name PrimaryUserOptions:uint -Options           Initial=0x00000000,
+            EnumType -Name PrimaryUserOptions:uint -Options               Initial=0x00000000,
                                                                           NotUsed=0x00000004,
                                                                      AlwaysUpdate=0x00000008,
                                                                       NeverUpdate=0x0000000C
-            EnumType -Name UserJobOptions:uint -Options         AlwaysExecute=0x00000000,
+            EnumType -Name UserJobOptions:uint -Options             AlwaysExecute=0x00000000,
                                                                      NeverExecute=0x00000010,
                                                             ExecuteForPrimaryUser=0x00000030
             EnumType -Name ComplianceState -Options Unknown=0,Compliant=1,Info=2,Warning=3,Severe=4,Inactive=5
         },
         {$PSDefaultParameterValues."EnumType:Namespace"="$TargetNamespace.Job"
             EnumType -Name EndpointCategory -Options Any=-1,Unknown,MicrosoftWindows,GoogleAndroid,AppleIOS,AppleMac,WindowsPhone,Network,Industrial
-            EnumType -Name Options -Flags -Options         WOL=0x00000001,
+            EnumType -Name Options -Flags -Options             WOL=0x00000001,
                                                      CancelOnError=0x00000002,
                                                            Passive=0x00000004,
                                                  FinishScreensaver=0x00000008,
