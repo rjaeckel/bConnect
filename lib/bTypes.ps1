@@ -60,7 +60,7 @@ function Script:InitTypes {
             EnumType -Name ComplianceState -Options Unknown=0,Compliant=1,Info=2,Warning=3,Severe=4,Inactive=5
         },
         {$PSDefaultParameterValues."EnumType:Namespace"="$TargetNamespace.Job"
-            EnumType -Name EndpointCategory -Options Any=-1,Unknown,MicrosoftWindows,GoogleAndroid,AppleIOS,AppleMac,WindowsPhone
+            EnumType -Name EndpointCategory -Options Any=-1,Unknown,MicrosoftWindows,GoogleAndroid,AppleIOS,AppleMac,WindowsPhone,Network,Industrial
             EnumType -Name Options -Flags -Options         WOL=0x00000001,
                                                      CancelOnError=0x00000002,
                                                            Passive=0x00000004,
@@ -74,6 +74,19 @@ function Script:InitTypes {
                                                     UserCancelable=0x00400000
             EnumType -Name State -Options Unknown=-1,Assigned,Running,FinishedSuccess,FinishedError,FinishedCanceled,ReScheduled,WaitingForUser,RequirementsNotMet,Downloading,SkippedDueToIncompatibility
             EnumType -Name Action -Options Start,Stop,Resume
+            EnumType -Name BmsNetState -Options Unknown=-1,
+                                                Assigned=0,
+                                                Running=1,
+                                                FinishedSuccess=2,
+                                                FinishedError=3,
+                                                FinishedCanceled=4,
+                                                ReScheduled=5,
+                                                ReScheduledError=6,
+                                                WaitingForUser=7,
+                                                RequirementsNotMet=8,
+                                                Downloading=9,
+                                                SkippedDueToIncompatibility=10,
+                                                NonBlockingWaitingForUser=11
         },
         {$PSDefaultParameterValues."EnumType:Namespace"="$TargetNamespace.Application"
             EnumType -Name SecurityContext -Options AnyUser,InstallUser,LocalInstallUser,LocalSystem,LoggedOnUser,RegisteredUser,SpecifiedUser
