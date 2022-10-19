@@ -599,17 +599,6 @@ process{
 	Invoke-Connect -Controller KioskJobs -Parameters $PSBoundParameters
 }} # END Get-KioskJob
 
-Function Add-KioskJob {
-<#
-.Synopsis
-Add KioskJob using `POST`. Use [`New-bKioskJob`](#New-bKioskJob) to create a draft object to pipe in.
-#>
-[cmdletbinding()]param(
-[Parameter(ValueFromPipelineByPropertyName,ValueFromPipeline,Mandatory)]$InputObject)
-process {
-    'InputObject'| % { if($PSBoundParameters.$_){$PSBoundParameters.Remove($_)>$null; }}
-    $InputObject|Invoke-Connect -Method post -Controller KioskJobs -Parameters $PSBoundParameters
-}} # END Add-KioskJob
 Function Remove-KioskJob{
 <#
 .Synopsis

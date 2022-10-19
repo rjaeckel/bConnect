@@ -63,9 +63,7 @@
 }
 "KioskJobs" |% {
     getable $_ -ParamNames JobDefinitionId,EndpointId,GroupId,User -Preferred JobDefinitionId
-    addible $_
     removable $_ -Ref KioskJobId
-    #todo: post with username and jobid
 }
 
 "UniversalDynamicGroup" |% {
@@ -164,6 +162,21 @@ function Get-Icon {
     )
     process{
         Invoke-Connect -Controller Icons -Parameters $PSBoundParameters
+    }
+}
+
+function Add-KioskJob {
+    <#
+    .SYNOPSIS
+    Publish a given Job to the Kiosk for either a User or an OrgUnit or Endpoint
+    #>
+    [CmdletBinding()]param(
+        [Parameter(Mandatory)][guid]$JobDefinitionId,
+        [Parameter(Mandatory,ParameterSetName='Targeted')][guid]$TargetId,
+        [Parameter(Mandatory,ParameterSetName='User')][string]$User
+    )
+    process {
+        Invoke-Connect -Controller KioskJobs -method post -Parameters $PSBoundParameters
     }
 }
 
