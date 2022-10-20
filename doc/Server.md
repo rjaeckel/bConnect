@@ -1,9 +1,9 @@
 # Cmdlets regarding Server
 * [Add-bIpNetwork](Server.md#Add-bIpNetwork)
+* [Edit-bIpNetwork](Server.md#Edit-bIpNetwork)
 * [Get-bIpNetwork](Server.md#Get-bIpNetwork)
 * [New-bIpNetwork](Server.md#New-bIpNetwork)
 * [Remove-bIpNetwork](Server.md#Remove-bIpNetwork)
-* [Set-bIpNetwork](Server.md#Set-bIpNetwork)
 * [New-bIpNetworkScope](Server.md#New-bIpNetworkScope)
 * [Get-bServerState](Server.md#Get-bServerState)
 
@@ -17,6 +17,26 @@ Add-bIpNetwork [-InputObject] <Object> [<CommonParameters>]
 * InputObject `<Object>`
   ```
   Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## Edit-bIpNetwork
+> Update IpNetwork using `PATCH`. Use [`New-bIpNetwork -update`](#New-bIpNetwork) to create a draft object to pipe in. 
+```
+Edit-bIpNetwork [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
@@ -117,26 +137,6 @@ Remove-bIpNetwork [-Id] <Guid> [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-## Set-bIpNetwork
-> Set IpNetwork using `PATCH`. Use [`New-bIpNetwork -update`](#New-bIpNetwork) to create a draft object to pipe in. 
-```
-Set-bIpNetwork [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
-```
-### Parameters
-* Id `<Guid>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* InputObject `<Object>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
   ```
 ## New-bIpNetworkScope

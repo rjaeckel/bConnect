@@ -1,10 +1,10 @@
 # Cmdlets regarding Software
 * [Get-bApp](Software.md#Get-bApp)
 * [Add-bApplication](Software.md#Add-bApplication)
+* [Edit-bApplication](Software.md#Edit-bApplication)
 * [Get-bApplication](Software.md#Get-bApplication)
 * [New-bApplication](Software.md#New-bApplication)
 * [Remove-bApplication](Software.md#Remove-bApplication)
-* [Set-bApplication](Software.md#Set-bApplication)
 * [New-bApplicationData](Software.md#New-bApplicationData)
 * [New-bApplicationFile](Software.md#New-bApplicationFile)
 * [New-bApplicationLicense](Software.md#New-bApplicationLicense)
@@ -54,6 +54,26 @@ Add-bApplication [-InputObject] <Object> [<CommonParameters>]
 * InputObject `<Object>`
   ```
   Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## Edit-bApplication
+> Update Application using `PATCH`. Use [`New-bApplication -update`](#New-bApplication) to create a draft object to pipe in. 
+```
+Edit-bApplication [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
@@ -225,26 +245,6 @@ Remove-bApplication [-Id] <Guid> [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-## Set-bApplication
-> Set Application using `PATCH`. Use [`New-bApplication -update`](#New-bApplication) to create a draft object to pipe in. 
-```
-Set-bApplication [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
-```
-### Parameters
-* Id `<Guid>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* InputObject `<Object>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
   ```
 ## New-bApplicationData

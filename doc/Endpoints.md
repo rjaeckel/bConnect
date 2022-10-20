@@ -1,17 +1,17 @@
 # Cmdlets regarding Endpoints
 * [Get-bBootEnvironment](Endpoints.md#Get-bBootEnvironment)
 * [Add-bEndpoint](Endpoints.md#Add-bEndpoint)
+* [Edit-bEndpoint](Endpoints.md#Edit-bEndpoint)
 * [Get-bEndpoint](Endpoints.md#Get-bEndpoint)
 * [New-bEndpoint](Endpoints.md#New-bEndpoint)
 * [Remove-bEndpoint](Endpoints.md#Remove-bEndpoint)
 * [Search-bEndpoint](Endpoints.md#Search-bEndpoint)
-* [Set-bEndpoint](Endpoints.md#Set-bEndpoint)
 * [Get-bEndpointInvSoftware](Endpoints.md#Get-bEndpointInvSoftware)
 * [Expand-bEndpointOptions](Endpoints.md#Expand-bEndpointOptions)
 * [Merge-bEndpointOptions](Endpoints.md#Merge-bEndpointOptions)
+* [Edit-bEndpointSecret](Endpoints.md#Edit-bEndpointSecret)
 * [Get-bEndpointSecret](Endpoints.md#Get-bEndpointSecret)
 * [New-bEndpointSecret](Endpoints.md#New-bEndpointSecret)
-* [Set-bEndpointSecret](Endpoints.md#Set-bEndpointSecret)
 * [Get-bHardwareProfile](Endpoints.md#Get-bHardwareProfile)
 * [Test-bMacAddr](Endpoints.md#Test-bMacAddr)
 
@@ -39,6 +39,26 @@ Add-bEndpoint [-InputObject] <Object> [<CommonParameters>]
 * InputObject `<Object>`
   ```
   Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## Edit-bEndpoint
+> Update Endpoint using `PATCH`. Use [`New-bEndpoint -update`](#New-bEndpoint) to create a draft object to pipe in. 
+```
+Edit-bEndpoint [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
@@ -298,26 +318,6 @@ Search-bEndpoint [-Term] <String> [<CommonParameters>]
   PipelineInput : true (ByValue)
   Aliases : 
   ```
-## Set-bEndpoint
-> Set Endpoint using `PATCH`. Use [`New-bEndpoint -update`](#New-bEndpoint) to create a draft object to pipe in. 
-```
-Set-bEndpoint [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
-```
-### Parameters
-* Id `<Guid>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* InputObject `<Object>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : 
-  ```
 ## Get-bEndpointInvSoftware
 > Get EndpointInvSoftware using `GET` 
 ```
@@ -364,6 +364,26 @@ Merge-bEndpointOptions [[-ClientOptions] {EnableOsInstall | InheritAutoInstallat
   PipelineInput : true (ByValue)
   Aliases : 
   ```
+## Edit-bEndpointSecret
+> Update EndpointSecret using `PATCH`. Use [`New-bEndpointSecret -update`](#New-bEndpointSecret) to create a draft object to pipe in. 
+```
+Edit-bEndpointSecret [-EndpointId] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* EndpointId `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
 ## Get-bEndpointSecret
 > Get EndpointSecrets using `GET` 
 ```
@@ -388,26 +408,6 @@ New-bEndpointSecret [-Pin] <String> [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : false
-  Aliases : 
-  ```
-## Set-bEndpointSecret
-> Set EndpointSecret using `PATCH`. Use [`New-bEndpointSecret -update`](#New-bEndpointSecret) to create a draft object to pipe in. 
-```
-Set-bEndpointSecret [-EndpointId] <Guid> [-InputObject] <Object> [<CommonParameters>]
-```
-### Parameters
-* EndpointId `<Guid>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* InputObject `<Object>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
   ```
 ## Get-bHardwareProfile

@@ -1,15 +1,15 @@
 # Cmdlets regarding Jobs
 * [Add-bJob](Jobs.md#Add-bJob)
+* [Edit-bJob](Jobs.md#Edit-bJob)
 * [Get-bJob](Jobs.md#Get-bJob)
 * [New-bJob](Jobs.md#New-bJob)
 * [Remove-bJob](Jobs.md#Remove-bJob)
 * [Search-bJob](Jobs.md#Search-bJob)
-* [Set-bJob](Jobs.md#Set-bJob)
 * [Add-bJobInstance](Jobs.md#Add-bJobInstance)
+* [Edit-bJobInstance](Jobs.md#Edit-bJobInstance)
 * [Get-bJobInstance](Jobs.md#Get-bJobInstance)
 * [New-bJobInstance](Jobs.md#New-bJobInstance)
 * [Remove-bJobInstance](Jobs.md#Remove-bJobInstance)
-* [Set-bJobInstance](Jobs.md#Set-bJobInstance)
 * [New-bJobStep](Jobs.md#New-bJobStep)
 
 
@@ -24,6 +24,33 @@ Add-bJob [-InputObject] <Object> [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## Edit-bJob
+> Update Job using `PATCH`. Use [`New-bJob -update`](#New-bJob) to create a draft object to pipe in. 
+```
+Edit-bJob [-Id] <Guid> [-ignoreAssignments] [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+* ignoreAssignments `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
   Aliases : 
   ```
 ## Get-bJob
@@ -95,33 +122,6 @@ Search-bJob [-Term] <String> [<CommonParameters>]
   PipelineInput : true (ByValue)
   Aliases : 
   ```
-## Set-bJob
-> Set Job using `PATCH`. Use [`New-bJob -update`](#New-bJob) to create a draft object to pipe in. 
-```
-Set-bJob [-Id] <Guid> [-ignoreAssignments] [-InputObject] <Object> [<CommonParameters>]
-```
-### Parameters
-* Id `<Guid>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* InputObject `<Object>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : 
-  ```
-* ignoreAssignments `<SwitchParameter>`
-  ```
-  Position : named
-  Required : false
-  PipelineInput : false
-  Aliases : 
-  ```
 ## Add-bJobInstance
 > Add JobInstance using `POST`. Use [`New-bJobInstance`](#New-bJobInstance) to create a draft object to pipe in. 
 ```
@@ -139,6 +139,26 @@ Add-bJobInstance [-InputObject] <Object> [-StartIfExists] [<CommonParameters>]
   ```
   Position : named
   Required : false
+  PipelineInput : false
+  Aliases : 
+  ```
+## Edit-bJobInstance
+> Set JobInstance using `GET` 
+```
+Edit-bJobInstance [-Id] <Guid> -cmd {Start | Stop | Resume} [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* cmd `<Action>`
+  ```
+  Position : named
+  Required : true
   PipelineInput : false
   Aliases : 
   ```
@@ -224,26 +244,6 @@ Remove-bJobInstance [-Id] <Guid> [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-## Set-bJobInstance
-> Set JobInstance using `GET` 
-```
-Set-bJobInstance [-Id] <Guid> -cmd {Start | Stop | Resume} [<CommonParameters>]
-```
-### Parameters
-* Id `<Guid>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* cmd `<Action>`
-  ```
-  Position : named
-  Required : true
-  PipelineInput : false
   Aliases : 
   ```
 ## New-bJobStep

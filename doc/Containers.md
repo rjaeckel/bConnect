@@ -1,22 +1,22 @@
 # Cmdlets regarding Containers
 * [Add-bDynamicGroup](Containers.md#Add-bDynamicGroup)
+* [Edit-bDynamicGroup](Containers.md#Edit-bDynamicGroup)
 * [Get-bDynamicGroup](Containers.md#Get-bDynamicGroup)
 * [New-bDynamicGroup](Containers.md#New-bDynamicGroup)
 * [Remove-bDynamicGroup](Containers.md#Remove-bDynamicGroup)
-* [Set-bDynamicGroup](Containers.md#Set-bDynamicGroup)
 * [Search-bGroup](Containers.md#Search-bGroup)
 * [Add-bOrgUnit](Containers.md#Add-bOrgUnit)
+* [Edit-bOrgUnit](Containers.md#Edit-bOrgUnit)
 * [Get-bOrgUnit](Containers.md#Get-bOrgUnit)
 * [New-bOrgUnit](Containers.md#New-bOrgUnit)
 * [Remove-bOrgUnit](Containers.md#Remove-bOrgUnit)
 * [Search-bOrgUnit](Containers.md#Search-bOrgUnit)
-* [Set-bOrgUnit](Containers.md#Set-bOrgUnit)
 * [New-bOrgUnitExtension](Containers.md#New-bOrgUnitExtension)
 * [Add-bStaticGroup](Containers.md#Add-bStaticGroup)
+* [Edit-bStaticGroup](Containers.md#Edit-bStaticGroup)
 * [Get-bStaticGroup](Containers.md#Get-bStaticGroup)
 * [New-bStaticGroup](Containers.md#New-bStaticGroup)
 * [Remove-bStaticGroup](Containers.md#Remove-bStaticGroup)
-* [Set-bStaticGroup](Containers.md#Set-bStaticGroup)
 * [Get-bUniversalDynamicGroup](Containers.md#Get-bUniversalDynamicGroup)
 
 
@@ -29,6 +29,26 @@ Add-bDynamicGroup [-InputObject] <Object> [<CommonParameters>]
 * InputObject `<Object>`
   ```
   Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## Edit-bDynamicGroup
+> Update DynamicGroup using `PATCH`. Use [`New-bDynamicGroup -update`](#New-bDynamicGroup) to create a draft object to pipe in. 
+```
+Edit-bDynamicGroup [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
@@ -110,26 +130,6 @@ Remove-bDynamicGroup [-Id] <Guid> [<CommonParameters>]
   PipelineInput : true (ByPropertyName)
   Aliases : 
   ```
-## Set-bDynamicGroup
-> Set DynamicGroup using `PATCH`. Use [`New-bDynamicGroup -update`](#New-bDynamicGroup) to create a draft object to pipe in. 
-```
-Set-bDynamicGroup [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
-```
-### Parameters
-* Id `<Guid>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* InputObject `<Object>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
-  Aliases : 
-  ```
 ## Search-bGroup
 > Search Groups using `GET` 
 ```
@@ -152,6 +152,26 @@ Add-bOrgUnit [-InputObject] <Object> [<CommonParameters>]
 * InputObject `<Object>`
   ```
   Position : 1
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## Edit-bOrgUnit
+> Update OrgUnit using `PATCH`. Use [`New-bOrgUnit -update`](#New-bOrgUnit) to create a draft object to pipe in. 
+```
+Edit-bOrgUnit [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
@@ -244,26 +264,6 @@ Search-bOrgUnit [-Term] <String> [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : true (ByValue)
-  Aliases : 
-  ```
-## Set-bOrgUnit
-> Set OrgUnit using `PATCH`. Use [`New-bOrgUnit -update`](#New-bOrgUnit) to create a draft object to pipe in. 
-```
-Set-bOrgUnit [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
-```
-### Parameters
-* Id `<Guid>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* InputObject `<Object>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
   ```
 ## New-bOrgUnitExtension
@@ -390,6 +390,26 @@ Add-bStaticGroup [-InputObject] <Object> [<CommonParameters>]
   PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
   ```
+## Edit-bStaticGroup
+> Update StaticGroup using `PATCH`. Use [`New-bStaticGroup -update`](#New-bStaticGroup) to create a draft object to pipe in. 
+```
+Edit-bStaticGroup [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
+```
+### Parameters
+* Id `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* InputObject `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
 ## Get-bStaticGroup
 > Get StaticGroups using `GET` 
 ```
@@ -465,26 +485,6 @@ Remove-bStaticGroup [-Id] <Guid> [<CommonParameters>]
   Position : 1
   Required : true
   PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-## Set-bStaticGroup
-> Set StaticGroup using `PATCH`. Use [`New-bStaticGroup -update`](#New-bStaticGroup) to create a draft object to pipe in. 
-```
-Set-bStaticGroup [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
-```
-### Parameters
-* Id `<Guid>`
-  ```
-  Position : 1
-  Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* InputObject `<Object>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
   ```
 ## Get-bUniversalDynamicGroup

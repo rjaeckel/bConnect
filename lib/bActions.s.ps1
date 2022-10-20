@@ -21,17 +21,17 @@ process{
 	Invoke-Connect -Method delete -Controller OrgUnits -Parameters $PSBoundParameters
 }} # END Remove-OrgUnit
 
-Function Set-OrgUnit {
+Function Edit-OrgUnit {
 <#
 .Synopsis
-Set OrgUnit using `PATCH`. Use [`New-bOrgUnit -update`](#New-bOrgUnit) to create a draft object to pipe in.
+Update OrgUnit using `PATCH`. Use [`New-bOrgUnit -update`](#New-bOrgUnit) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
 process{
 	$InputObject|Invoke-Connect -Method patch -Controller OrgUnits -Parameters @{Id=$Id}
-}} # END Set-OrgUnit
+}} # END Edit-OrgUnit
 
 Function Add-OrgUnit {
 <#
@@ -67,17 +67,17 @@ process{
 	Invoke-Connect -Method delete -Controller DynamicGroups -Parameters $PSBoundParameters
 }} # END Remove-DynamicGroup
 
-Function Set-DynamicGroup {
+Function Edit-DynamicGroup {
 <#
 .Synopsis
-Set DynamicGroup using `PATCH`. Use [`New-bDynamicGroup -update`](#New-bDynamicGroup) to create a draft object to pipe in.
+Update DynamicGroup using `PATCH`. Use [`New-bDynamicGroup -update`](#New-bDynamicGroup) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
 process{
 	$InputObject|Invoke-Connect -Method patch -Controller DynamicGroups -Parameters @{Id=$Id}
-}} # END Set-DynamicGroup
+}} # END Edit-DynamicGroup
 
 Function Add-DynamicGroup {
 <#
@@ -113,17 +113,17 @@ process{
 	Invoke-Connect -Method delete -Controller StaticGroups -Parameters $PSBoundParameters
 }} # END Remove-StaticGroup
 
-Function Set-StaticGroup {
+Function Edit-StaticGroup {
 <#
 .Synopsis
-Set StaticGroup using `PATCH`. Use [`New-bStaticGroup -update`](#New-bStaticGroup) to create a draft object to pipe in.
+Update StaticGroup using `PATCH`. Use [`New-bStaticGroup -update`](#New-bStaticGroup) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
 process{
 	$InputObject|Invoke-Connect -Method patch -Controller StaticGroups -Parameters @{Id=$Id}
-}} # END Set-StaticGroup
+}} # END Edit-StaticGroup
 
 Function Add-StaticGroup {
 <#
@@ -166,17 +166,17 @@ process{
 	Invoke-Connect -Method delete -Controller Endpoints -Parameters $PSBoundParameters
 }} # END Remove-Endpoint
 
-Function Set-Endpoint {
+Function Edit-Endpoint {
 <#
 .Synopsis
-Set Endpoint using `PATCH`. Use [`New-bEndpoint -update`](#New-bEndpoint) to create a draft object to pipe in.
+Update Endpoint using `PATCH`. Use [`New-bEndpoint -update`](#New-bEndpoint) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
 process{
 	$InputObject|Invoke-Connect -Method patch -Controller Endpoints -Parameters @{Id=$Id}
-}} # END Set-Endpoint
+}} # END Edit-Endpoint
 
 Function Add-Endpoint {
 <#
@@ -214,17 +214,17 @@ process{
 	Invoke-Connect -Method delete -Controller Jobs -Parameters $PSBoundParameters
 }} # END Remove-Job
 
-Function Set-Job {
+Function Edit-Job {
 <#
 .Synopsis
-Set Job using `PATCH`. Use [`New-bJob -update`](#New-bJob) to create a draft object to pipe in.
+Update Job using `PATCH`. Use [`New-bJob -update`](#New-bJob) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
 [Parameter()][switch]$ignoreAssignments,[Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
 process{
 	$InputObject|Invoke-Connect -Method patch -Controller Jobs -Parameters @{Id=$Id}
-}} # END Set-Job
+}} # END Edit-Job
 
 Function Add-Job {
 <#
@@ -253,7 +253,7 @@ process{
 	Invoke-Connect -Controller JobInstances -Parameters $PSBoundParameters
 }} # END Get-JobInstance
 
-Function Set-JobInstance{
+Function Edit-JobInstance{
 <#
 .Synopsis
 Set JobInstance using `GET`
@@ -263,7 +263,7 @@ Set JobInstance using `GET`
 [parameter(Mandatory)][bConnect.Job.Action]$cmd)
 process{
 	Invoke-Connect -Controller JobInstances -Parameters $PSBoundParameters
-}} # END Set-JobInstance
+}} # END Edit-JobInstance
 
 Function Remove-JobInstance{
 <#
@@ -347,17 +347,17 @@ process{
 	Invoke-Connect -Method delete -Controller Applications -Parameters $PSBoundParameters
 }} # END Remove-Application
 
-Function Set-Application {
+Function Edit-Application {
 <#
 .Synopsis
-Set Application using `PATCH`. Use [`New-bApplication -update`](#New-bApplication) to create a draft object to pipe in.
+Update Application using `PATCH`. Use [`New-bApplication -update`](#New-bApplication) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
 process{
 	$InputObject|Invoke-Connect -Method patch -Controller Applications -Parameters @{Id=$Id}
-}} # END Set-Application
+}} # END Edit-Application
 
 Function Add-Application {
 <#
@@ -633,17 +633,17 @@ process{
 	Invoke-Connect -Controller EndpointSecrets -Parameters $PSBoundParameters
 }} # END Get-EndpointSecret
 
-Function Set-EndpointSecret {
+Function Edit-EndpointSecret {
 <#
 .Synopsis
-Set EndpointSecret using `PATCH`. Use [`New-bEndpointSecret -update`](#New-bEndpointSecret) to create a draft object to pipe in.
+Update EndpointSecret using `PATCH`. Use [`New-bEndpointSecret -update`](#New-bEndpointSecret) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$EndpointId,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
 process{
 	$InputObject|Invoke-Connect -Method patch -Controller EndpointSecrets -Parameters @{EndpointId=$EndpointId}
-}} # END Set-EndpointSecret
+}} # END Edit-EndpointSecret
 
 Function Get-ServerState{
 <#
@@ -730,17 +730,17 @@ process {
     'InputObject'| % { if($PSBoundParameters.$_){$PSBoundParameters.Remove($_)>$null; }}
     $InputObject|Invoke-Connect -Method post -Controller IpNetworks -Parameters $PSBoundParameters
 }} # END Add-IpNetwork
-Function Set-IpNetwork {
+Function Edit-IpNetwork {
 <#
 .Synopsis
-Set IpNetwork using `PATCH`. Use [`New-bIpNetwork -update`](#New-bIpNetwork) to create a draft object to pipe in.
+Update IpNetwork using `PATCH`. Use [`New-bIpNetwork -update`](#New-bIpNetwork) to create a draft object to pipe in.
 #>
 [cmdletbinding()]param(
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]$Id,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ValueFromPipeline,Position=1)]$InputObject)
 process{
 	$InputObject|Invoke-Connect -Method patch -Controller IpNetworks -Parameters @{Id=$Id}
-}} # END Set-IpNetwork
+}} # END Edit-IpNetwork
 
 Function Remove-IpNetwork{
 <#

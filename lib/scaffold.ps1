@@ -68,7 +68,7 @@ process {
 function script:setableGet {
     param([parameter(Position=0)][string]$Controller,[string]$Ref='Id',
           [string[]]$SetParameters,
-          [string]$Verb='Set',[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
+          [string]$Verb='Edit',[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
           [string]$CmdName="$Verb-$Noun")
     process {
         ([scriptblock]::Create(
@@ -86,14 +86,14 @@ function script:setableGet {
 
 function script:setable {
     param([parameter(Position=0)][string]$Controller,[string]$Ref='Id',
-        [string]$Verb="Set",[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
+        [string]$Verb="Edit",[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
         [string]$CmdName="$Verb-$Noun",
         [string[]]$CommonFlags=@()
     )
     process {
     ([scriptblock]::Create(
         "Function $CmdName {`n"+
-        (script:docComment "Set $Noun using ``PATCH``. Use [``New-b$Noun -update``](#New-b$Noun) to create a draft object to pipe in.")+
+        (script:docComment "Update $Noun using ``PATCH``. Use [``New-b$Noun -update``](#New-b$Noun) to create a draft object to pipe in.")+
         "[cmdletbinding()]param(`n"+
         "[Parameter(Mandatory,ValueFromPipelineByPropertyName,Position=0)][guid]`$$Ref,`n"+
         (($CommonFlags|% {'[Parameter()][switch]${0},' -F $_})-join "`n")+
