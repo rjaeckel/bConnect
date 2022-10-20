@@ -23,7 +23,7 @@
 "JobInstances" |% {
     getable    $_ -ParamNames Id,EndpointId,JobId `
                     -CommonFlags Steps,IncludeJobDefinition,TimePeriod
-    setableGet $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
+    setableGet $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd' -
     deletable  $_
     addible    $_ -CommonFlags StartIfExists
     # todo: user-functionality #2019R1
