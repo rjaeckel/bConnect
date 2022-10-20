@@ -252,6 +252,7 @@ Get-bVersion [<CommonParameters>]
 * [New-bIpNetwork](Server.md#New-bIpNetwork)
 * [Remove-bIpNetwork](Server.md#Remove-bIpNetwork)
 * [Set-bIpNetwork](Server.md#Set-bIpNetwork)
+* [New-bIpNetworkScope](Server.md#New-bIpNetworkScope)
 * [Get-bServerState](Server.md#Get-bServerState)
 ### Cmdlets regarding Security
 * [Get-bComplianceViolation](Security.md#Get-bComplianceViolation)

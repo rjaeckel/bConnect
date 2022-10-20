@@ -4,6 +4,7 @@
 * [New-bIpNetwork](Server.md#New-bIpNetwork)
 * [Remove-bIpNetwork](Server.md#Remove-bIpNetwork)
 * [Set-bIpNetwork](Server.md#Set-bIpNetwork)
+* [New-bIpNetworkScope](Server.md#New-bIpNetworkScope)
 * [Get-bServerState](Server.md#Get-bServerState)
 
 
@@ -43,11 +44,68 @@ Get-bIpNetwork -Name <String> [<CommonParameters>]
   Aliases : 
   ```
 ## New-bIpNetwork
-> Creates draft object in memory TODO 
+> Creates draft object in memory 
 ```
-New-bIpNetwork [<CommonParameters>]
+New-bIpNetwork -update [-Name <String>] [-Scopes <Object[]>] [-DIPs <String>] [-WOLRelay <String>] [-BandwithMode <String>] [-MaxBandwidthKbits <UInt32>] [-DuplicateWOLToThisNetwork] [<CommonParameters>]
+New-bIpNetwork [-Name] <String> -Scopes <Object[]> [-DIPs <String>] [-WOLRelay <String>] [-BandwithMode <String>] [-MaxBandwidthKbits <UInt32>] [-DuplicateWOLToThisNetwork] [<CommonParameters>]
 ```
 ### Parameters
+* BandwithMode `<String>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* DIPs `<String>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* DuplicateWOLToThisNetwork `<SwitchParameter>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* MaxBandwidthKbits `<UInt32>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Name `<String>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* Scopes `<Object[]>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* WOLRelay `<String>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* update `<SwitchParameter>`
+  ```
+  Position : named
+  Required : true
+  PipelineInput : false
+  Aliases : 
+  ```
 ## Remove-bIpNetwork
 > Remove IpNetwork using `DELETE` 
 ```
@@ -79,6 +137,26 @@ Set-bIpNetwork [-Id] <Guid> [-InputObject] <Object> [<CommonParameters>]
   Position : 2
   Required : true
   PipelineInput : true (ByValue, ByPropertyName)
+  Aliases : 
+  ```
+## New-bIpNetworkScope
+> Creates draft object in memory 
+```
+New-bIpNetworkScope [-NetworkAddress] <Object> [-SubnetMask] <Object> [<CommonParameters>]
+```
+### Parameters
+* NetworkAddress `<Object>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* SubnetMask `<Object>`
+  ```
+  Position : 2
+  Required : true
+  PipelineInput : true (ByPropertyName)
   Aliases : 
   ```
 ## Get-bServerState

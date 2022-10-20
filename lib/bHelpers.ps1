@@ -431,10 +431,38 @@ function New-EndpointSecret {
 function New-IpNetwork {
     <#
     .SYNOPSIS
-    Creates draft object in memory TODO
+    Creates draft object in memory
     #>
-    [CmdletBinding()]param()
+    [CmdletBinding()]param(
+        [parameter(ParameterSetName='update',Mandatory)][switch]$update,
+
+        [parameter(ParameterSetName='update',ValueFromPipelineByPropertyName)]
+        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName,Position=0)]
+        [String]$Name,
+        [parameter(ParameterSetName='update',ValueFromPipelineByPropertyName)]
+        [Parameter(ParameterSetName='new',Mandatory,ValueFromPipelineByPropertyName)]
+        [object[]]$Scopes,
+        [Parameter(ValueFromPipelineByPropertyName)][String]$DIPs,
+        [Parameter(ValueFromPipelineByPropertyName)][String]$WOLRelay,
+        [Parameter(ValueFromPipelineByPropertyName)][ValidateSet("AllowAll","BlockAll","UseBandwidth")][String]$BandwithMode,
+        [Parameter(ValueFromPipelineByPropertyName)][uint]$MaxBandwidthKbits,
+        [Parameter(ValueFromPipelineByPropertyName)][switch]$DuplicateWOLToThisNetwork
+    )
     process {
-        thow "not implemented yet"
+        $PSBoundParameters.Remove($PSCmdlet.ParameterSetName) > $null
+        New-Object psobject -Property $PSBoundParameters
+    }
+}
+Function New-IpNetworkScope {
+    <#
+    .SYNOPSIS
+    Creates draft object in memory
+    #>
+    [CmdletBinding()]param(
+        [Parameter(Mandatory,ValueFromPipelineByPropertyName)]$NetworkAddress,
+        [Parameter(Mandatory,ValueFromPipelineByPropertyName)]$SubnetMask
+    )
+    process {
+        New-Object psobject -Property $PSBoundParameters
     }
 }
