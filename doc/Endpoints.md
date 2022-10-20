@@ -378,11 +378,18 @@ Get-bEndpointSecret [-EndpointId] <Guid> [<CommonParameters>]
   Aliases : 
   ```
 ## New-bEndpointSecret
-> Creates draft object in memory TODO 
+> Creates draft object in memory 
 ```
-New-bEndpointSecret [<CommonParameters>]
+New-bEndpointSecret [-Pin] <String> [<CommonParameters>]
 ```
 ### Parameters
+* Pin `<String>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : false
+  Aliases : 
+  ```
 ## Set-bEndpointSecret
 > Set EndpointSecret using `PATCH`. Use [`New-bEndpointSecret -update`](#New-bEndpointSecret) to create a draft object to pipe in. 
 ```

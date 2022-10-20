@@ -419,11 +419,13 @@ function New-JobStep {
 function New-EndpointSecret {
     <#
     .SYNOPSIS
-    Creates draft object in memory TODO
+    Creates draft object in memory
     #>
-    [CmdletBinding()]param()
+    [CmdletBinding()]param(
+        [Parameter(Mandatory)][string]$Pin
+    )
     process {
-        thow "not implemented yet"
+        New-Object psobject -Property $PSBoundParameters
     }
 }
 function New-IpNetwork {
