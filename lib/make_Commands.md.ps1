@@ -57,7 +57,7 @@ Start-Job {
         Push-Location doc -ea STOP
 
         $Module_CMDs = Get-Command -Module bConnect | Sort-Object Noun,Verb
-        $_scaffolding_CMDs=($Module_CMDs |? Noun -EQ "") -match "b(le|doc|init)|Enum|mk_"|Sort-Object Verb
+        $_scaffolding_CMDs=($Module_CMDs |? Noun -EQ "") -match "b(le|doc|init)|Enum|mk_"|Sort-Object Name
         $API_CMDs=$Module_CMDs|? Noun -IN bConnect,bInfo,bVersion,bConnectCredentials
         $Containers_CMDs=$Module_CMDs|? Noun -IN bOrgUnit,bOrgUnitExtension,bGroup,bStaticGroup,bDynamicGroup,bUniversalDynamicGroup
         $Jobs_CMDs=$Module_CMDs|? Noun -Match bJob
