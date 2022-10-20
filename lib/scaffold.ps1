@@ -43,7 +43,8 @@ function script:addible {
     param([parameter(Position=0)][string]$Controller,
         [string]$Verb="Add",[string]$Noun=($Controller -replace '^\.\.\/','' -replace 's$',''),
         [string]$CmdName="$Verb-$Noun",
-        [string[]]$ParamNames=@()
+        [string[]]$ParamNames=@(),
+        [string[]]$CommonFlags=@()
     )
     process {
      ([scriptblock]::Create(
@@ -53,6 +54,7 @@ function script:addible {
         ((&{
             $ParamNames |% {"[Parameter(Mandatory,ValueFromPipelineByPropertyName)][string]`${0}" -F $_ }
             if(-not $ParamNames.Count) { "[Parameter(ValueFromPipelineByPropertyName,ValueFromPipeline,Mandatory)]`$InputObject" }
+            $CommonFlags|% {'[Parameter()][switch]${0}' -F $_}
         }) -join ",`n") + @"
 )
 process {

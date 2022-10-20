@@ -22,13 +22,10 @@
 }
 "JobInstances" |% {
     getable    $_ -ParamNames Id,EndpointId,JobId `
-                    -CommonFlags Steps,IncludeJobDefinition
+                    -CommonFlags Steps,IncludeJobDefinition,TimePeriod
     setableGet $_ -SetParameters '[parameter(Mandatory)][bConnect.Job.Action]$cmd'
     deletable  $_
-    # deprecated fore post-preference
-    # todo: post-functionality
-    addable    $_ -ParamNames EndpointId,JobId `
-                    -CommonFlags StartIfExists
+    addible    $_ -CommonFlags StartIfExists
     # todo: user-functionality #2019R1
 }
 "HardwareProfiles","BootEnvironment" |% {
@@ -108,6 +105,7 @@
 
 }) -replace "\[guid\]\`$User",'[string]$User' `
     -replace "\[guid\]\`$Name",'[string]$Name' `
+    -replace "\[switch\]\`$TimePeriod",'[uint]$TimePeriod' `
     -replace "\[Parameter\(\)\]\[switch\]\`$_","[Parameter(ParameterSetName='ByGroupId')][switch]$"  > $PSScriptRoot/bActions.s.ps1
 . $PSScriptRoot/bActions.s.ps1
 

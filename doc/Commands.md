@@ -190,6 +190,7 @@ Get-bVersion [<CommonParameters>]
 * [Set-bJob](Jobs.md#Set-bJob)
 * [Add-bJobInstance](Jobs.md#Add-bJobInstance)
 * [Get-bJobInstance](Jobs.md#Get-bJobInstance)
+* [New-bJobInstance](Jobs.md#New-bJobInstance)
 * [Remove-bJobInstance](Jobs.md#Remove-bJobInstance)
 * [Set-bJobInstance](Jobs.md#Set-bJobInstance)
 * [New-bJobStep](Jobs.md#New-bJobStep)

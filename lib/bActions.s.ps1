@@ -247,7 +247,8 @@ Get JobInstances using `GET`
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByEndpointId')][guid]$EndpointId,
 [Parameter(Mandatory,ValueFromPipelineByPropertyName,ParameterSetName='ByJobId')][guid]$JobId,
 [Parameter()][switch]$Steps,
-[Parameter()][switch]$IncludeJobDefinition)
+[Parameter()][switch]$IncludeJobDefinition,
+[Parameter()][uint]$TimePeriod)
 process{
 	Invoke-Connect -Controller JobInstances -Parameters $PSBoundParameters
 }} # END Get-JobInstance
@@ -275,20 +276,18 @@ process{
 	Invoke-Connect -Method delete -Controller JobInstances -Parameters $PSBoundParameters
 }} # END Remove-JobInstance
 
-Function Add-JobInstance{
+Function Add-JobInstance {
 <#
 .Synopsis
-Add JobInstance using `GET`
+Add JobInstance using `POST`. Use [`New-bJobInstance`](#New-bJobInstance) to create a draft object to pipe in.
 #>
-
 [cmdletbinding()]param(
-[Parameter(Mandatory,ValueFromPipelineByPropertyName)][guid]$EndpointId,
-[Parameter(Mandatory,ValueFromPipelineByPropertyName)][guid]$JobId,
+[Parameter(ValueFromPipelineByPropertyName,ValueFromPipeline,Mandatory)]$InputObject,
 [Parameter()][switch]$StartIfExists)
-process{
-	Invoke-Connect -Controller JobInstances -Parameters $PSBoundParameters
+process {
+    'InputObject'| % { if($PSBoundParameters.$_){$PSBoundParameters.Remove($_)>$null; }}
+    $InputObject|Invoke-Connect -Method post -Controller JobInstances -Parameters $PSBoundParameters
 }} # END Add-JobInstance
-
 Function Get-HardwareProfile{
 <#
 .Synopsis

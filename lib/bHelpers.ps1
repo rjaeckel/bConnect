@@ -383,6 +383,18 @@ Function New-ApplicationUserSettings {
     }
 }
 
+Function New-JobInstance {
+    <#
+    .Synopsis
+    Creates a draft object in memory
+    #>
+    [cmdletbinding()]param(
+        [Parameter(Mandatory,ValueFromPipelineByPropertyName)][guid]$EndpointId,
+        [Parameter(Mandatory,ValueFromPipelineByPropertyName)][guid]$JobDefinitionId
+    )
+    New-Object psobject -Property $PSBoundParameters
+}
+
 function New-Job {
     <#
     .SYNOPSIS

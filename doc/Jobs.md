@@ -7,6 +7,7 @@
 * [Set-bJob](Jobs.md#Set-bJob)
 * [Add-bJobInstance](Jobs.md#Add-bJobInstance)
 * [Get-bJobInstance](Jobs.md#Get-bJobInstance)
+* [New-bJobInstance](Jobs.md#New-bJobInstance)
 * [Remove-bJobInstance](Jobs.md#Remove-bJobInstance)
 * [Set-bJobInstance](Jobs.md#Set-bJobInstance)
 * [New-bJobStep](Jobs.md#New-bJobStep)
@@ -122,23 +123,16 @@ Set-bJob [-Id] <Guid> [-ignoreAssignments] [-InputObject] <Object> [<CommonParam
   Aliases : 
   ```
 ## Add-bJobInstance
-> Add JobInstance using `GET` 
+> Add JobInstance using `POST`. Use [`New-bJobInstance`](#New-bJobInstance) to create a draft object to pipe in. 
 ```
-Add-bJobInstance [-EndpointId] <Guid> [-JobId] <Guid> [-StartIfExists] [<CommonParameters>]
+Add-bJobInstance [-InputObject] <Object> [-StartIfExists] [<CommonParameters>]
 ```
 ### Parameters
-* EndpointId `<Guid>`
+* InputObject `<Object>`
   ```
   Position : 1
   Required : true
-  PipelineInput : true (ByPropertyName)
-  Aliases : 
-  ```
-* JobId `<Guid>`
-  ```
-  Position : 2
-  Required : true
-  PipelineInput : true (ByPropertyName)
+  PipelineInput : true (ByValue, ByPropertyName)
   Aliases : 
   ```
 * StartIfExists `<SwitchParameter>`
@@ -151,10 +145,10 @@ Add-bJobInstance [-EndpointId] <Guid> [-JobId] <Guid> [-StartIfExists] [<CommonP
 ## Get-bJobInstance
 > Get JobInstances using `GET` 
 ```
-Get-bJobInstance [-Steps] [-IncludeJobDefinition] [<CommonParameters>]
-Get-bJobInstance [-Id] <Guid> [-Steps] [-IncludeJobDefinition] [<CommonParameters>]
-Get-bJobInstance -EndpointId <Guid> [-Steps] [-IncludeJobDefinition] [<CommonParameters>]
-Get-bJobInstance -JobId <Guid> [-Steps] [-IncludeJobDefinition] [<CommonParameters>]
+Get-bJobInstance [-Steps] [-IncludeJobDefinition] [-TimePeriod <UInt32>] [<CommonParameters>]
+Get-bJobInstance [-Id] <Guid> [-Steps] [-IncludeJobDefinition] [-TimePeriod <UInt32>] [<CommonParameters>]
+Get-bJobInstance -EndpointId <Guid> [-Steps] [-IncludeJobDefinition] [-TimePeriod <UInt32>] [<CommonParameters>]
+Get-bJobInstance -JobId <Guid> [-Steps] [-IncludeJobDefinition] [-TimePeriod <UInt32>] [<CommonParameters>]
 ```
 ### Parameters
 * Id `<Guid>`
@@ -178,6 +172,13 @@ Get-bJobInstance -JobId <Guid> [-Steps] [-IncludeJobDefinition] [<CommonParamete
   PipelineInput : false
   Aliases : 
   ```
+* TimePeriod `<UInt32>`
+  ```
+  Position : named
+  Required : false
+  PipelineInput : false
+  Aliases : 
+  ```
 * EndpointId `<Guid>`
   ```
   Position : named
@@ -188,6 +189,26 @@ Get-bJobInstance -JobId <Guid> [-Steps] [-IncludeJobDefinition] [<CommonParamete
 * JobId `<Guid>`
   ```
   Position : named
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+## New-bJobInstance
+> Creates a draft object in memory 
+```
+New-bJobInstance [-EndpointId] <Guid> [-JobDefinitionId] <Guid> [<CommonParameters>]
+```
+### Parameters
+* EndpointId `<Guid>`
+  ```
+  Position : 1
+  Required : true
+  PipelineInput : true (ByPropertyName)
+  Aliases : 
+  ```
+* JobDefinitionId `<Guid>`
+  ```
+  Position : 2
   Required : true
   PipelineInput : true (ByPropertyName)
   Aliases : 
