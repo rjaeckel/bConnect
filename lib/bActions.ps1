@@ -103,10 +103,9 @@
     searchable $_
 }
 
-}) -replace "\[guid\]\`$User",'[string]$User' `
-    -replace "\[guid\]\`$Name",'[string]$Name' `
-    -replace "\[switch\]\`$TimePeriod",'[uint]$TimePeriod' `
-    -replace "\[Parameter\(\)\]\[switch\]\`$_","[Parameter(ParameterSetName='ByGroupId')][switch]$"  > $PSScriptRoot/bActions.s.ps1
+}) -replace "\[guid\](\`$(User|Name))",'[string]$1' `
+    -replace "\[switch\](\`$TimePeriod)",'[uint]$1' `
+    -replace "(\[Parameter\()(\)\]\[switch\]\`$)_","`$1ParameterSetName='ByGroupId'`$2"  > $PSScriptRoot/bActions.s.ps1
 . $PSScriptRoot/bActions.s.ps1
 
 function Get-Variable {
